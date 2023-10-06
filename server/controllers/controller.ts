@@ -1,19 +1,19 @@
 export const Home = (req, res) => {
-  res.send('Hello World!');
-}
+  res.send("Hello World!");
+};
 
 export const Api = (req, res) => {
-     res.send('API!');
-}
+  res.send("API!");
+};
 
 export const Login = (req, res) => {
-     res.send('Login');
-}
+  res.send("Login");
+};
 
 export const SendCoins = (req, res) => {
-     res.send('SendCoins');
-}
+  res.send("SendCoins");
+};
 
 export const Profile = (req, res) => {
-     res.send('Profile!');
-}
+  res.send("Profile!");
+};
