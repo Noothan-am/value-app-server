@@ -1,0 +1,48 @@
+$login-container-width: 400px;
+$login-input-height: 40px;
+$login-button-height: 40px;
+$login-button-color: #0078d4;
+$border-color: #ccc;
+
+.login-container {
+  width: $login-container-width;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-title {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+
+  .login-input {
+    width: 100%;
+    height: $login-input-height;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid $border-color;
+    border-radius: 5px;
+  }
+
+  .login-button {
+    width: 100%;
+    height: $login-button-height;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: $login-button-color;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .login-link {
+    width: fit-content;
+    margin-left: auto;
+  }
+}

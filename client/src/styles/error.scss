@@ -1,0 +1,40 @@
+// SCSS code for the App component
+$container-max-width: 600px;
+$container-color: white;
+$button-padding: 10px 20px;
+$button-border-radius: 5px;
+$button-background-color: white;
+$button-color: #0072ff;
+$button-font-size: 1.2rem;
+
+.App {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+}
+
+.container {
+  max-width: $container-max-width;
+  text-align: center;
+  color: $container-color;
+
+  h1 {
+    font-size: 5rem;
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
+
+  button {
+    margin-top: 20px;
+    padding: $button-padding;
+    border: none;
+    border-radius: $button-border-radius;
+    background-color: $button-background-color;
+    color: $button-color;
+    font-size: $button-font-size;
+  }
+}
