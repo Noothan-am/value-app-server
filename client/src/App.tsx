@@ -4,6 +4,8 @@ import Login from "./pages/Login";
 import Loading from "./pages/Loading";
 import Home from "./pages/Home";
 import ErrorPage from "./pages/ErrorPage";
+import Profile from "./pages/Profile";
+import "./styles/global.style.scss";
 
 function App() {
   return (
@@ -11,6 +13,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/loading" element={<Loading />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/profile" element={<Profile />} />
       <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
