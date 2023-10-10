@@ -5,8 +5,8 @@ function ErrorPage() {
     <>
       <div className="App">
         <div className="container">
-          <h1>404 Page Not Found</h1>
-          <p>It seems that page you are looking for no longer exists.</p>
+          <h1>404 Page Not Found !!</h1>
+          <p>It seems that page you are looking for no longer exists.!!</p>
           <button>Back Homepage</button>
         </div>
       </div>

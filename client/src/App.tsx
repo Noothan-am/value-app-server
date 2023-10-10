@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import ErrorPage from "./pages/ErrorPage";
 import Profile from "./pages/Profile";
 import "./styles/global.style.scss";
+import Self from "./pages/Self";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/loading" element={<Loading />} />
       <Route path="/login" element={<Login />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/self" element={<Self />} />
       <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
