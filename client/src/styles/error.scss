@@ -12,7 +12,7 @@ $button-font-size: 1.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to right, #00c6ff, #0072ff);
+  background-color: #0c1d87;
 }
 
 .container {
@@ -32,9 +32,13 @@ $button-font-size: 1.2rem;
     margin-top: 20px;
     padding: $button-padding;
     border: none;
+    cursor: pointer;
     border-radius: $button-border-radius;
     background-color: $button-background-color;
     color: $button-color;
     font-size: $button-font-size;
+    &:hover {
+      background-color: rgb(229, 241, 253);
+    }
   }
 }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BiLockAlt } from "react-icons/bi";
+import Button from "../components/Button";
 const styles = require("../styles/login.module.scss").default;
 const bgimage = require("../assets/images/Loading-background.png");
 
@@ -40,9 +41,7 @@ const Login = () => {
             />
             <BiLockAlt className={styles["login__form-password-lock"]} />
           </div>
-          <button type="submit" className={styles["login__form-button"]}>
-            Login
-          </button>
+          <Button content={"Login"} />
           <a href="/forgot-password" className={styles["login__form-link"]}>
             Forgot Password?
           </a>
