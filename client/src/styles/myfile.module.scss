@@ -1,24 +1,119 @@
-body {
-  background-color: black;
-  color: #fff;
-}
+$file-button-height: 55px;
+$file-button-color: #4557dc;
 
-$login-button-height: 55px;
-$login-button-color: #4557dc;
+.myfile {
+  &__tophalf {
+    background-color: #0c1d87;
+    border-radius: 0px 0px 32px 32px;
+    // height: 681px;
+    // width: 1280px;
+    position: relative;
 
-.myfile__dark-button {
-  width: 100%;
-  height: $login-button-height;
-  margin: 10px 0;
-  padding: 10px;
-  background-color: $login-button-color;
-  color: white;
-  border: none;
-  font-size: 1.2rem;
-  border-radius: 5px;
+    &__nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
-  &:hover {
-    cursor: pointer;
-    background-color: #4d5fe7;
+      &__right_image {
+        height: 46px;
+        width: 159px;
+        object-fit: contain;
+        padding-right: 5rem;
+        padding-top: 10px;
+      }
+
+      &__left_image {
+        height: 27px;
+        width: 77px;
+        padding-left: 6rem;
+      }
+    }
+
+    &__content {
+      display: flex;
+      justify-content: space-between;
+
+      &__left {
+        /* Styles for the left section within the content */
+        img {
+          padding-top: 1rem;
+          height: 52px;
+          position: fixed;
+          width: 52px;
+          padding-left: 5rem;
+        }
+        span {
+          color: white;
+          margin-left: 10px;
+          width: 50px;
+          height: 67px;
+          top: 160px;
+          left: 210px;
+          font-size: 64px;
+          font-weight: 700;
+          line-height: 77px;
+          letter-spacing: 0px;
+          text-align: center;
+        }
+        h2 {
+          color: #ffffff;
+          font-family: "Inter-Regular", Helvetica;
+          font-size: 23px;
+          font-weight: 100;
+          line-height: normal;
+          position: fixed;
+        }
+      }
+
+      &__right {
+        /* Styles for the right section within the content */
+        h3 {
+          /* Styles for the h3 element */
+        }
+        ul {
+          /* Styles for the ul element */
+          li {
+            /* Styles for the li elements within the ul */
+          }
+        }
+      }
+    }
+
+    &__main {
+      /* Styles for the main section within the top half */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+  }
+
+  &__dark-button {
+    width: 100%;
+    height: $file-button-height;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: $file-button-color;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #4d5fe7;
+    }
+  }
+
+  &__light-button {
+    /* Add styles for the light button here */
+  }
+
+  &__downhalf {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
   }
 }
