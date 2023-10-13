@@ -1,0 +1,41 @@
+$goback-font: "Inter", sans-serif;
+
+.header {
+  background-color: #0c1d87;
+  height: 11rem;
+  border-radius: 0 0 2rem 2rem;
+
+  &__container {
+    &-logo {
+      & img {
+        margin: 2rem 8rem;
+      }
+    }
+
+    &-goback {
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: row;
+      width: fit-content;
+      margin: 0.6rem 8rem;
+      color: white;
+      &-sidearrow,
+      &-text {
+        font-size: 15px;
+        font-family: $goback-font;
+        font-weight: medium;
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover {
+          color: #d1d1d1;
+        }
+      }
+
+      &-sidearrow {
+        margin-top: 1px;
+      }
+    }
+  }
+}
