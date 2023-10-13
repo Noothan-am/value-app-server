@@ -3,7 +3,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 const styles = require("../styles/header.module.scss").default;
 
-function Header() {
+function Header({ content }: any) {
   const navigate = useNavigate();
   return (
     <>
@@ -24,7 +24,7 @@ function Header() {
                 href="/home"
                 className={styles["header__container-goback-text"]}
               >
-                Profile
+                {content}
               </a>
             </div>
           </div>

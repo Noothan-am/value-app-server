@@ -7,7 +7,7 @@ function Profile() {
   return (
     <>
       <div className={styles["profile"]}>
-        <Header />
+        <Header content={"Profile"} />
         <div className={styles["profile__users"]}>
           <div className={styles["profile__users-singleuser"]}>
             <ProfileWithCoin />

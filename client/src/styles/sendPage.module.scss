@@ -1,0 +1,107 @@
+// .sendPage {
+//   &__content {
+//     width: 80%;
+//     margin: 3rem;
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: space-evenly;
+//   }
+// }
+$blue: #acaaaa;
+
+.sendPage {
+  &__header {
+    background-color: $blue;
+    color: white;
+    font-size: 24px;
+    padding: 10px;
+    text-align: center;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    margin: 4.5rem 4rem;
+
+    &-user-info {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+
+      .sendpage__content-profile {
+        margin-right: 10px;
+      }
+
+      .sendpage__content-coin {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 57px;
+
+        &-amount {
+          width: 100%;
+          text-align: center;
+          font-size: 1.2rem;
+          color: #0c1d87;
+          font-weight: bold;
+        }
+      }
+    }
+
+    &-input {
+      width: 80%;
+      margin-top: 3.5rem;
+
+      .sendPage__content-radio {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          font-size: 1rem;
+          margin-bottom: 5px;
+        }
+
+        select {
+          border: 2px solid $blue;
+          padding: 1.1rem 1rem;
+          border-radius: 5px;
+          border-color: $blue;
+          margin-top: 0.9rem;
+          font-size: 1.1rem;
+          background-color: rgb(245, 245, 245);
+          color: rgb(18, 18, 18);
+
+          option {
+            margin-top: 1rem;
+          }
+        }
+      }
+
+      .sendPage__content-text {
+        display: flex;
+        flex-direction: column;
+        margin: 20px auto;
+
+        label {
+          font-weight: 400;
+          margin-bottom: 5px;
+        }
+
+        input {
+          text-align: start;
+          height: 9rem;
+          border: 2px solid $blue;
+          border-radius: 5px;
+          background-color: rgb(245, 245, 245);
+        }
+      }
+      .sendPage__content-button {
+        width: 54%;
+      }
+    }
+  }
+}
