@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const {
   Api,
@@ -6,6 +7,7 @@ const {
   Profile,
   SendCoins,
 } = require("./controllers/controller");
+require("./connection");
 
 const app = express();
 const port = 3000 || process.env.PORT;
