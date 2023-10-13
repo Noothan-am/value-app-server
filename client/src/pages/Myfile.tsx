@@ -35,7 +35,7 @@ const Myfile = () => {
           />
           <h4>32 coints away to encash &gt;</h4>
 
-          <button type="submit" className={styles["login__form-button"]}>
+          <button type="submit" className={styles["myfile__light-button"]}>
             Encash
           </button>
 
@@ -43,7 +43,18 @@ const Myfile = () => {
         </div>
       </div>
 
-      <div className="myfile__downhalf"></div>
+      <div className="myfile__downhalf">
+        <h3>SEP 23</h3>
+        <h2>Avalable coins</h2>
+        <span>4</span>
+        <img
+          src={require("../assets/images/coins-group.png")}
+          alt="Become logo"
+        />
+        <button type="submit" className={styles["myfile__dark-button"]}>
+          Encash
+        </button>
+      </div>
     </div>
   );
 };
