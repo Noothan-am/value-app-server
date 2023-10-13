@@ -7,6 +7,8 @@ import ErrorPage from "./pages/ErrorPage";
 import Profile from "./pages/Profile";
 import "./styles/global.style.scss";
 import Myfile from "./pages/Myfile";
+import Self from "./pages/Self";
+import SendPage from "./pages/SendPage";
 
 function App() {
   return (
@@ -15,8 +17,8 @@ function App() {
       <Route path="/loading" element={<Loading />} />
       <Route path="/login" element={<Login />} />
       <Route path="/profile" element={<Profile />} />
-      {/* <Route path="/self" element={<Self />} />
-      <Route path="/send" element={<SendPage />} /> */}
+      <Route path="/self" element={<Self />} />
+      <Route path="/send" element={<SendPage />} />
       <Route path="*" element={<ErrorPage />} />
       <Route path="/myfile" element={<Myfile />} />
     </Routes>

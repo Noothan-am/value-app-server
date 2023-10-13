@@ -1,3 +1,5 @@
+import React from "react";
+const coin = require("../assets/svg/coin.svg").default;
 const styles = require("../styles/myfile.module.scss").default;
 
 const Myfile = () => {
@@ -16,7 +18,7 @@ const Myfile = () => {
         </div>
         <div className="myfile__tophalf__content">
           <div className="myfile__tophalf__content__left">
-            <img src={require("../assets/svg/coin.svg").default} />
+            <img src={coin} alt="randomimage" />
             <span>4</span>
             <h2>My Coins</h2>
           </div>
