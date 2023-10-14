@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BiLockAlt } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 const styles = require("../styles/login.module.scss").default;
 const bgimage = require("../assets/images/Loading-background.png");
@@ -8,21 +9,37 @@ const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
+  const navigate = useNavigate();
+
   const handleLoginSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const jkres = {
-      email,
-      password,
-    };
-    const res: any = await fetch(`${process.env.REACT_APP_API_URL}/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(jkres),
-    });
+    const inputEmail = email.trim();
+    const inputPassword = password.trim();
+    if (!(inputEmail || inputPassword)) {
+      window.alert("Please fill all the fields");
+      console.log("empty fields found");
+      return;
+    }
+    try {
+      const result = await fetch(`${process.env.REACT_APP_API_URL}/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: inputEmail, password: inputPassword }),
+      });
+      if (result.ok) {
+        window.alert("successfull login");
+        navigate("/my-profile");
+      } else {
+        window.alert("Please add valid credentials");
+        console.log("User not found. Please add valid credentials.");
+      }
+    } catch (error) {
+      window.alert("Please try again");
+      console.log("error while login: ", error);
+    }
   };
-
   return (
     <>
       <div className={styles["login__background-image"]}>

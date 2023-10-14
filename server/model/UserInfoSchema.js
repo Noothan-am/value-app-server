@@ -44,14 +44,6 @@ const userInfoSchema = new Schema({
     type: Number,
     required: true,
   },
-  tokens: [
-    {
-      token: {
-        type: String,
-        required: true,
-      },
-    },
-  ],
 });
 
 const UserSchema = model("UserInfoSchema", userInfoSchema);

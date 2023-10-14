@@ -5,15 +5,16 @@ import Loading from "./pages/Loading";
 import Home from "./pages/Home";
 import ErrorPage from "./pages/ErrorPage";
 import Profile from "./pages/Profile";
-import "./styles/global.style.scss";
 import Myfile from "./pages/Myfile";
 import Self from "./pages/Self";
 import SendPage from "./pages/SendPage";
+import "./styles/global.style.scss";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Myfile />} />
+      <Route path="/my-profile" element={<Myfile />} />
       <Route path="/loading" element={<Loading />} />
       <Route path="/login" element={<Login />} />
       <Route path="/profile" element={<Profile />} />
