@@ -8,9 +8,19 @@ const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  const handleLoginSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleLoginSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(`Email: ${email}, Password: ${password}`);
+    const jkres = {
+      email,
+      password,
+    };
+    const res: any = await fetch(`${process.env.REACT_APP_API_URL}/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(jkres),
+    });
   };
 
   return (
@@ -21,13 +31,18 @@ const Login = () => {
 
       <div className={styles["login"]}>
         <h1 className={styles["login__title"]}>Welcome Back!</h1>
-        <form className={styles["login__form"]} onSubmit={handleLoginSubmit}>
+        <form
+          className={styles["login__form"]}
+          method="post"
+          onSubmit={handleLoginSubmit}
+        >
           <div className={styles["login__form-email"]}>
             <input
               type="email"
               className={styles["login__form-email-input"]}
               placeholder="Email address"
               value={email}
+              name="email"
               onChange={(event) => setEmail(event.target.value)}
             />
           </div>
@@ -37,11 +52,12 @@ const Login = () => {
               className={styles["login__form-password-input"]}
               placeholder="Password"
               value={password}
+              name="password"
               onChange={(event) => setPassword(event.target.value)}
             />
             <BiLockAlt className={styles["login__form-password-lock"]} />
           </div>
-          <Button content={"Login"} />
+          <Button content={"Login"} type="submit" />
           <a href="/forgot-password" className={styles["login__form-link"]}>
             Forgot Password?
           </a>
