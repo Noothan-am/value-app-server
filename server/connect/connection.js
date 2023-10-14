@@ -4,6 +4,6 @@ mongoose
   .then(() => {
     console.log("mongoose connected succesfully");
   })
-  .catch((e) => {
-    console.log(e);
+  .catch((error) => {
+    console.error("connection error:", error.message);
   });

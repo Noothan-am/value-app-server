@@ -1,27 +1,12 @@
 require("dotenv").config();
 const express = require("express");
-const {
-  Api,
-  Home,
-  Login,
-  Profile,
-  SendCoins,
-} = require("./controllers/controller");
-require("./connection");
+require("./connect/connection");
 
+const router = require("./routes/userRouter");
 const app = express();
-const port = 3000 || process.env.PORT;
-
-app.get("/", Home);
-
-app.get("/api", Api);
-
-app.get("/login", Login);
-
-app.get("/sendcoins", SendCoins);
-
-app.get("/profile", Profile);
-
+const port = process.env.PORT;
+app.use(express.json());
+app.use(router);
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });

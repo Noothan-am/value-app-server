@@ -1,21 +1,9 @@
-const Home = (req, res) => {
-  res.send("Hello World!");
+const userInfoSchema = require("../model/TransactionSchema");
+
+const userLogin = async (req, res) => {
+  const result = await JSON.parse(req.body);
+  const { email, password } = result;
+  res.send({ email, password });
 };
 
-const Api = (req, res) => {
-  res.send("API!");
-};
-
-const Login = (req, res) => {
-  res.send("Login");
-};
-
-const SendCoins = (req, res) => {
-  res.send("SendCoins");
-};
-
-const Profile = (req, res) => {
-  res.send("Profile!");
-};
-
-module.exports = { Home, Api, Login, SendCoins, Profile };
+module.exports = { userLogin };
