@@ -1,3 +1,4 @@
-const getTransactionDetails = async (req, res) => {};
+const getAllTransactions = async (req, res) => {};
+const makeTransaction = async (req, res) => {};
 
-module.exports = { getTransactionDetails };
+module.exports = { getAllTransactions, makeTransaction };

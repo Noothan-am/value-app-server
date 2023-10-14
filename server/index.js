@@ -11,7 +11,7 @@ const port = process.env.PORT;
 app.use(express.json());
 app.use(authRouter);
 app.use(profileRouter);
-// app.use(transactionRouter);
+app.use(transactionRouter);
 
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);

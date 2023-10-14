@@ -1,3 +1,4 @@
+const moment = require("moment");
 const { Schema, model } = require("mongoose");
 const transactionInfoSchema = new Schema({
   name: {
@@ -10,6 +11,10 @@ const transactionInfoSchema = new Schema({
   },
   celebration_moment: {
     type: String,
+  },
+  date: {
+    type: Date,
+    default: moment().format("DD-MM-YYYY"),
   },
 });
 
