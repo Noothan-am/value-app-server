@@ -13,13 +13,16 @@ const Login = () => {
 
   const handleLoginSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
     const inputEmail = email.trim();
     const inputPassword = password.trim();
-    if (!(inputEmail || inputPassword)) {
+
+    if (!inputEmail || !inputPassword) {
       window.alert("Please fill all the fields");
       console.log("empty fields found");
       return;
     }
+
     try {
       const result = await fetch(`${process.env.REACT_APP_API_URL}/login`, {
         method: "POST",
@@ -28,6 +31,7 @@ const Login = () => {
         },
         body: JSON.stringify({ email: inputEmail, password: inputPassword }),
       });
+      console.log(result.status);
       if (result.ok) {
         window.alert("successfull login");
         navigate("/my-profile");
@@ -49,11 +53,7 @@ const Login = () => {
 
       <div className={styles["login"]}>
         <h1 className={styles["login__title"]}>Welcome Back!</h1>
-        <form
-          className={styles["login__form"]}
-          method="post"
-          onSubmit={handleLoginSubmit}
-        >
+        <form className={styles["login__form"]} method="POST">
           <div className={styles["login__form-email"]}>
             <input
               type="email"
@@ -75,7 +75,11 @@ const Login = () => {
             />
             <BiLockAlt className={styles["login__form-password-lock"]} />
           </div>
-          <Button content={"Login"} type="submit" />
+          <Button
+            content={"Login"}
+            type="submit"
+            handleClick={handleLoginSubmit}
+          />
           <a href="/forgot-password" className={styles["login__form-link"]}>
             Forgot Password?
           </a>
