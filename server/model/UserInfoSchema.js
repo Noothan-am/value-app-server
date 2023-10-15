@@ -1,5 +1,9 @@
 const { Schema, model } = require("mongoose");
 const userInfoSchema = new Schema({
+  image: {
+    type: String,
+    required: true,
+  },
   name: {
     type: String,
     required: true,

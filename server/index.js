@@ -1,5 +1,5 @@
 require("dotenv").config();
-require("./connect/connection");
+require("./connection/connection");
 const express = require("express");
 const authRouter = require("./routes/auth-router");
 const profileRouter = require("./routes/profile-router");

@@ -1,7 +1,15 @@
 const moment = require("moment");
 const { Schema, model } = require("mongoose");
 const transactionInfoSchema = new Schema({
-  name: {
+  image: {
+    type: String,
+    required: true,
+  },
+  from: {
+    type: String,
+    required: true,
+  },
+  to: {
     type: String,
     required: true,
   },
@@ -13,7 +21,7 @@ const transactionInfoSchema = new Schema({
     type: String,
   },
   date: {
-    type: Date,
+    type: String,
     default: moment().format("DD-MM-YYYY"),
   },
 });

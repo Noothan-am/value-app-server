@@ -18,8 +18,4 @@ const userLogin = async (req, res) => {
   }
 };
 
-const userLoginGet = async (req, res) => {
-  res.send("this is login get");
-};
-
-module.exports = { userLogin, userLoginGet };
+module.exports = { userLogin };
