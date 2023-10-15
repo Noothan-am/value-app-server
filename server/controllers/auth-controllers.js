@@ -2,20 +2,25 @@ const userInfo = require("../model/UserInfoSchema");
 
 const userLogin = async (req, res) => {
   try {
-    const data = JSON.parse(req.body);
+    const data = req.body;
     const { email, password } = data;
     const user = await userInfo.findOne({ email });
     if (!user) {
-      return res.status(403).json({ message: "No user found" });
+      return res.status(404).json({ message: "No user found" });
     }
-    const isValid = await bcrypt.compare(password, user.password);
-    if (!isValid) {
-      return res.status(403).json({ message: "invalid credentials" });
+    // const isValid = await bcrypt.compare(password, user.password);
+    if (!(password === user.password)) {
+      return res.status(401).json({ message: "invalid credentials" });
     }
     return res.status(200).send({ message: "thisis token" });
   } catch (error) {
-    return res.status(403).json({ message: error });
+    return res.status(500).json({ message: error });
   }
 };
 
-module.exports = { userLogin };
+const get = (req, res) => {
+  console.log("GET");
+  res.send({ message: "this is get" });
+};
+
+module.exports = { userLogin, get };
