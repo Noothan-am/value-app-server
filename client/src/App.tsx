@@ -9,6 +9,7 @@ import Myfile from "./pages/Myfile";
 import Self from "./pages/Self";
 import SendPage from "./pages/SendPage";
 import "./styles/global.style.scss";
+import MyProfile from "./pages/MyProfile";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path="/self" element={<Self />} />
       <Route path="/send/:id" element={<SendPage />} />
       <Route path="*" element={<ErrorPage />} />
+      <Route path="/my-page" element={<MyProfile />} />
     </Routes>
   );
 }
