@@ -46,6 +46,7 @@ const getAllUsersDetails = async (req, res) => {
     }
     const users = userData.map((user) => {
       return {
+        user_id: user._id,
         name: user.name,
         coins: user.coins,
       };

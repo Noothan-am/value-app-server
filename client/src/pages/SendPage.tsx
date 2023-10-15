@@ -1,11 +1,59 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import ProfileWithCoin from "../components/ProfileWithCoin";
 import Button from "../components/Button";
+import { useParams } from "react-router-dom";
 const styles = require("../styles/sendPage.module.scss").default;
 const coin = require("../assets/svg/big-coin.svg").default;
 
+interface User {
+  user_id: string;
+  name: string;
+  coins: number;
+}
+
 export default function SendPage() {
+  const [user, setUser] = useState({} as object);
+  const { id } = useParams();
+
+  useEffect(() => {
+    const fetchAllUsers = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.REACT_APP_API_URL}/all-user`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        if (response) {
+          const jsonData = await response.json();
+          const user = jsonData.find(
+            (eachUser: User) => eachUser.user_id === id
+          );
+          if (user) {
+            setUser(user);
+          } else {
+            console.log("User not found");
+          }
+        }
+      } catch (err) {
+        console.log("Error while fetching users");
+        console.error(err);
+      }
+    };
+
+    fetchAllUsers()
+      .then(() => {
+        console.log("Fetched all users successfully");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [id]);
+
   return (
     <div className={styles["sendPage"]}>
       <div className="sendPage__header">
@@ -14,7 +62,7 @@ export default function SendPage() {
       <div className={styles["sendPage__content"]}>
         <div className={styles["sendPage__content-user-info"]}>
           <div className={styles["sendpage__content-profile"]}>
-            <ProfileWithCoin />
+            <ProfileWithCoin userDetails={user} />
           </div>
           <div className={styles["sendpage__content-coin"]}>
             <img src={coin} alt="" />

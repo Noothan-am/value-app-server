@@ -19,9 +19,8 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/self" element={<Self />} />
-      <Route path="/send" element={<SendPage />} />
+      <Route path="/send/:id" element={<SendPage />} />
       <Route path="*" element={<ErrorPage />} />
-      <Route path="/myfile" element={<Myfile />} />
     </Routes>
   );
 }

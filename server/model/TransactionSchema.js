@@ -9,8 +9,16 @@ const transactionInfoSchema = new Schema({
     type: String,
     required: true,
   },
+  from_user_id: {
+    type: "string",
+    required: true,
+  },
   to: {
     type: String,
+    required: true,
+  },
+  to_user_id: {
+    type: "string",
     required: true,
   },
   celebrating_value: {
