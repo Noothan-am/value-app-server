@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BiLockAlt } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
-const styles = require("../styles/login.module.scss").default;
+const styles = require("../styles/login.module.css").default;
 const bgimage = require("../assets/images/Loading-background.png");
 
 const Login = () => {

@@ -1,5 +1,5 @@
 import React from "react";
-const styles = require("../styles/button.module.scss").default;
+const styles = require("../styles/button.module.css").default;
 
 function Button({ content, handleClick }: any) {
   return (

@@ -1,0 +1,128 @@
+.login__background-image img {
+  position: absolute;
+  z-index: -1;
+  background-position: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
+.login {
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login__title {
+  color: #353a48;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login__form-link {
+  width: fit-content;
+  margin-left: 35%;
+  margin-top: 1.1rem;
+  color: #535457;
+  text-decoration: none;
+  font-weight: medium;
+  font-family: "Inter", sans-serif;
+}
+
+.login__form-button {
+  width: 100%;
+  height: 55px;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #4557dc;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  border-radius: 5px;
+}
+
+.login__form-button:hover {
+  cursor: pointer;
+  background-color: #4d5fe7;
+}
+
+.login__form-password {
+  display: flex;
+}
+
+.login__form-password-lock {
+  margin-top: 20px;
+  margin-right: 5px;
+  font-size: 2.4rem;
+  color: #393939;
+}
+
+.login__form-email-input,
+.login__form-password-input {
+  width: 100%;
+  height: 40px;
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+  font-size: 1rem;
+}
+
+.login__form-email-input::placeholder,
+.login__form-password-input::placeholder {
+  font-weight: medium;
+  font-family: "Inter", sans-serif;
+}
+
+.login__form-email-input {
+  border-bottom: 2px solid #000000;
+}
+
+.login__form-password-input {
+  color: #000000;
+  border-radius: 5px;
+}
+
+.login__form-password-input::placeholder {
+  color: #000000;
+}
+
+@media screen and (max-width: 480px) {
+  .login {
+    width: 70%;
+  }
+  .login__title {
+    font-size: 8vw;
+  }
+  .login__form-email-input {
+    width: 90%;
+    height: 1rem;
+    margin-left: 1%;
+    margin-top: 1rem;
+  }
+  .login__form-password-input {
+    height: 1.4rem;
+    width: 80%;
+  }
+  .login__form-password-input::placeholder,
+  .login__form-email-input::placeholder {
+    font-size: 0.8rem;
+  }
+  .login__form-password-lock {
+    height: 1.6rem;
+  }
+  .login__form-link {
+    width: 80%;
+    margin-top: 0.8rem;
+    margin-left: 33%;
+    font-size: 0.7rem;
+  }
+}
