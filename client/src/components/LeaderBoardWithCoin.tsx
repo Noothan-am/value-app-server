@@ -2,14 +2,14 @@ import React from "react";
 const coinImage = require("../assets/svg/big-coin.svg").default;
 const style = require("../styles/leaderboard.module.scss").default;
 
-function LeaderBoardWithCoin() {
+function LeaderBoardWithCoin({ totalCoins }: any) {
   return (
     <>
       <div className={style["profile__firstpart"]}>
         <div className={style["profile__firstpart-coins"]}>
           <div className={style["coins__content"]}>
             <img src={coinImage} alt="" />
-            <div className={style["total__coins"]}>45</div>
+            <div className={style["total__coins"]}>{totalCoins}</div>
           </div>
           <div className={style["coins_tex"]}>My Coins</div>
         </div>

@@ -6,7 +6,7 @@ const getUserDetails = async (req, res) => {
     if (!userId) {
       return res.status(400).json({ message: "User id is required" });
     }
-    const userData = await userSchema.findById(userId);
+    const userData = await userSchema.find({ user_id: userId });
     if (!userData) {
       return res.status(400).json({ message: "User not found" });
     }
@@ -20,7 +20,7 @@ const getUserDetails = async (req, res) => {
       holistic,
       inquisitive,
       celebrating,
-    } = userData;
+    } = userData[0];
     res.status(200).json({
       name,
       coins,

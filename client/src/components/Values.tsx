@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 const coinImage = require("../assets/svg/coin.svg").default;
 const style = require("../styles/value.s.module.scss").default;
 
-function Values({ valuesInfo }: any) {
+function Values({ valuesInfo, userDetails }: any) {
   return (
     <>
       <div className={style["values"]}>
@@ -11,7 +11,9 @@ function Values({ valuesInfo }: any) {
           <div className={style["values__content-coin"]}>
             <img src={coinImage} alt="" />
           </div>
-          <div className={style["values__content-value"]}>20</div>
+          <div className={style["values__content-value"]}>
+            {userDetails[valuesInfo.toLocaleLowerCase()]}
+          </div>
         </div>
       </div>
     </>
