@@ -1,7 +1,7 @@
 import React from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-const styles = require("../styles/header.module.scss").default;
+const styles = require("../styles/header.module.css").default;
 
 function Header({ content }: any) {
   const navigate = useNavigate();

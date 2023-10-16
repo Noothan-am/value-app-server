@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProfileWithCoin from "../components/ProfileWithCoin";
 import Header from "../components/Header";
 import { useNavigate } from "react-router-dom";
-const styles = require("../styles/profile.module.scss").default;
+const styles = require("../styles/profile.module.css").default;
 
 function Profile() {
   const [allUsers, setAllUsers] = useState([]);
