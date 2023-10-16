@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import ProfileWithCoin from "../components/ProfileWithCoin";
 import Button from "../components/Button";
 import { useParams } from "react-router-dom";
-const styles = require("../styles/sendPage.module.scss").default;
+const styles = require("../styles/sendPage.module.css").default;
 const coin = require("../assets/svg/big-coin.svg").default;
 
 interface User {
@@ -101,7 +101,12 @@ export default function SendPage() {
           </div>
           <div className={styles["sendPage__content-text"]}>
             <label htmlFor="">Share the moment of Celebration:</label>
-            <input type="text" name="" id="" />
+            <textarea
+              name="Text1"
+              cols={60}
+              placeholder="Type the reason..."
+              rows={8}
+            ></textarea>
           </div>
           <div className={styles["sendPage__content-button"]}>
             <Button content={"Celebrate Becoming"} />

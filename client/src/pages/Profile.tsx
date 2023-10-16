@@ -48,7 +48,7 @@ function Profile() {
   return (
     <>
       <div className={styles["profile"]}>
-        <Header content={"Profile"} />
+        <Header content={"Who do you want to Celebrate?"} />
         <div className={styles["profile__users"]}>
           {allUsers.map((eachUser: any) => {
             return (
