@@ -8,8 +8,16 @@ const getAllTransactions = async (req, res) => {
     }
 
     const transactionDetails = allTransactionDetails.map(
-      ({ from, to, celebrating_value, celebration_moment, date, image }) => ({
-        name,
+      ({
+        from_name,
+        to_name,
+        celebrating_value,
+        celebration_moment,
+        date,
+        image,
+      }) => ({
+        from_name,
+        to_name,
         celebrating_value,
         celebration_moment,
         date,

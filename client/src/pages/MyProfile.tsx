@@ -18,6 +18,7 @@ const style = require("../styles/myprofile.module.scss").default;
 // }
 function MyProfile() {
   const [userDetails, setUserDetails] = useState<any>();
+  const [allTransaction, setAllTransaction] = useState<any>();
   const [loading, setLoading] = useState<any>(true);
 
   const valueInfo = [
@@ -55,6 +56,30 @@ function MyProfile() {
     }
   };
 
+  const fetchAllTransactions = async () => {
+    try {
+      const response: any = await fetch(
+        `${process.env.REACT_APP_API_URL}/get-transactions`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (!response.ok) throw new Error("Error while fetching users");
+      if (response) {
+        const jsonData = await response.json();
+        console.log(jsonData);
+
+        setAllTransaction(jsonData);
+      }
+    } catch (err) {
+      console.log("Error while fetching users");
+      console.error(err);
+    }
+  };
+
   useEffect(() => {
     fetchUserDetails()
       .then(() => {
@@ -63,6 +88,14 @@ function MyProfile() {
       })
       .catch((error) => {
         console.log("Error in fetching user details", error);
+      });
+    fetchAllTransactions()
+      .then(() => {
+        console.log("transaction details fetched");
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log("Error in fetching transaction details details", error);
       });
   }, []);
 
@@ -75,16 +108,16 @@ function MyProfile() {
           </div>
 
           <div className="leaderboard">
-            <LeaderBoardWithCoin totalCoins={userDetails.coins} />
+            <LeaderBoardWithCoin userDetails={userDetails} />
           </div>
 
           <div className={style["profile__secondpart"]}>
             <div className="profile__secondpart-values">
               <div className="profile__secondpart-title">Values</div>
               <div className="profile__secondpart-content">
-                {valueInfo.map((eachValue: string) => (
+                {/* {valueInfo.map((eachValue: string) => (
                   <Values valuesInfo={eachValue} userDetails={userDetails} />
-                ))}
+                ))} */}
               </div>
             </div>
             <div className={style["profile__secondpart-transaction"]}>
@@ -92,10 +125,9 @@ function MyProfile() {
                 TRANSACTION HISTORY
               </div>
               <div className={style["profile__secondpart-content"]}>
-                {/* {valueInfo.map((eachValues) => { */}
-                <Transaction />
-                <Transaction />
-                {/* })} */}
+                {allTransaction.map((eachTransaction: any) => {
+                  return <Transaction />;
+                })}
               </div>
             </div>
           </div>
