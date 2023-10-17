@@ -27,10 +27,10 @@ const Myfile = () => {
           <div className={styles.myfile__tophalf__content__right}>
             <h3>LEADERBOARD</h3>
             <ul>
-              <li>Sid</li>
-              <li>Sid</li>
-              <li>Sid</li>
-              <li>Sid</li>
+              <li>1. Sid</li>
+              <li>2. Sid</li>
+              <li>3. Sid</li>
+              <li>4. Sid</li>
             </ul>
           </div>
         </div>
@@ -40,7 +40,7 @@ const Myfile = () => {
             alt="profile-icon"
           />
           <h4>32 coins away to encash &gt;</h4>
-          <button type="submit" className={styles.myfile__dark_button}>
+          <button type="submit" className={styles.myfile__light_button}>
             Encash
           </button>
           <h5>Next Encashment Cycle: Q4 2023</h5>
@@ -54,9 +54,10 @@ const Myfile = () => {
           src={require("../assets/images/coins-group.png")}
           alt="Become logo"
         />
-        <button type="submit" className={styles.myfile__light_button}>
-          Encash
+        <button type="submit" className={styles.myfile__dark_button}>
+          Celebrate Becoming
         </button>
+        <h4>You can gift 1 coin at a time</h4>
       </div>
     </div>
   );
