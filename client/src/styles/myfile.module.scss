@@ -1,13 +1,5 @@
-$file-button-height: 55px;
-$file-button-color: #4557dc;
-
-.myfile {
-  &__tophalf {
-    background-color: #0c1d87;
-    border-radius: 0px 0px 32px 32px;
-    // height: 681px;
-    // width: 1280px;
-    position: relative;
+$login-button-height: 55px;
+$login-button-color: #4557dc;
 
     &__nav {
       display: flex;
