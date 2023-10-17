@@ -1,0 +1,35 @@
+$values-font: "Inter", sans-serif;
+
+.values {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-family: $values-font;
+
+  &__content {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  &__content-right {
+    display: flex;
+    align-items: center;
+
+    &-coin {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+
+      img {
+        width: 80%;
+        height: 80%;
+        margin-top: 1px;
+      }
+    }
+
+    &-value {
+      font-size: 14px;
+    }
+  }
+}

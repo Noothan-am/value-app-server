@@ -1,5 +1,13 @@
 const { Schema, model } = require("mongoose");
 const userInfoSchema = new Schema({
+  user_id: {
+    type: "string",
+    required: true,
+  },
+  image: {
+    type: String,
+    required: true,
+  },
   name: {
     type: String,
     required: true,
@@ -44,14 +52,6 @@ const userInfoSchema = new Schema({
     type: Number,
     required: true,
   },
-  tokens: [
-    {
-      token: {
-        type: String,
-        required: true,
-      },
-    },
-  ],
 });
 
 const UserSchema = model("UserInfoSchema", userInfoSchema);

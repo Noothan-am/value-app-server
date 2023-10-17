@@ -1,0 +1,54 @@
+.profile__firstpart {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 20px;
+}
+.leaderboard-single-person {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.profile__firstpart-coins {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.coins__content {
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
+
+.total__coins {
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+// Style the coins_tex div
+.coins_tex {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.profile__firstpart-leaderboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.leaderboard-number {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.leaderboard-name {
+  font-size: 18px;
+}
