@@ -47,9 +47,11 @@ const Myfile = () => {
         </div>
       </div>
       <div className={styles.myfile__downhalf}>
-        <h3>SEP 23</h3>
-        <h2>Available coins</h2>
-        <span>4</span>
+        <div className={styles.myfile__downhalf__heading}>
+          <h3>SEP 23</h3>
+          <h2>Available coins</h2>
+          <span>4</span>
+        </div>
         <img
           src={require("../assets/images/coins-group.png")}
           alt="Become logo"
