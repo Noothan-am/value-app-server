@@ -3,7 +3,8 @@ import Header from "../components/Header";
 import Values from "../components/Values";
 import Transaction from "../components/Transaction";
 import LeaderBoardWithCoin from "../components/LeaderBoardWithCoin";
-const style = require("../styles/myprofile.module.scss").default;
+import ProfileWithName from "../components/ProfileWithName";
+const style = require("../styles/myprofile.module.css").default;
 // interface user {
 //   coins: number;
 //   name;
@@ -89,14 +90,14 @@ function MyProfile() {
       .catch((error) => {
         console.log("Error in fetching user details", error);
       });
-    fetchAllTransactions()
-      .then(() => {
-        console.log("transaction details fetched");
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.log("Error in fetching transaction details details", error);
-      });
+    // fetchAllTransactions()
+    //   .then(() => {
+    //     console.log("transaction details fetched");
+    //     setLoading(false);
+    //   })
+    //   .catch((error) => {
+    //     console.log("Error in fetching transaction details details", error);
+    //   });
   }, []);
 
   if (!loading) {
@@ -104,30 +105,31 @@ function MyProfile() {
       <>
         <div className={style["profile"]}>
           <div className={style["profile__header"]}>
-            <Header />
+            <Header content={"Profile"} />
           </div>
-
-          <div className="leaderboard">
+          <div className={style["profile__name"]}>
+            <ProfileWithName />
+          </div>
+          <div className={style["leaderboard"]}>
             <LeaderBoardWithCoin userDetails={userDetails} />
           </div>
-
           <div className={style["profile__secondpart"]}>
-            <div className="profile__secondpart-values">
-              <div className="profile__secondpart-title">Values</div>
-              <div className="profile__secondpart-content">
-                {/* {valueInfo.map((eachValue: string) => (
+            <div className={style["profile__secondpart-values"]}>
+              <div className={style["profile__secondpart-title"]}>VALUES</div>
+              <div className={style["profile__secondpart-content"]}>
+                {valueInfo.map((eachValue: string) => (
                   <Values valuesInfo={eachValue} userDetails={userDetails} />
-                ))} */}
+                ))}
               </div>
             </div>
             <div className={style["profile__secondpart-transaction"]}>
-              <div className="profile__secondpart-title">
+              <div className={style["profile__secondpart-title"]}>
                 TRANSACTION HISTORY
               </div>
-              <div className={style["profile__secondpart-content"]}>
-                {allTransaction.map((eachTransaction: any) => {
-                  return <Transaction />;
-                })}
+              <div className={style["profile__secondpart-transaction-details"]}>
+                <Transaction />
+                <Transaction />
+                <Transaction />
               </div>
             </div>
           </div>

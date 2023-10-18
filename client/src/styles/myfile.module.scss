@@ -1,19 +1,16 @@
-$login-button-height: 55px;
-$login-button-color: #4557dc;
-
 .myfile__dark-button {
   width: 100%;
-  height: $login-button-height;
+  height: 55px;
   margin: 10px 0;
   padding: 10px;
-  background-color: $login-button-color;
+  background-color: #4557dc;
   color: white;
   border: none;
   font-size: 1.2rem;
   border-radius: 5px;
+}
 
-  &:hover {
-    cursor: pointer;
-    background-color: #4d5fe7;
-  }
+.myfile__dark-button:hover {
+  cursor: pointer;
+  background-color: #4d5fe7;
 }

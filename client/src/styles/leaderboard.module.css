@@ -1,0 +1,143 @@
+.profile__firstpart {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  justify-content: space-around;
+  padding: 20px;
+  margin-bottom: 7rem;
+  font-family: "Inter", sans-serif;
+}
+
+.leaderboard-single-person {
+  display: flex;
+  flex-direction: row;
+}
+
+.profile__firstpart-coins {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.coins__content img {
+  height: 6rem;
+}
+
+.coins__content {
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.total__coins {
+  font-size: 76px;
+  font-weight: bold;
+  margin-left: -10px;
+}
+
+.coins_text {
+  font-size: 25px;
+  margin-top: 10px;
+  margin-left: 0.8rem;
+}
+
+.profile__firstpart-leaderboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0.7rem;
+}
+
+.leaderboard-number {
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.leaderboard-single-person {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.leaderboard-name {
+  font-size: 23px;
+}
+
+.leaderboard-heading {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.632);
+  margin-bottom: 1rem;
+}
+.leaderboard-name {
+  margin-left: 1rem;
+}
+
+@media screen and (min-width: 701px) and (max-width: 1030px) {
+  .profile__firstpart {
+    width: 95%;
+  }
+}
+
+@media screen and (min-width: 561px) and (max-width: 700px) {
+  .profile__firstpart {
+    width: 90%;
+  }
+  .coins__content img {
+    height: 6rem;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 560px) {
+  .total__coins {
+    font-size: 69px;
+  }
+
+  .coins_text {
+    font-size: 20px;
+  }
+  .leaderboard-name {
+    font-size: 20px;
+  }
+  .leaderboard-number {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .profile__firstpart {
+    flex-direction: row;
+    width: 70%;
+    margin: auto;
+    margin-bottom: 2rem;
+    justify-content: space-between;
+  }
+  .coins__content img {
+    height: 4.5rem;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .profile__firstpart {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+  .leaderboard-heading {
+    font-size: 15px;
+  }
+  .leaderboard-number {
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .total__coins {
+    font-size: 54px;
+  }
+  .coins_text {
+    font-size: 18px;
+  }
+  .leaderboard-name {
+    font-size: 15px;
+  }
+  .coins__content img {
+    height: 4rem;
+  }
+}

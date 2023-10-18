@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 const coinImage = require("../assets/svg/big-coin.svg").default;
-const style = require("../styles/leaderboard.module.scss").default;
+const style = require("../styles/leaderboard.module.css").default;
 
 function Leaderboard({ user }: any) {
   return (
@@ -61,10 +61,10 @@ function LeaderBoardWithCoin({ userDetails }: any) {
             <img src={coinImage} alt="" />
             <div className={style["total__coins"]}>{userDetails.coins}</div>
           </div>
-          <div className={style["coins_tex"]}>My Coins</div>
+          <div className={style["coins_text"]}>My Coins</div>
         </div>
         <div className={style["profile__firstpart-leaderboard"]}>
-          <div className={style["leaderboard-heading"]}>Leaderboard</div>
+          <div className={style["leaderboard-heading"]}>LEADERBOARD</div>
           <div className={style["leaderboard-members"]}>
             {leaderboardUsers.map((eachUser: any) => {
               return <Leaderboard user={eachUser} count={count} />;
