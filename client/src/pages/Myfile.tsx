@@ -1,6 +1,6 @@
 import React from "react";
 const coin = require("../assets/svg/coin.svg").default;
-const styles = require("../styles/myfile.module.scss").default;
+const styles = require("../styles/myfile.module.css").default;
 
 const Myfile = () => {
   return (
@@ -29,8 +29,6 @@ const Myfile = () => {
             <ul>
               <li>1. Sid</li>
               <li>2. Sid</li>
-              <li>3. Sid</li>
-              <li>4. Sid</li>
             </ul>
           </div>
         </div>
@@ -48,9 +46,13 @@ const Myfile = () => {
       </div>
       <div className={styles.myfile__downhalf}>
         <div className={styles.myfile__downhalf__heading}>
-          <h3>SEP 23</h3>
-          <h2>Available coins</h2>
-          <span>4</span>
+          <div className={styles.myfile__downhalf__heading__date}>
+            <h3>SEP 23</h3>
+          </div>
+          <div className={styles.myfile__downhalf__heading__rigthpart}>
+            <h2>Available coins</h2>
+            <span>4</span>
+          </div>
         </div>
         <img
           src={require("../assets/images/coins-group.png")}
