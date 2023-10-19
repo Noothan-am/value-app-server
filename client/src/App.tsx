@@ -20,6 +20,10 @@ function App() {
       <Route path="/send/:id" element={<SendPage />} /> {/**/}
       <Route path="*" element={<ErrorPage />} /> {/**/}
       <Route path="/my-page" element={<MyProfile />} />
+      <Route path="*" element={<ErrorPage />} />
+      {/* <Route path="/my-profile" element={<Myfile />} /> */}
+      {/* <Route path="/self" element={<Self />} /> */}
+      {/* <Route path="/send/:id" element={<SendPage />} /> */}
     </Routes>
   );
 }

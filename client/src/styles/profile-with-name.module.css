@@ -1,0 +1,28 @@
+.profile__name {
+  width: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.profile-image,
+.profile-greeting,
+.profile-name {
+  margin-left: 0.4rem;
+}
+.profile-greeting,
+.profile-name {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+.profile-greeting {
+  font-weight: 700;
+}
+
+@media screen and (max-width: 1018px) {
+  .profile__name {
+    width: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

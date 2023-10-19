@@ -61,10 +61,10 @@
   border: 2px solid #acaaaa;
   padding: 1.1rem 1rem;
   border-radius: 5px;
-  border-color: #acaaaa;
   margin-top: 0.3rem;
   font-size: 1.1rem;
-  background-color: rgb(245, 245, 245);
+  background-color: rgba(245, 245, 245, 0.507);
+  border: 1px solid rgba(204, 204, 204, 0.68);
   color: rgb(18, 18, 18);
 }
 
@@ -85,12 +85,12 @@
 
 .sendPage__content-text textarea {
   text-align: start;
-  border: 2px solid #acaaaa;
   border-radius: 5px;
   margin-top: 0.3rem;
   padding: 1rem;
   font-size: 1.1rem;
   background-color: rgb(245, 245, 245);
+  border: 1px solid rgba(204, 204, 204, 0.68);
 }
 
 .sendPage__content-button {
@@ -117,7 +117,7 @@
     font-size: 4vw;
   }
   .sendPage__content-text textarea {
-    font-size: 4vw;
+    font-size: 3.4vw;
     padding: 2vw;
   }
   .sendPage__content-text label,
