@@ -7,7 +7,11 @@ function Leaderboard({ user }: any) {
     <>
       <div className={style["leaderboard-single-person"]}>
         <div className={style["leaderboard-number"]}>1</div>
-        <div className={style["leaderboard-name"]}>{user.name}</div>
+        <div className={style["leaderboard-name"]}>{"Pooja"}</div>
+      </div>
+      <div className={style["leaderboard-single-person"]}>
+        <div className={style["leaderboard-number"]}>1</div>
+        <div className={style["leaderboard-name"]}>{"Sid"}</div>
       </div>
     </>
   );
@@ -59,16 +63,18 @@ function LeaderBoardWithCoin({ userDetails }: any) {
         <div className={style["profile__firstpart-coins"]}>
           <div className={style["coins__content"]}>
             <img src={coinImage} alt="" />
-            <div className={style["total__coins"]}>{userDetails.coins}</div>
+            {/* <div className={style["total__coins"]}>{userDetails.coins}</div> */}
+            <div className={style["total__coins"]}>6</div>
           </div>
           <div className={style["coins_text"]}>My Coins</div>
         </div>
         <div className={style["profile__firstpart-leaderboard"]}>
           <div className={style["leaderboard-heading"]}>LEADERBOARD</div>
           <div className={style["leaderboard-members"]}>
-            {leaderboardUsers.map((eachUser: any) => {
-              return <Leaderboard user={eachUser} count={count} />;
-            })}
+            {/* {leaderboardUsers.map((eachUser: any) => { */}
+            {/* return <Leaderboard user={eachUser} count={count} />; */}
+            {/* })} */}
+            <Leaderboard user={"eachUser"} count={"count"} />
           </div>
         </div>
       </div>

@@ -50,17 +50,38 @@ function Profile() {
       <div className={styles["profile"]}>
         <Header content={"Who do you want to Celebrate?"} />
         <div className={styles["profile__users"]}>
-          {allUsers.map((eachUser: any) => {
-            return (
-              <div
-                key={eachUser.user_id}
-                onClick={() => handleUserClick(eachUser.user_id)}
-                className={styles["profile__users-singleuser"]}
-              >
-                <ProfileWithCoin userDetails={eachUser} />
-              </div>
-            );
-          })}
+          {/* {allUsers.map((eachUser: any) => { */}
+          {/* return ( */}
+          <div
+            key={"eachUser.user_id"}
+            onClick={() => handleUserClick("eachUser.user_id")}
+            className={styles["profile__users-singleuser"]}
+          >
+            <ProfileWithCoin userDetails={"eachUser"} />
+          </div>
+          <div
+            key={"eachUser.user_id"}
+            onClick={() => handleUserClick("eachUser.user_id")}
+            className={styles["profile__users-singleuser"]}
+          >
+            <ProfileWithCoin userDetails={"eachUser"} />
+          </div>
+          <div
+            key={"eachUser.user_id"}
+            onClick={() => handleUserClick("eachUser.user_id")}
+            className={styles["profile__users-singleuser"]}
+          >
+            <ProfileWithCoin userDetails={"eachUser"} />
+          </div>
+          <div
+            key={"eachUser.user_id"}
+            onClick={() => handleUserClick("eachUser.user_id")}
+            className={styles["profile__users-singleuser"]}
+          >
+            <ProfileWithCoin userDetails={"eachUser"} />
+          </div>
+          {/* ); */}
+          {/* })} */}
         </div>
       </div>
     </>

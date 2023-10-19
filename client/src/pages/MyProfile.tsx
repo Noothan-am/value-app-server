@@ -111,14 +111,15 @@ function MyProfile() {
             <ProfileWithName />
           </div>
           <div className={style["leaderboard"]}>
-            <LeaderBoardWithCoin userDetails={userDetails} />
+            <LeaderBoardWithCoin userDetails={"userDetails"} />
           </div>
           <div className={style["profile__secondpart"]}>
             <div className={style["profile__secondpart-values"]}>
               <div className={style["profile__secondpart-title"]}>VALUES</div>
               <div className={style["profile__secondpart-content"]}>
+                {/* <Values valuesInfo={eachValue} userDetails={userDetails} /> */}
                 {valueInfo.map((eachValue: string) => (
-                  <Values valuesInfo={eachValue} userDetails={userDetails} />
+                  <Values valuesInfo={eachValue} userDetails={"userDetails"} />
                 ))}
               </div>
             </div>
