@@ -4,7 +4,7 @@ import Values from "../components/Values";
 import Transaction from "../components/Transaction";
 import LeaderBoardWithCoin from "../components/LeaderBoardWithCoin";
 import { useGlobalContext } from "../context/UserAndTransactionContext";
-const style = require("../styles/myprofile.module.scss").default;
+const style = require("../styles/myprofile.module.css").default;
 
 // interface user {
 //   coins: number;
