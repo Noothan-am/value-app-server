@@ -27,21 +27,13 @@ interface eachTransactionValue {
 }
 
 function MyProfile() {
-  // const [userDetails, setUserDetails] = useState<any>();
-  // const [allTransaction, setAllTransaction] = useState<any>();
-  // const [loading, setLoading] = useState<any>(true);
-
   const { allTransaction, userDetails, loading } = useGlobalContext() || {};
-
-  useEffect(() => {
-    console.log("setAllTransaction", allTransaction, userDetails, loading);
-  }, [allTransaction, userDetails, loading]);
 
   const valueInfo = [
     "Tenacious",
     "Resourceful",
     "Open-Minded",
-    "Problem Solving",
+    "Problem-Solving",
     "Holistic",
     "Inquisitive",
     "Celebrating",
@@ -56,21 +48,23 @@ function MyProfile() {
           <Header />
         </div>
 
-        <div className="leaderboard">
+        <div className={style["leaderboard"]}>
           <LeaderBoardWithCoin userDetails={userDetails} />
         </div>
 
         <div className={style["profile__secondpart"]}>
-          <div className="profile__secondpart-values">
-            <div className="profile__secondpart-title">Values</div>
-            <div className="profile__secondpart-content">
+          <div className={style["profile__secondpart-values"]}>
+            <div className={style["profile__secondpart-title"]}>Values</div>
+            <div className={style["profile__secondpart-content"]}>
               {valueInfo.map((eachValue: string) => (
                 <Values valuesInfo={eachValue} userDetails={userDetails} />
               ))}
             </div>
           </div>
           <div className={style["profile__secondpart-transaction"]}>
-            <div className="profile__secondpart-title">TRANSACTION HISTORY</div>
+            <div className={style["profile__secondpart-title"]}>
+              TRANSACTION HISTORY
+            </div>
             <div className={style["profile__secondpart-content"]}>
               {allTransaction.map(
                 (eachTransaction: eachTransactionValue, index: number) => {

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import ProfileWithCoin from "../components/ProfileWithCoin";
 import Button from "../components/Button";
+import { useParams } from "react-router-dom";
 // import { useParams } from "react-router-dom";
 const styles = require("../styles/sendPage.module.css").default;
 const coin = require("../assets/svg/big-coin.svg").default;
@@ -14,7 +15,7 @@ interface User {
 
 export default function SendPage() {
   const [user, setUser] = useState({} as object);
-  // const { id } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchAllUsers = async () => {
@@ -30,10 +31,9 @@ export default function SendPage() {
         );
         if (response) {
           const jsonData = await response.json();
-          const user = jsonData
-            .find
-            // (eachUser: User) => eachUser.user_id === id
-            ();
+          const user = jsonData.find(
+            (eachUser: User) => eachUser.user_id === id
+          );
           if (user) {
             setUser(user);
           } else {
@@ -57,7 +57,7 @@ export default function SendPage() {
 
   return (
     <div className={styles["sendPage"]}>
-      <div className="sendPage__header">
+      <div className={styles["sendPage__header"]}>
         <Header content={"Who do you want to Celebrate?"} />
       </div>
       <div className={styles["sendPage__content"]}>
