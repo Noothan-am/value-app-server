@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 const coinImage = require("../assets/svg/big-coin.svg").default;
 const style = require("../styles/leaderboard.module.scss").default;
 
-function Leaderboard({ user }: any) {
+function Leaderboard({ user, count }: any) {
   return (
     <>
       <div className={style["leaderboard-single-person"]}>
-        <div className={style["leaderboard-number"]}>1</div>
+        <div className={style["leaderboard-number"]}>{count}</div>
         <div className={style["leaderboard-name"]}>{user.name}</div>
       </div>
     </>
@@ -15,7 +15,6 @@ function Leaderboard({ user }: any) {
 
 function LeaderBoardWithCoin({ userDetails }: any) {
   const [leaderboardUsers, setLeaderboardUsers] = useState<any>([]);
-  const [count, setCount] = useState<any>(0);
   const fetchAllUserDetails = async () => {
     try {
       const response: any = await fetch(
@@ -66,8 +65,10 @@ function LeaderBoardWithCoin({ userDetails }: any) {
         <div className={style["profile__firstpart-leaderboard"]}>
           <div className={style["leaderboard-heading"]}>Leaderboard</div>
           <div className={style["leaderboard-members"]}>
-            {leaderboardUsers.map((eachUser: any) => {
-              return <Leaderboard user={eachUser} count={count} />;
+            {leaderboardUsers.map((eachUser: any, index: number) => {
+              return (
+                <Leaderboard user={eachUser} key={index} count={index + 1} />
+              );
             })}
           </div>
         </div>

@@ -1,7 +1,8 @@
 import React from "react";
 const style = require("../styles/transaction.module.scss").default;
 const profileImage = require("../assets/images/profile-icon.png");
-function Transaction() {
+
+function Transaction({ eachTransaction }: any) {
   return (
     <>
       <div className={style["transaction"]}>
@@ -9,13 +10,14 @@ function Transaction() {
           <img src={profileImage} alt="" />
         </div>
         <div className={style["transaction__content"]}>
-          <div className={style["transaction__content-date"]}>14 Aug 2023</div>
+          <div className={style["transaction__content-date"]}>
+            {eachTransaction.date}
+          </div>
           <div className={style["transaction__content-name"]}>
-            Harish Venkatesh
+            {eachTransaction.celebrating_value}
           </div>
           <div className={style["transaction__content-description"]}>
-            Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet
-            consectetur. Lorem ipsum dolor sit amet consectetur
+            {eachTransaction.celebration_moment}
           </div>
         </div>
       </div>
