@@ -1,37 +1,81 @@
-import React from "react";
-const coin = require("../assets/svg/coin.svg").default;
+import React, { useCallback, useEffect, useState } from "react";
+import moment from "moment";
+import LeaderBoardWithCoin from "../components/LeaderBoardWithCoin";
+import Loading from "./Loading";
+import { useParams } from "react-router-dom";
 const styles = require("../styles/myfile.module.css").default;
+const logoImage = require("../assets/images/Group 26943.png");
+const profileImage = require("../assets/images/profile-icon.png");
+const coinsGroup = require("../assets/images/coins-group.png");
 
 const Myfile = () => {
+  const [userDetails, setUserDetails] = useState<any>();
+  const [loading, setLoading] = useState<any>(true);
+  const { userId } = useParams();
+
+  const fetchUserDetails = useCallback(async () => {
+    try {
+      const response: any = await fetch(
+        `${process.env.REACT_APP_API_URL}/profile`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId: userId,
+          }),
+        }
+      );
+      if (!response.ok) throw new Error("Error while fetching users");
+      if (response) {
+        const jsonData = await response.json();
+        setUserDetails(jsonData);
+      }
+    } catch (err) {
+      console.log("Error while fetching users");
+      console.error(err);
+    }
+  }, [userId]);
+
+  useEffect(() => {
+    fetchUserDetails()
+      .then(() => {
+        console.log("User details fetched");
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log("error while fetching the", err);
+      });
+  }, [fetchUserDetails]);
+
+  if (loading)
+    return (
+      <>
+        <Loading />
+      </>
+    );
+
   return (
     <div className={styles.myfile}>
       <div className={styles.myfile__tophalf}>
         <div className={styles.myfile__tophalf__nav}>
           <img
             className={styles.myfile__tophalf__nav__left_image}
-            src={require("../assets/images/Group 26943.png")}
+            src={logoImage}
             alt="Become logo"
           />
           <img
             className={styles.myfile__tophalf__nav__right_image}
-            src={require("../assets/images/profile-icon.png")}
+            src={profileImage}
             alt="profile-icon"
           />
         </div>
-        <div className={styles.myfile__tophalf__content}>
-          <div className={styles.myfile__tophalf__content__left}>
-            <img src={coin} alt="randomimage" />
-            <span>4</span>
-            <h2>My Coins</h2>
-          </div>
-          <div className={styles.myfile__tophalf__content__right}>
-            <h3>LEADERBOARD</h3>
-            <ul>
-              <li>1. Sid</li>
-              <li>2. Sid</li>
-            </ul>
-          </div>
+
+        <div className={styles["leaderboard"]}>
+          <LeaderBoardWithCoin userDetails={userDetails} />
         </div>
+
         <div className={styles.myfile__tophalf__main}>
           <img
             src={require("../assets/images/profile-icon.png")}
@@ -47,17 +91,14 @@ const Myfile = () => {
       <div className={styles.myfile__downhalf}>
         <div className={styles.myfile__downhalf__heading}>
           <div className={styles.myfile__downhalf__heading__date}>
-            <h3>SEP 23</h3>
+            <h3>{moment().format("DD MMM")}</h3>
           </div>
           <div className={styles.myfile__downhalf__heading__rigthpart}>
             <h2>Available coins</h2>
-            <span>4</span>
+            <span>{userDetails.coins}</span>
           </div>
         </div>
-        <img
-          src={require("../assets/images/coins-group.png")}
-          alt="Become logo"
-        />
+        <img src={coinsGroup} alt="Become logo" />
         <button type="submit" className={styles.myfile__dark_button}>
           Celebrate Becoming
         </button>

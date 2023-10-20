@@ -13,6 +13,7 @@ const getUserDetails = async (req, res) => {
     const {
       name,
       coins,
+      image,
       tenacious,
       resourceful,
       open_minded,
@@ -24,6 +25,7 @@ const getUserDetails = async (req, res) => {
     res.status(200).json({
       name,
       coins,
+      image,
       tenacious,
       resourceful,
       open_minded,

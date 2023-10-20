@@ -18,6 +18,10 @@
   margin: auto;
 }
 
+.leaderboard {
+  color: whitesmoke;
+}
+
 .myfile__tophalf__nav__right_image {
   height: 40px;
   object-fit: contain;

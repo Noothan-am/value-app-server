@@ -1,23 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Header from "../components/Header";
 import Values from "../components/Values";
 import Transaction from "../components/Transaction";
 import LeaderBoardWithCoin from "../components/LeaderBoardWithCoin";
-import { useGlobalContext } from "../context/UserAndTransactionContext";
+import Loading from "./Loading";
+import { useParams } from "react-router-dom";
 const style = require("../styles/myprofile.module.css").default;
-
-// interface user {
-//   coins: number;
-//   name;
-//   coins;
-//   tenacious;
-//   resourceful;
-//   open_minded;
-//   problem_solving;
-//   holistic;
-//   inquisitive;
-//   celebrating;
-// }
 
 interface eachTransactionValue {
   celebrating_value: string;
@@ -27,7 +15,77 @@ interface eachTransactionValue {
 }
 
 function MyProfile() {
-  const { allTransaction, userDetails, loading } = useGlobalContext() || {};
+  const [userDetails, setUserDetails] = useState<any>();
+  const [allTransaction, setAllTransaction] = useState<any>();
+  const [loading, setLoading] = useState<any>(true);
+
+  const { userId } = useParams();
+
+  const fetchUserDetails = useCallback(async () => {
+    try {
+      const response: any = await fetch(
+        `${process.env.REACT_APP_API_URL}/profile`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId,
+          }),
+        }
+      );
+      if (!response.ok) throw new Error("Error while fetching users");
+      if (response) {
+        const jsonData = await response.json();
+        setUserDetails(jsonData);
+      }
+    } catch (err) {
+      console.log("Error while fetching users");
+      console.error(err);
+    }
+  }, []);
+
+  const fetchAllTransactions = useCallback(async () => {
+    try {
+      const response: any = await fetch(
+        `${process.env.REACT_APP_API_URL}/get-transactions`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (!response.ok) throw new Error("Error while fetching users");
+      if (response) {
+        const jsonData = await response.json();
+        console.log(jsonData);
+        setAllTransaction(jsonData);
+      }
+    } catch (err) {
+      console.log("Error while fetching users");
+      console.error(err);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchAllTransactions()
+      .then(() => {
+        console.log("All transactions fetched successfully");
+        fetchUserDetails()
+          .then(() => {
+            "succesfully fetched user details";
+            setLoading(false);
+          })
+          .catch((err) => {
+            console.log("error while fetching the", err);
+          });
+      })
+      .catch((err) =>
+        console.log("error while fetching all transactions", err)
+      );
+  }, [fetchAllTransactions, fetchUserDetails]);
 
   const valueInfo = [
     "Tenacious",
@@ -39,7 +97,12 @@ function MyProfile() {
     "Celebrating",
   ];
 
-  if (loading) return <>Loading</>;
+  if (loading)
+    return (
+      <>
+        <Loading />
+      </>
+    );
 
   return (
     <>

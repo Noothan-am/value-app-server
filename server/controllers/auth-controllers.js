@@ -6,13 +6,13 @@ const userLogin = async (req, res) => {
     const { email, password } = data;
     const user = await userInfo.findOne({ email });
     if (!user) {
-      return res.status(404).json({ message: "No user found" });
+      return res.status(404).json({ message: "user not found" });
     }
     // const isValid = await bcrypt.compare(password, user.password);
     if (!(password === user.password)) {
       return res.status(401).json({ message: "invalid credentials" });
     }
-    return res.status(200).send({ message: "thisis token" });
+    return res.status(200).send({ userId: user.user_id });
   } catch (error) {
     return res.status(500).json({ message: error });
   }

@@ -31,10 +31,10 @@ const Login = () => {
         },
         body: JSON.stringify({ email: inputEmail, password: inputPassword }),
       });
-      console.log(result.status);
       if (result.ok) {
         window.alert("successfull login");
-        navigate("/my-profile");
+        const { userId } = await result.json();
+        navigate(`/my-profile/${userId}`);
       } else {
         window.alert("Please add valid credentials");
         console.log("User not found. Please add valid credentials.");

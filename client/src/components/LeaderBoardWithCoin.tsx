@@ -58,8 +58,7 @@ function LeaderBoardWithCoin({ userDetails }: any) {
         <div className={style["profile__firstpart-coins"]}>
           <div className={style["coins__content"]}>
             <img src={coinImage} alt="" />
-            {/* <div className={style["total__coins"]}>{userDetails.coins}</div> */}
-            <div className={style["total__coins"]}>6</div>
+            <div className={style["total__coins"]}>{userDetails.coins}</div>
           </div>
           <div className={style["coins_text"]}>My Coins</div>
         </div>

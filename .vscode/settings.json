@@ -3,8 +3,12 @@
     {
       "splitTerminals": [
         {
+          "name": "client",
+          "commands": [" cd client ", " npm start "]
+        },
+        {
           "name": "server",
-          "commands": [" cd server", " npm start "]
+          "commands": [" cd server ", " npm start "]
         }
       ]
     }

@@ -12,18 +12,15 @@ import MyProfile from "./pages/MyProfile";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Myfile />} />
-      <Route path="/my-profile" element={<Myfile />} /> {/**/}
+      <Route path="/" element={<Loading />} />
+      <Route path="/my-profile/:userId" element={<Myfile />} /> {/**/}
       <Route path="/loading" element={<Loading />} /> {/**/}
       <Route path="/login" element={<Login />} /> {/**/}
       <Route path="/profile" element={<Profile />} /> {/**/}
       <Route path="/send/:id" element={<SendPage />} /> {/**/}
       <Route path="*" element={<ErrorPage />} /> {/**/}
-      <Route path="/my-page" element={<MyProfile />} />
+      <Route path="/my-page/:userId" element={<MyProfile />} />
       <Route path="*" element={<ErrorPage />} />
-      {/* <Route path="/my-profile" element={<Myfile />} /> */}
-      {/* <Route path="/self" element={<Self />} /> */}
-      {/* <Route path="/send/:id" element={<SendPage />} /> */}
     </Routes>
   );
 }
