@@ -5,6 +5,6 @@ const {
 } = require("../controllers/transaction-controllers");
 
 router.get("/get-transactions", getAllTransactions);
-router.post("/transaction", makeTransaction);
+router.post("/make-transaction", makeTransaction);
 
 module.exports = router;

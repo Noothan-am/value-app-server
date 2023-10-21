@@ -33,14 +33,33 @@ const getAllTransactions = async (req, res) => {
 };
 
 const makeTransaction = async (req, res) => {
-  const { from, to, celebrating_value, celebration_moment, image } = req.body;
-  if (!name || !celebrating_value || !celebration_moment || !image) {
-    return res.status(400).send("Please fill all the fields");
-  }
   try {
-    const transaction = new transactionSchema.create({
+    const {
       from,
       to,
+      celebrating_value,
+      celebration_moment,
+      image,
+      to_user_id,
+      from_user_id,
+    } = req.body;
+    if (
+      !from ||
+      !to ||
+      !celebrating_value ||
+      !celebration_moment ||
+      !image ||
+      !from_user_id ||
+      !to_user_id
+    ) {
+      console.log(from, to_user_id);
+      return res.status(400).send("Please fill all the fields");
+    }
+    const transaction = await transactionSchema.create({
+      from,
+      from_user_id,
+      to,
+      to_user_id,
       celebrating_value,
       celebration_moment,
       image,

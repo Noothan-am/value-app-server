@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { BiLockAlt } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
+import { UserId } from "../context/UserIdContext";
 const styles = require("../styles/login.module.css").default;
 const bgimage = require("../assets/images/Loading-background.png");
+
+type UserIdValue = {
+  Id?: string;
+  setId?: React.Dispatch<React.SetStateAction<string>>;
+};
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
   const navigate = useNavigate();
+  const { setUserInfo } = useContext(UserId) as any;
 
   const handleLoginSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -33,7 +40,11 @@ const Login = () => {
       });
       if (result.ok) {
         window.alert("successfull login");
-        const { userId } = await result.json();
+        const { userId, userName } = await result.json();
+        setUserInfo({
+          userId,
+          userName,
+        });
         navigate(`/my-profile/${userId}`);
       } else {
         window.alert("Please add valid credentials");

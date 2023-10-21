@@ -34,6 +34,6 @@ const transactionInfoSchema = new Schema({
   },
 });
 
-const UserSchema = model("TransactionInfoSchema", transactionInfoSchema);
+const transactionSchema = model("TransactionInfoSchema", transactionInfoSchema);
 
-module.exports = UserSchema;
+module.exports = transactionSchema;

@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "../components/Header";
 import ProfileWithCoin from "../components/ProfileWithCoin";
 import Button from "../components/Button";
 import { useParams } from "react-router-dom";
-// import { useParams } from "react-router-dom";
+import { UserId } from "../context/UserIdContext";
+
 const styles = require("../styles/sendPage.module.css").default;
 const coin = require("../assets/svg/big-coin.svg").default;
 
@@ -14,8 +15,43 @@ interface User {
 }
 
 export default function SendPage() {
-  const [user, setUser] = useState({} as object);
+  const [selectedOption, setSelectedOption] = useState<string>("");
+  const [celebrationMoment, setCelebrationMoment] = useState<string>("");
+  const [user, setUser] = useState({} as any);
+
   const { id } = useParams();
+  const { userInfo } = useContext(UserId) as any;
+
+  const sendCoins = async () => {
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/make-transaction`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            from: userInfo.userName,
+            from_user_id: userInfo.userId,
+            to: user.name,
+            to_user_id: id,
+            celebration_moment: selectedOption,
+            celebrating_value: celebrationMoment,
+            image: "ram",
+          }),
+        }
+      );
+      if (response) {
+        const jsonData = await response.json();
+        console.log(jsonData);
+        console.log("send coins succesfully");
+      }
+    } catch (err) {
+      console.log("Error while sending coins");
+      console.error(err);
+    }
+  };
 
   useEffect(() => {
     const fetchAllUsers = async () => {
@@ -76,7 +112,11 @@ export default function SendPage() {
         <div className={styles["sendPage__content-input"]}>
           <div className={styles["sendPage__content-radio"]}>
             <label>Select the value you’re celebrating:</label>
-            <select id="cars">
+            <select
+              id="cars"
+              onChange={(e) => setSelectedOption(e.target.value)}
+              value={selectedOption}
+            >
               <option className="options" value="Tenacious">
                 Tenacious
               </option>
@@ -105,12 +145,14 @@ export default function SendPage() {
             <textarea
               name="Text1"
               cols={60}
+              onChange={(e) => setCelebrationMoment(e.target.value)}
+              value={celebrationMoment}
               placeholder="Type the reason..."
               rows={8}
             ></textarea>
           </div>
           <div className={styles["sendPage__content-button"]}>
-            <Button content={"Celebrate Becoming"} />
+            <Button handleClick={sendCoins} content={"Celebrate Becoming"} />
           </div>
         </div>
       </div>
