@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import moment from "moment";
 import LeaderBoardWithCoin from "../components/LeaderBoardWithCoin";
 import Loading from "./Loading";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 const styles = require("../styles/myfile.module.css").default;
 const logoImage = require("../assets/images/Group 26943.png");
 const profileImage = require("../assets/images/profile-icon.png");
@@ -12,6 +12,16 @@ const Myfile = () => {
   const [userDetails, setUserDetails] = useState<any>();
   const [loading, setLoading] = useState<any>(true);
   const { userId } = useParams();
+  const navigator = useNavigate();
+
+  const handleCelebrateClick = () => {
+    navigator("/profile");
+  };
+
+  const handleProflileClick = (e: any) => {
+    e.preventDefault();
+    navigator(`/my-page/${userId}`);
+  };
 
   const fetchUserDetails = useCallback(async () => {
     try {
@@ -65,11 +75,12 @@ const Myfile = () => {
             src={logoImage}
             alt="Become logo"
           />
-          <img
+          <div
             className={styles.myfile__tophalf__nav__right_image}
-            src={profileImage}
-            alt="profile-icon"
-          />
+            onClick={(e) => handleProflileClick(e)}
+          >
+            <img src={profileImage} alt="profile-icon" />
+          </div>
         </div>
 
         <div className={styles["leaderboard"]}>
@@ -99,7 +110,11 @@ const Myfile = () => {
           </div>
         </div>
         <img src={coinsGroup} alt="Become logo" />
-        <button type="submit" className={styles.myfile__dark_button}>
+        <button
+          type="submit"
+          onClick={handleCelebrateClick}
+          className={styles.myfile__dark_button}
+        >
           Celebrate Becoming
         </button>
         <h4>You can gift 1 coin at a time</h4>

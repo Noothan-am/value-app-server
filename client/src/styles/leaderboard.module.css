@@ -5,6 +5,7 @@
   justify-content: space-around;
   padding: 20px;
   margin-bottom: 7rem;
+  margin-top: 1.5rem;
   font-family: "Inter", sans-serif;
 }
 
@@ -108,6 +109,7 @@
     width: 70%;
     margin: auto;
     margin-bottom: 2rem;
+    margin-top: 1.5rem;
     justify-content: space-between;
   }
   .coins__content img {
@@ -120,6 +122,7 @@
     width: 80%;
     margin: auto;
     margin-bottom: 2rem;
+    margin-top: 1.5rem;
   }
   .leaderboard-heading {
     font-size: 15px;

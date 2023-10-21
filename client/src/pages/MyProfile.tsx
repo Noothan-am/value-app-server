@@ -108,7 +108,7 @@ function MyProfile() {
     <>
       <div className={style["profile"]}>
         <div className={style["profile__header"]}>
-          <Header />
+          <Header content={"Profile"} />
         </div>
 
         <div className={style["leaderboard"]}>

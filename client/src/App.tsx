@@ -12,7 +12,7 @@ import MyProfile from "./pages/MyProfile";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Loading />} />
+      <Route path="/" element={<Login />} />
       <Route path="/my-profile/:userId" element={<Myfile />} /> {/**/}
       <Route path="/loading" element={<Loading />} /> {/**/}
       <Route path="/login" element={<Login />} /> {/**/}
