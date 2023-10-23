@@ -21,7 +21,6 @@ function MyProfile() {
   const [allTransaction, setAllTransaction] = useState<any>();
   const [loading, setLoading] = useState<any>(true);
 
-  // const { userId } = useParams();
   const { userInfo } = useContext(UserId) as any;
 
   const fetchUserDetails = useCallback(async () => {
@@ -48,7 +47,7 @@ function MyProfile() {
       console.log("Error while fetching users");
       console.error(err);
     }
-  }, []);
+  }, [userInfo.userId]);
 
   const fetchAllTransactions = useCallback(async () => {
     try {

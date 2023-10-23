@@ -15,18 +15,14 @@ interface User {
 }
 
 export default function SendPage() {
-  const [selectedOption, setSelectedOption] = useState<string>("");
+  const [selectedOption, setSelectedOption] = useState<string>("Tenacious");
   const [celebrationMoment, setCelebrationMoment] = useState<string>("");
   const [user, setUser] = useState({} as any);
 
   const { id } = useParams();
-  const { userInfo, userDetials } = useContext(UserId) as any;
+  const { userInfo } = useContext(UserId) as any;
 
   const sendCoins = async () => {
-    if (userInfo.current_coins < 0) {
-      return;
-    }
-
     try {
       const response = await fetch(
         `${process.env.REACT_APP_API_URL}/make-transaction`,

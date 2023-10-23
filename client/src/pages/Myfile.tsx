@@ -23,6 +23,26 @@ const Myfile = () => {
     navigator(`/my-page/${userId}`);
   };
 
+  const resetDate = useCallback(async () => {
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/reset-coins`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response) {
+        console.log("Successfully reset the date");
+      }
+    } catch (err) {
+      console.log("Error while resetting the date");
+      console.error(err);
+    }
+  }, []);
+
   const fetchUserDetails = useCallback(async () => {
     try {
       const response: any = await fetch(
@@ -40,6 +60,14 @@ const Myfile = () => {
       if (!response.ok) throw new Error("Error while fetching users");
       if (response) {
         const jsonData = await response.json();
+
+        const reset_date = jsonData.reset_date;
+        let b = moment(moment().format("DD-MM-YYYY"), "DD-MM-YYYY");
+        let a = moment(reset_date, "DD-MM-YYYY");
+        const difference = b.diff(a, "months");
+        if (difference >= 1) {
+          await resetDate();
+        }
         setUserDetails(jsonData);
       }
     } catch (err) {

@@ -8,23 +8,25 @@ const getAllTransactions = async (req, res) => {
       return res.status(400).send("No one has done any transaction yet");
     }
 
-    const transactionDetails = allTransactionDetails.map(
-      ({
-        from_name,
-        to_name,
-        celebrating_value,
-        celebration_moment,
-        date,
-        image,
-      }) => ({
-        from_name,
-        to_name,
-        celebrating_value,
-        celebration_moment,
-        date,
-        image,
-      })
-    );
+    const transactionDetails = allTransactionDetails
+      .map(
+        ({
+          from_name,
+          to_name,
+          celebrating_value,
+          celebration_moment,
+          date,
+          image,
+        }) => ({
+          from_name,
+          to_name,
+          celebrating_value,
+          celebration_moment,
+          date,
+          image,
+        })
+      )
+      .slice(0, 4);
 
     res.send(transactionDetails);
   } catch (error) {

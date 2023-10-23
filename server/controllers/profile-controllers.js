@@ -23,6 +23,7 @@ const getUserDetails = async (req, res) => {
       holistic,
       inquisitive,
       celebrating,
+      reset_date,
     } = userData[0];
 
     res.status(200).json({
@@ -38,6 +39,7 @@ const getUserDetails = async (req, res) => {
       holistic,
       inquisitive,
       celebrating,
+      reset_date,
     });
   } catch (error) {
     res.status(500).json({ message: "Something went wrong" });

@@ -9,7 +9,7 @@ const styles = require("../styles/profile-coin.module.scss").default;
 // }
 
 function ProfileWithCoin({ userDetails }: any) {
-  const { name, current_coins } = userDetails;
+  const { name, total_coins } = userDetails;
 
   return (
     <>
@@ -25,7 +25,7 @@ function ProfileWithCoin({ userDetails }: any) {
               <img src={coin} alt="" />
             </div>
             <div className={styles["profile__content-coins-count"]}>
-              {current_coins}
+              {total_coins}
             </div>
           </div>
         </div>
