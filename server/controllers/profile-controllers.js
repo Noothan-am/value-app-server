@@ -18,10 +18,13 @@ const getUserDetails = async (req, res) => {
       resourceful,
       open_minded,
       problem_solving,
+      current_coins,
+      total_coins,
       holistic,
       inquisitive,
       celebrating,
     } = userData[0];
+
     res.status(200).json({
       name,
       coins,
@@ -29,6 +32,8 @@ const getUserDetails = async (req, res) => {
       tenacious,
       resourceful,
       open_minded,
+      current_coins,
+      total_coins,
       problem_solving,
       holistic,
       inquisitive,
@@ -50,7 +55,8 @@ const getAllUsersDetails = async (req, res) => {
       return {
         user_id: user.user_id,
         name: user.name,
-        coins: user.coins,
+        current_coins: user.current_coins,
+        total_coins: user.total_coins,
       };
     });
     res.status(200).json(users);
@@ -77,5 +83,7 @@ const getLeaderboard = async (req, res) => {
     console.log(error);
   }
 };
+
+const resetProfileCoins = async (req, res) => {};
 
 module.exports = { getUserDetails, getAllUsersDetails, getLeaderboard };

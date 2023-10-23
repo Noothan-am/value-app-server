@@ -33,7 +33,7 @@ function LeaderBoardWithCoin({ userDetails }: any) {
           .map((eachData: any) => {
             return eachData;
           })
-          .sort((a: any, b: any) => b.coins - a.coins);
+          .sort((a: any, b: any) => b.total_coins - a.total_coins);
         setLeaderboardUsers([data[0], data[1]]);
       }
     } catch (err) {
@@ -58,7 +58,9 @@ function LeaderBoardWithCoin({ userDetails }: any) {
         <div className={style["profile__firstpart-coins"]}>
           <div className={style["coins__content"]}>
             <img src={coinImage} alt="" />
-            <div className={style["total__coins"]}>{userDetails.coins}</div>
+            <div className={style["total__coins"]}>
+              {userDetails.total_coins}
+            </div>
           </div>
           <div className={style["coins_text"]}>My Coins</div>
         </div>

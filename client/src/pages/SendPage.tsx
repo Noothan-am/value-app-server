@@ -20,9 +20,13 @@ export default function SendPage() {
   const [user, setUser] = useState({} as any);
 
   const { id } = useParams();
-  const { userInfo } = useContext(UserId) as any;
+  const { userInfo, userDetials } = useContext(UserId) as any;
 
   const sendCoins = async () => {
+    if (userInfo.current_coins < 0) {
+      return;
+    }
+
     try {
       const response = await fetch(
         `${process.env.REACT_APP_API_URL}/make-transaction`,
@@ -36,16 +40,15 @@ export default function SendPage() {
             from_user_id: userInfo.userId,
             to: user.name,
             to_user_id: id,
-            celebration_moment: selectedOption,
+            celebration_moment: selectedOption.toLocaleLowerCase(),
             celebrating_value: celebrationMoment,
             image: "ram",
           }),
         }
       );
       if (response) {
-        const jsonData = await response.json();
-        console.log(jsonData);
         console.log("send coins succesfully");
+        alert("Coins sent successfully");
       }
     } catch (err) {
       console.log("Error while sending coins");
@@ -114,7 +117,10 @@ export default function SendPage() {
             <label>Select the value you’re celebrating:</label>
             <select
               id="cars"
-              onChange={(e) => setSelectedOption(e.target.value)}
+              onChange={(e) => {
+                setSelectedOption(e.target.value);
+                console.log(e.target.value);
+              }}
               value={selectedOption}
             >
               <option className="options" value="Tenacious">
@@ -123,10 +129,10 @@ export default function SendPage() {
               <option className="options" value="Resourceful">
                 Resourceful
               </option>
-              <option className="options" value="Open-Minded">
-                Open-Minded
+              <option className="options" value="Open_Minded">
+                Open Minded
               </option>
-              <option className="options" value="Problem Solving">
+              <option className="options" value="Problem_Solving">
                 Problem Solving
               </option>
               <option className="options" value="Holistic">

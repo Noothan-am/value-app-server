@@ -1,4 +1,5 @@
 const transactionSchema = require("../model/TransactionSchema");
+const userInfoSchema = require("../model/UserInfoSchema");
 
 const getAllTransactions = async (req, res) => {
   try {
@@ -32,6 +33,32 @@ const getAllTransactions = async (req, res) => {
   }
 };
 
+const updateProfile = async (fromId, toId, celebration_moment) => {
+  try {
+    console.log(fromId, toId);
+    await userInfoSchema.updateOne({ user_id: fromId }, [
+      {
+        $set: {
+          current_coins: { $subtract: ["$current_coins", 1] },
+        },
+      },
+    ]);
+
+    await userInfoSchema.updateOne({ user_id: toId }, [
+      {
+        $set: {
+          total_coins: { $add: ["$total_coins", 1] },
+          [celebration_moment.toLocaleLowerCase()]: {
+            $add: [`$${celebration_moment}`, 1],
+          },
+        },
+      },
+    ]);
+  } catch (error) {
+    console.log("error while updating profile", error);
+  }
+};
+
 const makeTransaction = async (req, res) => {
   try {
     const {
@@ -43,6 +70,7 @@ const makeTransaction = async (req, res) => {
       to_user_id,
       from_user_id,
     } = req.body;
+
     if (
       !from ||
       !to ||
@@ -52,7 +80,6 @@ const makeTransaction = async (req, res) => {
       !from_user_id ||
       !to_user_id
     ) {
-      console.log(from, to_user_id);
       return res.status(400).send("Please fill all the fields");
     }
     const transaction = await transactionSchema.create({
@@ -64,6 +91,9 @@ const makeTransaction = async (req, res) => {
       celebration_moment,
       image,
     });
+
+    await updateProfile(from_user_id, to_user_id, celebration_moment);
+
     res.status(200).send("Transaction Successful");
   } catch (error) {
     console.error(error);

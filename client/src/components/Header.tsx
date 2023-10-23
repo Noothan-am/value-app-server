@@ -1,14 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useContext } from "react";
 import { IoIosArrowBack } from "react-icons/io";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { UserId } from "../context/UserIdContext";
+
 const styles = require("../styles/header.module.css").default;
 
 function Header({ content }: any) {
   const navigate = useNavigate();
-  const { userId } = useParams();
+  const { userInfo } = useContext(UserId) as any;
 
   const handleHeaderClick = () => {
-    navigate(`/my-profile/${userId}`);
+    console.log(userInfo.userId);
+
+    navigate(`/my-profile/${userInfo.userId}`);
   };
 
   return (
@@ -24,17 +28,17 @@ function Header({ content }: any) {
           >
             <div>
               <IoIosArrowBack
-                onClick={() => navigate("/home")}
+                onClick={handleHeaderClick}
                 className={styles["header__container-goback-sidearrow"]}
               />
             </div>
             <div>
-              <a
-                href="/home"
+              <div
+                onClick={handleHeaderClick}
                 className={styles["header__container-goback-text"]}
               >
                 {content}
-              </a>
+              </div>
             </div>
           </div>
         </div>

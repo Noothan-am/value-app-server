@@ -40,6 +40,7 @@ const Myfile = () => {
       if (!response.ok) throw new Error("Error while fetching users");
       if (response) {
         const jsonData = await response.json();
+        console.log(jsonData);
         setUserDetails(jsonData);
       }
     } catch (err) {
@@ -106,7 +107,7 @@ const Myfile = () => {
           </div>
           <div className={styles.myfile__downhalf__heading__rigthpart}>
             <h2>Available coins</h2>
-            <span>{userDetails.coins}</span>
+            <span>{userDetails.current_coins}</span>
           </div>
         </div>
         <img src={coinsGroup} alt="Become logo" />

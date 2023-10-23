@@ -20,7 +20,7 @@ function Transaction({ eachTransaction }: any) {
             <div className={style["transaction__content-amount"]}>+1 Coin</div>
           </div>
           <div className={style["transaction__content-description"]}>
-            {eachTransaction.celebration_moment}
+            {eachTransaction.celebrating_value}
           </div>
         </div>
       </div>

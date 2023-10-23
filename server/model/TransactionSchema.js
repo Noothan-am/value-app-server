@@ -10,7 +10,7 @@ const transactionInfoSchema = new Schema({
     required: true,
   },
   from_user_id: {
-    type: "string",
+    type: String,
     required: true,
   },
   to: {
@@ -18,7 +18,7 @@ const transactionInfoSchema = new Schema({
     required: true,
   },
   to_user_id: {
-    type: "string",
+    type: String,
     required: true,
   },
   celebrating_value: {

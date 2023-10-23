@@ -1,4 +1,5 @@
 const userInfo = require("../model/UserInfoSchema");
+const TransactionSchema = require("../model/TransactionSchema");
 
 const userLogin = async (req, res) => {
   try {
@@ -18,9 +19,23 @@ const userLogin = async (req, res) => {
   }
 };
 
-const get = (req, res) => {
-  console.log("GET");
-  res.send({ message: "this is get" });
+const getLogin = async (req, res) => {
+  // await userInfo.create({
+  //   user_id: "7367663d4c704caca10f5b0149071609",
+  //   image: "string",
+  //   name: "Ram",
+  //   email: "ram@gmail.com",
+  //   password: "ram",
+  //   current_coins: 5,
+  //   total_coins: 35,
+  //   tenacious: 1,
+  //   resourceful: 1,
+  //   open_minded: 3,
+  //   problem_solving: 4,
+  //   holistic: 0,
+  //   inquisitive: 50,
+  //   celebrating: 7,
+  // });
 };
 
-module.exports = { userLogin, get };
+module.exports = { userLogin, getLogin };
