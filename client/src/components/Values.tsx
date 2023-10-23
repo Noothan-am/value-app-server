@@ -9,7 +9,13 @@ function Values({ valuesInfo, userDetails }: any) {
   return (
     <>
       <div className={style["values"]}>
-        <div className={style["values__content"]}>{valuesInfo}</div>
+        <div className={style["values__content"]}>
+          {valuesInfo === "Open_Minded"
+            ? "Open-Minded"
+            : valuesInfo === "Problem_Solving"
+            ? "Problem-Solving"
+            : valuesInfo}
+        </div>
         <div className={style["values__content-right"]}>
           <div className={style["values__content-coin"]}>
             <img src={coinImage} alt="" />
