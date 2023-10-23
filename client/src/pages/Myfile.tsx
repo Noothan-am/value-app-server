@@ -40,7 +40,6 @@ const Myfile = () => {
       if (!response.ok) throw new Error("Error while fetching users");
       if (response) {
         const jsonData = await response.json();
-        console.log(jsonData);
         setUserDetails(jsonData);
       }
     } catch (err) {

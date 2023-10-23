@@ -20,22 +20,24 @@ const userLogin = async (req, res) => {
 };
 
 const getLogin = async (req, res) => {
-  // await userInfo.create({
-  //   user_id: "7367663d4c704caca10f5b0149071609",
-  //   image: "string",
-  //   name: "Ram",
-  //   email: "ram@gmail.com",
-  //   password: "ram",
-  //   current_coins: 5,
-  //   total_coins: 35,
-  //   tenacious: 1,
-  //   resourceful: 1,
-  //   open_minded: 3,
-  //   problem_solving: 4,
-  //   holistic: 0,
-  //   inquisitive: 50,
-  //   celebrating: 7,
-  // });
+  //   await userInfo.create({
+  //     user_id: "m7p006fa6d4c704caca1398431490716",
+  //     image: "string",
+  //     name: "danish",
+  //     email: "danish@gmail.com",
+  //     password: "danish",
+  //     current_coins: 5,
+  //     total_coins: 23,
+  //     tenacious: 1,
+  //     resourceful: 1,
+  //     open_minded: 3,
+  //     problem_solving: 4,
+  //     holistic: 0,
+  //     inquisitive: 50,
+  //     celebrating: 7,
+  //     reset_date: "18-09-2023",
+  //   });
+  //   res.send("ok");
 };
 
 module.exports = { userLogin, getLogin };

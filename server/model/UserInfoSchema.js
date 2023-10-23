@@ -56,6 +56,10 @@ const userInfoSchema = new Schema({
     type: Number,
     required: true,
   },
+  reset_date: {
+    type: String,
+    required: true,
+  },
 });
 
 const UserSchema = model("UserInfoSchema", userInfoSchema);
