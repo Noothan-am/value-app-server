@@ -5,10 +5,12 @@ import Button from "../components/Button";
 import { UserId } from "../context/UserIdContext";
 import { ToastContainer, Zoom, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loading from "./Loading";
 const styles = require("../styles/login.module.css").default;
 const bgimage = require("../assets/images/Loading-background.png");
 
 const Login = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
@@ -23,7 +25,13 @@ const Login = () => {
 
     if (!inputEmail || !inputPassword) {
       toast.warn("please fill all details", {
-        position: toast.POSITION.TOP_CENTER,
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
       });
       console.log("empty fields found");
       return;
@@ -38,8 +46,14 @@ const Login = () => {
         body: JSON.stringify({ email: inputEmail, password: inputPassword }),
       });
       if (result.ok) {
-        toast.error("login succesfull", {
-          position: toast.POSITION.TOP_CENTER,
+        toast.success("Login Succesfull", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
         });
         const data = await result.json();
         setUserInfo({
@@ -49,20 +63,43 @@ const Login = () => {
         navigate(`/my-profile/${data.userId}`);
       } else {
         toast.error("please enter valid credentials", {
-          position: toast.POSITION.TOP_CENTER,
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
         });
       }
     } catch (error) {
       toast.error("Internal server error!!", {
-        position: toast.POSITION.TOP_CENTER,
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
       });
       console.log("error while login: ", error);
     }
   };
 
+  if (isLoading) return <Loading />;
+
   return (
     <>
-      <ToastContainer autoClose={2000} transition={Zoom} />
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        draggable
+        theme="light"
+      />
       <div className={styles["login__background-image"]}>
         <img src={bgimage} alt="" />
       </div>

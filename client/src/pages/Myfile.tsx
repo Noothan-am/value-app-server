@@ -10,7 +10,7 @@ const coinsGroup = require("../assets/images/coins-group.png");
 
 const Myfile = () => {
   const [userDetails, setUserDetails] = useState<any>();
-  const [loading, setLoading] = useState<any>(true);
+  const [isLoading, setIsLoading] = useState<any>(true);
   const { userId } = useParams();
   const navigator = useNavigate();
 
@@ -80,19 +80,14 @@ const Myfile = () => {
     fetchUserDetails()
       .then(() => {
         console.log("User details fetched");
-        setLoading(false);
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log("error while fetching the", err);
       });
   }, [fetchUserDetails]);
 
-  if (loading)
-    return (
-      <>
-        <Loading />
-      </>
-    );
+  if (isLoading) return <Loading />;
 
   return (
     <div className={styles.myfile}>

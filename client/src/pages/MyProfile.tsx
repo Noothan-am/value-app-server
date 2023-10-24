@@ -19,7 +19,7 @@ interface eachTransactionValue {
 function MyProfile() {
   const [userDetails, setUserDetails] = useState<any>();
   const [allTransaction, setAllTransaction] = useState<any>();
-  const [loading, setLoading] = useState<any>(true);
+  const [isLoading, setIsLoading] = useState<any>(true);
 
   const { userInfo } = useContext(UserId) as any;
 
@@ -79,15 +79,15 @@ function MyProfile() {
         fetchUserDetails()
           .then(() => {
             "succesfully fetched user details";
-            setLoading(false);
+            setIsLoading(false);
           })
           .catch((err) => {
             console.log("error while fetching the", err);
           });
       })
-      .catch((err) =>
-        console.log("error while fetching all transactions", err)
-      );
+      .catch((err) => {
+        console.log("error while fetching all transactions", err);
+      });
   }, [fetchAllTransactions, fetchUserDetails]);
 
   const valueInfo = [
@@ -100,12 +100,7 @@ function MyProfile() {
     "Celebrating",
   ];
 
-  if (loading)
-    return (
-      <>
-        <Loading />
-      </>
-    );
+  if (isLoading) return <Loading />;
 
   return (
     <>

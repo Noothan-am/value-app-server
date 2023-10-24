@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ProfileWithCoin from "../components/ProfileWithCoin";
 import Header from "../components/Header";
 import { useNavigate } from "react-router-dom";
+import { UserId } from "../context/UserIdContext";
+import Loading from "./Loading";
 const styles = require("../styles/profile.module.css").default;
 
 function Profile() {
   const [allUsers, setAllUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState<any>(true);
 
   const navigation = useNavigate();
+  const { userInfo } = useContext(UserId) as any;
 
   const fetchAllUsers = async () => {
     try {
@@ -23,7 +27,12 @@ function Profile() {
       if (!response.ok) throw new Error("Error while fetching users");
       if (response) {
         const jsonData = await response.json();
-        setAllUsers(jsonData);
+        console.log("id", userInfo.userId);
+        const result = await jsonData.filter((eachUser: any) => {
+          return eachUser.user_id !== userInfo.userId;
+        });
+        console.log(JSON.stringify(result));
+        setAllUsers(result);
       }
     } catch (err) {
       console.log("Error while fetching users");
@@ -39,11 +48,14 @@ function Profile() {
     fetchAllUsers()
       .then(() => {
         console.log("Fetched all users successfully");
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+
+  if (isLoading) return <Loading />;
 
   return (
     <>
