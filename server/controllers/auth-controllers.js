@@ -13,7 +13,13 @@ const userLogin = async (req, res) => {
     if (!(password === user.password)) {
       return res.status(401).json({ message: "invalid credentials" });
     }
-    return res.status(200).send({ userId: user.user_id, userName: user.name });
+    return res
+      .status(200)
+      .send({
+        userId: user.user_id,
+        userName: user.name,
+        coins: user.current_coins,
+      });
   } catch (error) {
     return res.status(500).json({ message: error });
   }

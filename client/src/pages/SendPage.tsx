@@ -24,10 +24,23 @@ export default function SendPage() {
   const [isLoading, setIsLoading] = useState<any>(true);
 
   const { id } = useParams();
-  const { userInfo } = useContext(UserId) as any;
+  const { userInfo, setUserInfo } = useContext(UserId) as any;
 
   const sendCoins = async () => {
-    setIsLoading(true);
+    setIsLoading(false);
+    console.log("sendCoins", userInfo);
+    if (userInfo.coins <= 0) {
+      toast.warn("you don't have enough coins", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      return;
+    }
     try {
       const response = await fetch(
         `${process.env.REACT_APP_API_URL}/make-transaction`,
@@ -48,8 +61,8 @@ export default function SendPage() {
         }
       );
       if (response.ok) {
+        setUserInfo({ ...userInfo, coins: userInfo.coins - 1 });
         setIsLoading(false);
-        console.log("coin sent succesfully");
         toast.success("send coins succesfully", {
           position: "top-right",
           autoClose: 2000,
@@ -60,6 +73,7 @@ export default function SendPage() {
           theme: "dark",
         });
       } else {
+        setIsLoading(false);
         toast.error("internel server error", {
           position: "top-right",
           autoClose: 2000,

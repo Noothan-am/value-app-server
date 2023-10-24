@@ -10,7 +10,6 @@ const styles = require("../styles/login.module.css").default;
 const bgimage = require("../assets/images/Loading-background.png");
 
 const Login = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
@@ -59,6 +58,7 @@ const Login = () => {
         setUserInfo({
           userId: data.userId,
           userName: data.userName,
+          coins: data.coins,
         });
         navigate(`/my-profile/${data.userId}`);
       } else {
@@ -85,8 +85,6 @@ const Login = () => {
       console.log("error while login: ", error);
     }
   };
-
-  if (isLoading) return <Loading />;
 
   return (
     <>

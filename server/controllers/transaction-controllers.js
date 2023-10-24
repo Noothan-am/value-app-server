@@ -26,8 +26,8 @@ const getAllTransactions = async (req, res) => {
           image,
         })
       )
+      .reverse()
       .slice(0, 4);
-
     res.send(transactionDetails);
   } catch (error) {
     console.error(error);

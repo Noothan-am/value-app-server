@@ -10,8 +10,6 @@ function Header({ content }: any) {
   const { userInfo } = useContext(UserId) as any;
 
   const handleHeaderClick = () => {
-    console.log(userInfo.userId);
-
     navigate(`/my-profile/${userInfo.userId}`);
   };
 
