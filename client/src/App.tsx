@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Loading from "./pages/Loading";
 import ErrorPage from "./pages/ErrorPage";
-import Profile from "./pages/Profile";
+import AllUsersPage from "./pages/AllUsersPage";
 import Myfile from "./pages/Myfile";
 import SendPage from "./pages/SendPage";
 import "./styles/global.style.css";
@@ -16,7 +16,7 @@ function App() {
       <Route path="/my-profile/:userId" element={<Myfile />} />
       <Route path="/loading" element={<Loading />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/profile" element={<Profile />} />
+      <Route path="/profile" element={<AllUsersPage />} />
       <Route path="/send/:id" element={<SendPage />} />
       <Route path="*" element={<ErrorPage />} />
       <Route path="/my-page/:userId" element={<MyProfile />} />
