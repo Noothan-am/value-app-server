@@ -1,5 +1,6 @@
+const moment = require("moment");
 const userSchema = require("../model/UserInfoSchema");
-
+const transactionSchema = require("../model/TransactionSchema");
 const getUserDetails = async (req, res) => {
   try {
     const { userId } = req.body;
@@ -86,6 +87,37 @@ const getLeaderboard = async (req, res) => {
   }
 };
 
-const resetProfileCoins = async (req, res) => {};
+const getValidUser = async (req, res) => {
+  try {
+    const { from_user_id, to_user_id } = req.body;
+    const allTransactionDetails = await transactionSchema.find({
+      from_user_id,
+      to_user_id,
+    });
+    if (!allTransactionDetails || allTransactionDetails.length === 0) {
+      return res.status(200).send({ isValidUser: true });
+    }
 
-module.exports = { getUserDetails, getAllUsersDetails, getLeaderboard };
+    let current_date = moment(moment().format("DD-MM-YYYY"), "DD-MM-YYYY");
+    allTransactionDetails.map(({ date }) => {
+      let date_to_check = moment(date, "DD-MM-YYYY");
+      const difference = current_date.diff(date_to_check, "months");
+      console.log(difference);
+      if (difference >= 1) {
+        return res.status(200).send({ isValidUser: true });
+      }
+    });
+
+    res.status(200).send({ isValidUser: false });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send("Internal server error");
+  }
+};
+
+module.exports = {
+  getUserDetails,
+  getAllUsersDetails,
+  getLeaderboard,
+  getValidUser,
+};

@@ -1,8 +1,9 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import moment from "moment";
 import LeaderBoardWithCoin from "../components/LeaderBoardWithCoin";
 import Loading from "./Loading";
 import { useNavigate, useParams } from "react-router-dom";
+import { UserId } from "../context/UserIdContext";
 const styles = require("../styles/myfile.module.css").default;
 const logoImage = require("../assets/images/Group 26943.png");
 const profileImage = require("../assets/images/profile-icon.png");
@@ -11,6 +12,8 @@ const coinsGroup = require("../assets/images/coins-group.png");
 const Myfile = () => {
   const [userDetails, setUserDetails] = useState<any>();
   const [isLoading, setIsLoading] = useState<any>(true);
+  const { userInfo, setUserInfo } = useContext(UserId) as any;
+
   const { userId } = useParams();
   const navigator = useNavigate();
 
@@ -36,6 +39,7 @@ const Myfile = () => {
       );
       if (response) {
         console.log("Successfully reset the date");
+        setUserInfo({ ...userInfo, coins: 5 });
       }
     } catch (err) {
       console.log("Error while resetting the date");
@@ -129,7 +133,7 @@ const Myfile = () => {
           </div>
           <div className={styles.myfile__downhalf__heading__rigthpart}>
             <h2>Available coins</h2>
-            <span>{userDetails.current_coins}</span>
+            <span>{userInfo.coins}</span>
           </div>
         </div>
         <img src={coinsGroup} alt="Become logo" />

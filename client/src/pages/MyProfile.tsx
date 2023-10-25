@@ -4,7 +4,7 @@ import Values from "../components/Values";
 import Transaction from "../components/Transaction";
 import LeaderBoardWithCoin from "../components/LeaderBoardWithCoin";
 import Loading from "./Loading";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { UserId } from "../context/UserIdContext";
 
 const style = require("../styles/myprofile.module.css").default;
@@ -40,7 +40,6 @@ function MyProfile() {
       if (!response.ok) throw new Error("Error while fetching users");
       if (response) {
         const jsonData = await response.json();
-        console.log(JSON.stringify(jsonData));
         setUserDetails(jsonData);
       }
     } catch (err) {
@@ -54,16 +53,18 @@ function MyProfile() {
       const response: any = await fetch(
         `${process.env.REACT_APP_API_URL}/get-transactions`,
         {
-          method: "GET",
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
+          body: JSON.stringify({
+            userId: userInfo.userId,
+          }),
         }
       );
       if (!response.ok) throw new Error("Error while fetching users");
       if (response) {
         const jsonData = await response.json();
-        console.log(jsonData);
         setAllTransaction(jsonData);
       }
     } catch (err) {
@@ -115,7 +116,7 @@ function MyProfile() {
 
         <div className={style["profile__secondpart"]}>
           <div className={style["profile__secondpart-values"]}>
-            <div className={style["profile__secondpart-title"]}>Values</div>
+            <div className={style["profile__secondpart-title"]}>VALUES</div>
             <div className={style["profile__secondpart-content"]}>
               {valueInfo.map((eachValue: string) => (
                 <Values valuesInfo={eachValue} userDetails={userDetails} />
@@ -127,16 +128,17 @@ function MyProfile() {
               TRANSACTION HISTORY
             </div>
             <div className={style["profile__secondpart-content"]}>
-              {allTransaction.map(
-                (eachTransaction: eachTransactionValue, index: number) => {
-                  return (
-                    <Transaction
-                      key={index}
-                      eachTransaction={eachTransaction}
-                    />
-                  );
-                }
-              )}
+              {allTransaction &&
+                allTransaction.map(
+                  (eachTransaction: eachTransactionValue, index: number) => {
+                    return (
+                      <Transaction
+                        key={index}
+                        eachTransaction={eachTransaction}
+                      />
+                    );
+                  }
+                )}
             </div>
           </div>
         </div>

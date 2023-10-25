@@ -3,31 +3,43 @@ const userInfoSchema = require("../model/UserInfoSchema");
 
 const getAllTransactions = async (req, res) => {
   try {
-    const allTransactionDetails = await transactionSchema.find({});
+    const { userId } = req.body;
+    const allTransactionDetails = await transactionSchema.find({
+      to_user_id: userId,
+    });
     if (!allTransactionDetails) {
       return res.status(400).send("No one has done any transaction yet");
     }
 
-    const transactionDetails = allTransactionDetails
+    let transactionDetails = allTransactionDetails
       .map(
         ({
-          from_name,
-          to_name,
+          from,
+          to,
+          to_user_id,
           celebrating_value,
           celebration_moment,
           date,
           image,
         }) => ({
-          from_name,
-          to_name,
+          // if (to_user_id === userId) {
+          //   return {
+          from,
+          to,
+          to_user_id,
           celebrating_value,
           celebration_moment,
           date,
           image,
+          // };
         })
+        // }
       )
-      .reverse()
-      .slice(0, 4);
+      .reverse();
+
+    if (transactionDetails.length > 3) {
+      transactionDetails = transactionDetails.slice(0, 4);
+    }
     res.send(transactionDetails);
   } catch (error) {
     console.error(error);

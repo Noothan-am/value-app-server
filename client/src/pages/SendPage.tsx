@@ -26,9 +26,35 @@ export default function SendPage() {
   const { id } = useParams();
   const { userInfo, setUserInfo } = useContext(UserId) as any;
 
+  const findUserValid = async () => {
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/valid-user`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            from: userInfo.userName,
+            from_user_id: userInfo.userId,
+            to: user.name,
+            to_user_id: id,
+          }),
+        }
+      );
+      if (response.ok) {
+        const result = await response.json();
+        return result.isValidUser;
+      }
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  };
+
   const sendCoins = async () => {
     setIsLoading(false);
-    console.log("sendCoins", userInfo);
     if (userInfo.coins <= 0) {
       toast.warn("you don't have enough coins", {
         position: "top-right",
@@ -42,6 +68,19 @@ export default function SendPage() {
       return;
     }
     try {
+      const isValidUser = await findUserValid();
+      if (!isValidUser) {
+        toast.warn("you cannot send more than 1 coin to same user", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+        return;
+      }
       const response = await fetch(
         `${process.env.REACT_APP_API_URL}/make-transaction`,
         {
