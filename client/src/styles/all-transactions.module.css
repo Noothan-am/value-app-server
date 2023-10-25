@@ -1,0 +1,23 @@
+.transaction {
+  background-color: blue;
+  height: 100vh;
+  color: white;
+}
+
+.profile__secondpart-transaction {
+  /* margin-left: 1vw;
+  width: 86%;
+  margin: auto; */
+  /* width: 50%; */
+  padding: 3rem 4rem;
+}
+
+.profile__secondpart-title {
+  font-weight: 600;
+  color: rgba(255, 255, 255);
+  margin-bottom: 1.5rem;
+}
+
+.profile__secondpart-content {
+  width: 100%;
+}

@@ -1,7 +1,7 @@
 const transactionSchema = require("../model/TransactionSchema");
 const userInfoSchema = require("../model/UserInfoSchema");
 
-const getAllTransactions = async (req, res) => {
+const getUserTransactions = async (req, res) => {
   try {
     const { userId } = req.body;
     const allTransactionDetails = await transactionSchema.find({
@@ -22,8 +22,6 @@ const getAllTransactions = async (req, res) => {
           date,
           image,
         }) => ({
-          // if (to_user_id === userId) {
-          //   return {
           from,
           to,
           to_user_id,
@@ -31,14 +29,12 @@ const getAllTransactions = async (req, res) => {
           celebration_moment,
           date,
           image,
-          // };
         })
-        // }
       )
       .reverse();
 
-    if (transactionDetails.length > 3) {
-      transactionDetails = transactionDetails.slice(0, 4);
+    if (transactionDetails.length > 4) {
+      transactionDetails = transactionDetails.slice(0, 5);
     }
     res.send(transactionDetails);
   } catch (error) {
@@ -115,4 +111,4 @@ const makeTransaction = async (req, res) => {
   }
 };
 
-module.exports = { getAllTransactions, makeTransaction };
+module.exports = { getUserTransactions, makeTransaction };

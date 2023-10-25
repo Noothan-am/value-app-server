@@ -12,6 +12,7 @@
 .leaderboard-single-person {
   display: flex;
   flex-direction: row;
+  /* margin-left: 1rem; */
 }
 
 .profile__firstpart-coins {
@@ -59,6 +60,11 @@
   text-align: center;
   margin-bottom: 1rem;
   font-weight: 400;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 0px;
 }
 
 .leaderboard-name {
@@ -93,7 +99,6 @@
   .total__coins {
     font-size: 69px;
   }
-
   .coins_text {
     font-size: 20px;
   }
@@ -115,6 +120,22 @@
   .coins__content img {
     height: 4.5rem;
   }
+}
+
+.leaderboard__light_button {
+  padding: 9px;
+  background-color: #4557dc;
+  color: rgba(255, 255, 255, 1);
+  border: none;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  width: 95px;
+  margin-left: -1.2rem;
+}
+
+.leaderboard__light_button:hover {
+  cursor: pointer;
+  background-color: #4d5fe7;
 }
 
 @media screen and (max-width: 479px) {

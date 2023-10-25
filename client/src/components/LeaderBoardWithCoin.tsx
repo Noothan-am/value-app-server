@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from "react";
+import Leaderboard from "./LeaderBoard";
+import { useNavigate } from "react-router-dom";
 const coinImage = require("../assets/svg/big-coin.svg").default;
 const style = require("../styles/leaderboard.module.css").default;
 
-function Leaderboard({ user, count }: any) {
-  return (
-    <>
-      <div className={style["leaderboard-single-person"]}>
-        <div className={style["leaderboard-number"]}>{count}</div>
-        <div className={style["leaderboard-name"]}>{user.name}</div>
-      </div>
-    </>
-  );
-}
-
 function LeaderBoardWithCoin({ userDetails }: any) {
-  const [leaderboardUsers, setLeaderboardUsers] = useState<any>([]);
+  const [topLeaderboardUsers, setTopLeaderboardUsers] = useState<any>([]);
+
+  const navigation = useNavigate();
+
+  const handleLeaderButtonClick = () => {
+    navigation("/leaderboard");
+  };
+
   const fetchAllUserDetails = async () => {
     try {
       const response: any = await fetch(
@@ -34,7 +32,7 @@ function LeaderBoardWithCoin({ userDetails }: any) {
             return eachData;
           })
           .sort((a: any, b: any) => b.total_coins - a.total_coins);
-        setLeaderboardUsers([data[0], data[1]]);
+        setTopLeaderboardUsers([data[0], data[1]]);
       }
     } catch (err) {
       console.log("Error while fetching users");
@@ -67,12 +65,19 @@ function LeaderBoardWithCoin({ userDetails }: any) {
         <div className={style["profile__firstpart-leaderboard"]}>
           <div className={style["leaderboard-heading"]}>LEADERBOARD</div>
           <div className={style["leaderboard-members"]}>
-            {leaderboardUsers.map((eachUser: any, index: number) => {
-              return (
-                <Leaderboard user={eachUser} key={index} count={index + 1} />
-              );
-            })}
+            {topLeaderboardUsers &&
+              topLeaderboardUsers.map((eachUser: any, index: number) => {
+                return (
+                  <Leaderboard user={eachUser} key={index} count={index + 1} />
+                );
+              })}
           </div>
+          <button
+            onClick={handleLeaderButtonClick}
+            className={style["leaderboard__light_button"]}
+          >
+            Show More
+          </button>
         </div>
       </div>
     </>

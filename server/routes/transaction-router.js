@@ -1,10 +1,10 @@
 const router = require("../utils/router-instance");
 const {
-  getAllTransactions,
+  getUserTransactions,
   makeTransaction,
 } = require("../controllers/transaction-controllers");
 
-router.post("/get-transactions", getAllTransactions);
+router.post("/get-transactions", getUserTransactions);
 router.post("/make-transaction", makeTransaction);
 
 module.exports = router;

@@ -4,6 +4,7 @@ import LeaderBoardWithCoin from "../components/LeaderBoardWithCoin";
 import Loading from "./Loading";
 import { useNavigate, useParams } from "react-router-dom";
 import { UserId } from "../context/UserIdContext";
+
 const styles = require("../styles/myfile.module.css").default;
 const logoImage = require("../assets/images/Group 26943.png");
 const profileImage = require("../assets/images/profile-icon.png");
@@ -78,7 +79,7 @@ const Myfile = () => {
       console.log("Error while fetching users");
       console.error(err);
     }
-  }, [userId]);
+  }, [userId, resetDate]);
 
   useEffect(() => {
     fetchUserDetails()
