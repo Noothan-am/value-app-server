@@ -54,7 +54,36 @@ export default function SendPage() {
     }
   };
 
+  const handleOnChangeForTextArea = (e: any) => {
+    const userInput = e.target.value;
+    if (userInput.length <= 300) {
+      setCelebrationMoment(userInput);
+    } else {
+      toast.error("charecter limit exceeded", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
+  };
+
   const sendCoins = async () => {
+    if (celebrationMoment.length <= 75) {
+      toast.warn("minimum charechter limit is 70", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      return;
+    }
     setIsLoading(false);
     if (userInfo.coins <= 0) {
       toast.warn("you don't have enough coins", {
@@ -198,7 +227,6 @@ export default function SendPage() {
               </div>
             </div>
           </div>
-
           <div className={styles["sendPage__content-input"]}>
             <div className={styles["sendPage__content-radio"]}>
               <label>Select the value you’re celebrating:</label>
@@ -234,11 +262,11 @@ export default function SendPage() {
               </select>
             </div>
             <div className={styles["sendPage__content-text"]}>
-              <label htmlFor="">Share the moment of Celebration:</label>
+              <label htmlFor="">{`Share the moment of Celebration: -- max-charecter ${celebrationMoment.length}`}</label>
               <textarea
                 name="Text1"
                 cols={60}
-                onChange={(e) => setCelebrationMoment(e.target.value)}
+                onChange={(e) => handleOnChangeForTextArea(e)}
                 value={celebrationMoment}
                 placeholder="Type the reason..."
                 rows={8}

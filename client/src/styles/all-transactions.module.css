@@ -1,6 +1,7 @@
 .all-transaction {
   background-color: #0c1d87;
   color: white;
+  min-height: 100vh;
 }
 
 .profile__secondpart-transaction {
