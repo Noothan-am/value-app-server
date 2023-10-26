@@ -1,7 +1,7 @@
 import React from "react";
 const coin = require("../assets/svg/coin.svg").default;
 const profile = require("../assets/svg/profile.svg").default;
-const styles = require("../styles/profile-coin.module.scss").default;
+const styles = require("../styles/profile-coin.module.css").default;
 
 // interface UserDetails {
 //   name: string;

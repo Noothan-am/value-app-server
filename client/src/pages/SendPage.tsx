@@ -4,7 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Header from "../components/Header";
 import ProfileWithCoin from "../components/ProfileWithCoin";
 import Button from "../components/Button";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { UserId } from "../context/UserIdContext";
 import Loading from "./Loading";
 
@@ -25,6 +25,7 @@ export default function SendPage() {
 
   const { id } = useParams();
   const { userInfo, setUserInfo } = useContext(UserId) as any;
+  const navigator = useNavigate();
 
   const findUserValid = async () => {
     try {
@@ -111,6 +112,7 @@ export default function SendPage() {
           progress: undefined,
           theme: "dark",
         });
+        navigator(`/my-profile/${userInfo.userId}`);
       } else {
         setIsLoading(false);
         toast.error("internel server error", {

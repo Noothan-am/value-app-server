@@ -1,9 +1,8 @@
 import React from "react";
-import "../styles/loading.module.scss";
 const logo = require("../assets/images/Become-logo.png");
 const bgimg = require("../assets/images/Loading-background.png");
 const coins = require("../assets/images/coins.png");
-const styles = require("../styles/loading.module.scss").default;
+const styles = require("../styles/loading.module.css").default;
 
 function Loading() {
   return (
