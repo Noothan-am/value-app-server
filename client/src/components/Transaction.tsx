@@ -15,7 +15,11 @@ function Transaction({ eachTransaction }: any) {
           </div>
           <div className={style["transaction__content-header"]}>
             <div className={style["transaction__content-name"]}>
-              {eachTransaction.celebration_moment}
+              {eachTransaction.celebration_moment === "open_minded"
+                ? "open-minded"
+                : eachTransaction.celebration_moment === "problem_solving"
+                ? "problem-solving"
+                : eachTransaction.celebration_moment}
             </div>
             <div className={style["transaction__content-amount"]}>+1 Coin</div>
           </div>

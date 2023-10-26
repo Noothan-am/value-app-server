@@ -43,6 +43,42 @@ const getUserTransactions = async (req, res) => {
   }
 };
 
+const getAllTransactions = async (req, res) => {
+  try {
+    const allTransactionDetails = await transactionSchema.find({});
+    if (!allTransactionDetails) {
+      return res.status(400).send("No one has done any transaction yet");
+    }
+
+    let transactionDetails = allTransactionDetails
+      .map(
+        ({
+          from,
+          to,
+          to_user_id,
+          celebrating_value,
+          celebration_moment,
+          date,
+          image,
+        }) => ({
+          from,
+          to,
+          to_user_id,
+          celebrating_value,
+          celebration_moment,
+          date,
+          image,
+        })
+      )
+      .reverse();
+
+    res.status(200).send(transactionDetails);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send("Internal server error");
+  }
+};
+
 const updateProfile = async (fromId, toId, celebration_moment) => {
   try {
     console.log(fromId, toId);
@@ -111,4 +147,4 @@ const makeTransaction = async (req, res) => {
   }
 };
 
-module.exports = { getUserTransactions, makeTransaction };
+module.exports = { getUserTransactions, makeTransaction, getAllTransactions };

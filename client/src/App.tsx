@@ -10,6 +10,7 @@ import "./styles/global.style.css";
 import MyProfile from "./pages/MyProfile";
 import AllUsersLeaderBoard from "./pages/AllUsersLeaderBoard";
 import AllUserTransaction from "./pages/AllUserTransaction";
+import UserProfile from "./pages/UserProfile";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route path="/send/:id" element={<SendPage />} />
       <Route path="*" element={<ErrorPage />} />
       <Route path="/my-page/:userId" element={<MyProfile />} />
+      <Route path="/user/:userId" element={<UserProfile />} />
       <Route path="/leaderboard" element={<AllUsersLeaderBoard />} />
       <Route path="/transactions" element={<AllUserTransaction />} />
       <Route path="*" element={<ErrorPage />} />

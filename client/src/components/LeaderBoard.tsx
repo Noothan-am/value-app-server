@@ -2,10 +2,10 @@ import { useNavigate } from "react-router-dom";
 const style = require("../styles/leaderboard.module.css").default;
 
 export default function Leaderboard({ user, count }: any) {
-  const navigation = useNavigate();
+  const navigator = useNavigate();
 
   const handleOnclickLeaderboard = () => {
-    // navigation(`/all-transactions`);
+    navigator(`/user/${user.user_id}`);
   };
 
   return (

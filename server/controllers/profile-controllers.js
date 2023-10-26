@@ -76,11 +76,11 @@ const getLeaderboard = async (req, res) => {
       return res.status(400).json({ message: "no users" });
     }
 
-    const final = userData
+    const leaderboard = userData
       .map(({ name, coins }) => ({ name, coins }))
       .sort((a, b) => b.coins - a.coins);
 
-    res.status(200).json(final);
+    res.status(200).json(leaderboard);
   } catch (error) {
     res.status(500).json({ message: "Something went wrong" });
     console.log(error);

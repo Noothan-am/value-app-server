@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 const style = require("../styles/all-leaderboard.module.css").default;
 const coinImage = require("../assets/svg/coin.svg").default;
 
@@ -33,14 +34,24 @@ function AllUsersLeaderBoard() {
   };
 
   const Leaderboard = ({ eachLeaderBoardUser, count }: any) => {
+    const navigator = useNavigate();
+    const { user_id } = eachLeaderBoardUser;
+
+    const handleClickLeaderboard = () => {
+      navigator(`/user/${user_id}`);
+    };
+
     return (
       <>
         <div className={style["leaderboard"]}>
           <div className={style["values"]}>
             <div className={style["leaderboard-number"]}>{count}</div>
-            <div className={style["values__content"]}>
+            <button
+              onClick={handleClickLeaderboard}
+              className={style["values__content"]}
+            >
               {eachLeaderBoardUser.name}
-            </div>
+            </button>
             <div className={style["values__content-right"]}>
               <div className={style["values__content-coin"]}>
                 <img src={coinImage} alt="" />

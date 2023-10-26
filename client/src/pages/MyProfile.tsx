@@ -71,7 +71,7 @@ function MyProfile() {
       console.log("Error while fetching users");
       console.error(err);
     }
-  }, []);
+  }, [userInfo]);
 
   useEffect(() => {
     fetchAllTransactions()

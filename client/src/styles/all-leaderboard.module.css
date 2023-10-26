@@ -41,7 +41,7 @@
 }
 
 .leaderboard-name {
-  font-size: 26px;
+  font-size: 29px;
   margin-left: 1rem;
 }
 
@@ -49,14 +49,20 @@
   display: flex;
   align-items: center;
   width: 40%;
-  color: white;
   font-family: "Inter", sans-serif;
+  margin-bottom: 0.6rem;
 }
 
 .values__content {
   flex: 1;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 400;
+  border: none;
+  background: none;
+  color: white;
+  width: fit-content;
+  text-align: start;
+  cursor: pointer;
 }
 
 .values__content-right {
@@ -78,9 +84,17 @@
 }
 
 .values__content-right-value {
-  font-size: 14px;
+  /* font-size: 20px; */
 }
 
 .leaderboard-number {
   margin-right: 1rem;
+}
+
+.values__content-value {
+  font-size: 20px;
+}
+
+.values__content-coin img {
+  margin-top: 0.3rem;
 }

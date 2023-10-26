@@ -1,5 +1,6 @@
 .transaction {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   border-radius: 10px;
   padding: 10px;
@@ -17,9 +18,9 @@
 }
 
 .transaction__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  position: absolute;
+  margin-top: -1.6rem;
+  margin-left: 0.6rem;
 }
 
 .transaction__content {
@@ -89,5 +90,28 @@
     font-weight: 500;
     color: rgba(255, 255, 255, 0.674);
     line-height: 1.5;
+  }
+}
+@media screen and (min-width: 531px) and (max-width: 545px) {
+  .transaction__image img {
+    position: absolute;
+    margin-top: -1rem;
+    margin-left: 0.6rem;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 960px) {
+  .transaction__image img {
+    position: absolute;
+    margin-top: -1rem;
+    margin-left: 0.6rem;
+  }
+}
+
+@media screen and (min-width: 1320px) {
+  .transaction__image img {
+    position: absolute;
+    margin-top: -1rem;
+    margin-left: 0.6rem;
   }
 }

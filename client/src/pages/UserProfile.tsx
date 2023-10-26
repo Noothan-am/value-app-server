@@ -1,11 +1,10 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Header from "../components/Header";
 import Values from "../components/Values";
 import Transaction from "../components/Transaction";
 import LeaderBoardWithCoin from "../components/LeaderBoardWithCoin";
 import Loading from "./Loading";
-// import { useParams } from "react-router-dom";
-import { UserId } from "../context/UserIdContext";
+import { useParams } from "react-router-dom";
 
 const style = require("../styles/myprofile.module.css").default;
 
@@ -21,7 +20,7 @@ function MyProfile() {
   const [allTransaction, setAllTransaction] = useState<any>();
   const [isLoading, setIsLoading] = useState<any>(true);
 
-  const { userInfo } = useContext(UserId) as any;
+  const { userId } = useParams();
 
   const fetchUserDetails = useCallback(async () => {
     try {
@@ -33,7 +32,7 @@ function MyProfile() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            userId: userInfo.userId,
+            userId: userId,
           }),
         }
       );
@@ -46,7 +45,7 @@ function MyProfile() {
       console.log("Error while fetching users");
       console.error(err);
     }
-  }, [userInfo.userId]);
+  }, [userId]);
 
   const fetchAllTransactions = useCallback(async () => {
     try {
@@ -58,7 +57,7 @@ function MyProfile() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            userId: userInfo.userId,
+            userId: userId,
           }),
         }
       );
@@ -71,7 +70,7 @@ function MyProfile() {
       console.log("Error while fetching users");
       console.error(err);
     }
-  }, [userInfo]);
+  }, [userId]);
 
   useEffect(() => {
     fetchAllTransactions()
