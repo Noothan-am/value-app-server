@@ -29,6 +29,7 @@ export default function SendPage() {
 
   const findUserValid = async () => {
     try {
+      const value = selectedOption.toLocaleLowerCase();
       const response = await fetch(
         `${process.env.REACT_APP_API_URL}/valid-user`,
         {
@@ -37,10 +38,9 @@ export default function SendPage() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            from: userInfo.userName,
             from_user_id: userInfo.userId,
-            to: user.name,
             to_user_id: id,
+            value,
           }),
         }
       );
@@ -72,8 +72,8 @@ export default function SendPage() {
   };
 
   const sendCoins = async () => {
-    if (celebrationMoment.length <= 75) {
-      toast.warn("minimum charechter limit is 70", {
+    if (celebrationMoment.length <= 80) {
+      toast.warn("minimum charechter limit is 80", {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -100,7 +100,7 @@ export default function SendPage() {
     try {
       const isValidUser = await findUserValid();
       if (!isValidUser) {
-        toast.warn("you cannot send more than 1 coin to same user", {
+        toast.warn("you cannot send same value more than 1 time", {
           position: "top-right",
           autoClose: 2000,
           hideProgressBar: false,
@@ -111,6 +111,7 @@ export default function SendPage() {
         });
         return;
       }
+
       const response = await fetch(
         `${process.env.REACT_APP_API_URL}/make-transaction`,
         {

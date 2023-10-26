@@ -89,26 +89,31 @@ const getLeaderboard = async (req, res) => {
 
 const getValidUser = async (req, res) => {
   try {
-    const { from_user_id, to_user_id } = req.body;
+    const { from_user_id, to_user_id, value } = req.body;
     const allTransactionDetails = await transactionSchema.find({
       from_user_id,
       to_user_id,
+      celebration_moment: value,
     });
+
     if (!allTransactionDetails || allTransactionDetails.length === 0) {
       return res.status(200).send({ isValidUser: true });
     }
 
     let current_date = moment(moment().format("DD-MM-YYYY"), "DD-MM-YYYY");
+    let isValid = true;
     allTransactionDetails.map(({ date }) => {
       let date_to_check = moment(date, "DD-MM-YYYY");
       const difference = current_date.diff(date_to_check, "months");
-      console.log(difference);
-      if (difference >= 1) {
-        return res.status(200).send({ isValidUser: true });
+      if (difference <= 0) {
+        isValid = false;
       }
     });
-
-    res.status(200).send({ isValidUser: false });
+    if (isValid) {
+      return res.status(200).send({ isValidUser: true });
+    } else {
+      return res.status(200).send({ isValidUser: false });
+    }
   } catch (error) {
     console.error(error);
     return res.status(500).send("Internal server error");

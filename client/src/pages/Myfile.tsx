@@ -1,5 +1,7 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import moment from "moment";
+import { ToastContainer, Zoom, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import LeaderBoardWithCoin from "../components/LeaderBoardWithCoin";
 import Loading from "./Loading";
 import { useNavigate, useParams } from "react-router-dom";
@@ -19,6 +21,18 @@ const Myfile = () => {
   const navigator = useNavigate();
 
   const handleCelebrateClick = () => {
+    if (userInfo.coins <= 0) {
+      toast.warn("you don't have enough coins", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      return;
+    }
     navigator("/profile");
   };
 
@@ -95,59 +109,71 @@ const Myfile = () => {
   if (isLoading) return <Loading />;
 
   return (
-    <div className={styles.myfile}>
-      <div className={styles.myfile__tophalf}>
-        <div className={styles.myfile__tophalf__nav}>
-          <img
-            className={styles.myfile__tophalf__nav__left_image}
-            src={logoImage}
-            alt="Become logo"
-          />
-          <div
-            className={styles.myfile__tophalf__nav__right_image}
-            onClick={(e) => handleProflileClick(e)}
+    <>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        draggable
+        theme="light"
+      />
+      <div className={styles.myfile}>
+        <div className={styles.myfile__tophalf}>
+          <div className={styles.myfile__tophalf__nav}>
+            <img
+              className={styles.myfile__tophalf__nav__left_image}
+              src={logoImage}
+              alt="Become logo"
+            />
+            <div
+              className={styles.myfile__tophalf__nav__right_image}
+              onClick={(e) => handleProflileClick(e)}
+            >
+              <img src={profileImage} alt="profile-icon" />
+            </div>
+          </div>
+
+          <div className={styles["leaderboard"]}>
+            <LeaderBoardWithCoin userDetails={userDetails} />
+          </div>
+
+          <div className={styles.myfile__tophalf__main}>
+            <img
+              src={require("../assets/images/profile-icon.png")}
+              alt="profile-icon"
+            />
+            <h4>32 coins away to encash &gt;</h4>
+            <button type="submit" className={styles.myfile__light_button}>
+              Encash
+            </button>
+            <h5>Next Encashment Cycle: Q4 2023</h5>
+          </div>
+        </div>
+        <div className={styles.myfile__downhalf}>
+          <div className={styles.myfile__downhalf__heading}>
+            <div className={styles.myfile__downhalf__heading__date}>
+              <h3>{moment().format("DD MMM")}</h3>
+            </div>
+            <div className={styles.myfile__downhalf__heading__rigthpart}>
+              <h2>Available coins</h2>
+              <span>{userInfo.coins}</span>
+            </div>
+          </div>
+          <img src={coinsGroup} alt="Become logo" />
+          <button
+            type="submit"
+            onClick={handleCelebrateClick}
+            className={styles.myfile__dark_button}
           >
-            <img src={profileImage} alt="profile-icon" />
-          </div>
-        </div>
-
-        <div className={styles["leaderboard"]}>
-          <LeaderBoardWithCoin userDetails={userDetails} />
-        </div>
-
-        <div className={styles.myfile__tophalf__main}>
-          <img
-            src={require("../assets/images/profile-icon.png")}
-            alt="profile-icon"
-          />
-          <h4>32 coins away to encash &gt;</h4>
-          <button type="submit" className={styles.myfile__light_button}>
-            Encash
+            Celebrate Becoming
           </button>
-          <h5>Next Encashment Cycle: Q4 2023</h5>
+          <h4>You can gift 1 coin at a time</h4>
         </div>
       </div>
-      <div className={styles.myfile__downhalf}>
-        <div className={styles.myfile__downhalf__heading}>
-          <div className={styles.myfile__downhalf__heading__date}>
-            <h3>{moment().format("DD MMM")}</h3>
-          </div>
-          <div className={styles.myfile__downhalf__heading__rigthpart}>
-            <h2>Available coins</h2>
-            <span>{userInfo.coins}</span>
-          </div>
-        </div>
-        <img src={coinsGroup} alt="Become logo" />
-        <button
-          type="submit"
-          onClick={handleCelebrateClick}
-          className={styles.myfile__dark_button}
-        >
-          Celebrate Becoming
-        </button>
-        <h4>You can gift 1 coin at a time</h4>
-      </div>
-    </div>
+    </>
   );
 };
 
