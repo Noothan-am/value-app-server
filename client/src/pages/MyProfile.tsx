@@ -7,6 +7,7 @@ import Loading from "./Loading";
 // import { useParams } from "react-router-dom";
 import { UserId } from "../context/UserIdContext";
 import { useNavigate } from "react-router-dom";
+import Greeting from "../components/Greeting";
 
 const style = require("../styles/myprofile.module.css").default;
 
@@ -114,6 +115,10 @@ function MyProfile() {
       <div className={style["profile"]}>
         <div className={style["profile__header"]}>
           <Header content={"Profile"} />
+        </div>
+
+        <div className={style["profile__greeting"]}>
+          <Greeting show={true} name={userDetails.name} />
         </div>
 
         <div className={style["leaderboard"]}>

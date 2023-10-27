@@ -5,6 +5,7 @@ import Transaction from "../components/Transaction";
 import LeaderBoardWithCoin from "../components/LeaderBoardWithCoin";
 import Loading from "./Loading";
 import { useNavigate, useParams } from "react-router-dom";
+import Greeting from "../components/Greeting";
 
 const style = require("../styles/myprofile.module.css").default;
 
@@ -113,6 +114,10 @@ function MyProfile() {
       <div className={style["profile"]}>
         <div className={style["profile__header"]}>
           <Header content={"Leaderboard"} />
+        </div>
+
+        <div className={style["profile__greeting"]}>
+          <Greeting show={false} name={userDetails.name} />
         </div>
 
         <div className={style["leaderboard"]}>

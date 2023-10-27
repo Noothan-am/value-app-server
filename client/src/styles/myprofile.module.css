@@ -26,6 +26,13 @@
   margin-bottom: 1.5rem;
 }
 
+.profile__greeting {
+  display: flex;
+  width: 75%;
+  margin: auto;
+  margin-bottom: -1rem;
+}
+
 .profile__secondpart-title {
   font-weight: 600;
   color: rgba(255, 255, 255, 0.632);

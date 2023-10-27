@@ -1,0 +1,27 @@
+.profile__greeting img {
+  width: 80%;
+}
+
+.profile__greeting-greet,
+.profile__greeting-name {
+  font-family: "Inter", sans-serif;
+  margin-top: 9px;
+  margin-left: 6px;
+}
+.profile__greeting-greet {
+  font-weight: 700;
+}
+.profile__greeting-name {
+  margin-left: 2px;
+}
+
+.profile__greeting-details {
+  display: flex;
+}
+
+.profile__greeting-name-2 {
+  font-weight: 700;
+  font-family: "Inter", sans-serif;
+  margin-top: 9px;
+  margin-left: 6px;
+}
