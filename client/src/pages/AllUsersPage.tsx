@@ -60,7 +60,10 @@ function Profile() {
   return (
     <>
       <div className={styles["profile"]}>
-        <Header content={"Who do you want to Celebrate?"} />
+        <Header
+          navigateTo={`/my-profile/${userInfo.userId}`}
+          content={"Who do you want to Celebrate?"}
+        />
         <div className={styles["profile__users"]}>
           {allUsers.map((eachUser: any) => {
             return (

@@ -39,11 +39,19 @@
   margin-bottom: 1.5rem;
 }
 .profile__secondpart-title button {
+  background: none;
+  color: rgba(255, 255, 255, 0.632);
+  border: none;
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-family: "Inter", sans-serif;
   border: none;
   background: none;
-  color: white;
   margin-left: 5rem;
   cursor: pointer;
+}
+.profile__secondpart-title button:hover {
+  color: white;
 }
 
 .profile__secondpart-transaction {
@@ -119,7 +127,12 @@
     color: white;
     width: fit-content;
     margin: 0;
-    margin-left: 1rem;
+    margin-left: 0.7rem;
+    color: rgba(255, 255, 255, 0.632);
+    border: none;
+    font-size: 0.6rem;
+    font-weight: 500;
+    font-family: "Inter", sans-serif;
     cursor: pointer;
   }
 }

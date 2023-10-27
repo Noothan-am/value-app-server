@@ -114,7 +114,10 @@ function MyProfile() {
     <>
       <div className={style["profile"]}>
         <div className={style["profile__header"]}>
-          <Header content={"Profile"} />
+          <Header
+            navigateTo={`/my-profile/${userInfo.userId}`}
+            content={"Back to Profile"}
+          />
         </div>
 
         <div className={style["profile__greeting"]}>
@@ -144,7 +147,7 @@ function MyProfile() {
                 onClick={handleTransactionButtonClick}
                 className={style["leaderboard__light_button"]}
               >
-                {"Show More>>"}
+                {"SHOW MORE>>"}
               </button>
             </div>
             <div className={style["profile__secondpart-content"]}>

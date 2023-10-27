@@ -5,12 +5,13 @@ import { UserId } from "../context/UserIdContext";
 
 const styles = require("../styles/header.module.css").default;
 
-function Header({ content }: any) {
+function Header({ content, navigateTo }: any) {
   const navigate = useNavigate();
   const { userInfo } = useContext(UserId) as any;
 
   const handleHeaderClick = () => {
-    navigate(`/my-profile/${userInfo.userId}`);
+    // navigate(`/my-profile/${userInfo.userId}`);
+    navigate(navigateTo);
   };
 
   return (

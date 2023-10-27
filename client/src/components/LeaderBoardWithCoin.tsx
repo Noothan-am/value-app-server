@@ -53,14 +53,22 @@ function LeaderBoardWithCoin({ userDetails, showLeaderBoard }: any) {
   return (
     <>
       <div className={style["profile__firstpart"]}>
-        <div className={style["profile__firstpart-coins"]}>
+        <div
+          className={
+            showLeaderBoard
+              ? style["profile__firstpart-coins"]
+              : style["profile__firstpart-coins-2"]
+          }
+        >
           <div className={style["coins__content"]}>
             <img src={coinImage} alt="" />
             <div className={style["total__coins"]}>
               {userDetails.total_coins}
             </div>
           </div>
-          <div className={style["coins_text"]}>My Coins</div>
+          <div className={style["coins_text"]}>
+            {showLeaderBoard && "My "}Coins
+          </div>
         </div>
         {showLeaderBoard && (
           <div className={style["profile__firstpart-leaderboard"]}>
