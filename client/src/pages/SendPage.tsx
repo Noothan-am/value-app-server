@@ -56,7 +56,7 @@ export default function SendPage() {
 
   const handleOnChangeForTextArea = (e: any) => {
     const userInput = e.target.value;
-    if (userInput.length <= 300) {
+    if (userInput.length <= 350) {
       setCelebrationMoment(userInput);
     } else {
       toast.error("charecter limit exceeded", {
@@ -214,7 +214,7 @@ export default function SendPage() {
       />
       <div className={styles["sendPage"]}>
         <div className={styles["sendPage__header"]}>
-          <Header content={"Who do you want to Celebrate?"} />
+          <Header content={"Back to Profile"} />
         </div>
         <div className={styles["sendPage__content"]}>
           <div className={styles["sendPage__content-user-info"]}>
@@ -263,7 +263,7 @@ export default function SendPage() {
               </select>
             </div>
             <div className={styles["sendPage__content-text"]}>
-              <label htmlFor="">{`Share the moment of Celebration: -- max-charecter ${celebrationMoment.length}`}</label>
+              <label htmlFor="">{`Share the moment of Celebration: (charecter count ${celebrationMoment.length})`}</label>
               <textarea
                 name="Text1"
                 cols={60}

@@ -4,7 +4,7 @@ import Values from "../components/Values";
 import Transaction from "../components/Transaction";
 import LeaderBoardWithCoin from "../components/LeaderBoardWithCoin";
 import Loading from "./Loading";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const style = require("../styles/myprofile.module.css").default;
 
@@ -21,6 +21,12 @@ function MyProfile() {
   const [isLoading, setIsLoading] = useState<any>(true);
 
   const { userId } = useParams();
+
+  const navigation = useNavigate();
+
+  const handleTransactionButtonClick = () => {
+    navigation("/transactions");
+  };
 
   const fetchUserDetails = useCallback(async () => {
     try {
@@ -125,6 +131,12 @@ function MyProfile() {
           <div className={style["profile__secondpart-transaction"]}>
             <div className={style["profile__secondpart-title"]}>
               TRANSACTION HISTORY
+              <button
+                onClick={handleTransactionButtonClick}
+                className={style["leaderboard__light_button"]}
+              >
+                {"Show More>>"}
+              </button>
             </div>
             <div className={style["profile__secondpart-content"]}>
               {allTransaction &&

@@ -124,23 +124,25 @@
 
 .leaderboard__light_button {
   padding: 9px;
-  background-color: #4557dc;
-  color: rgba(255, 255, 255, 1);
+  background: none;
+  color: rgba(255, 255, 255, 0.632);
   border: none;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   border-radius: 5px;
-  width: 95px;
+  font-weight: 500;
+  font-family: "Inter", sans-serif;
+  width: 130px;
   margin-left: -1.2rem;
 }
 
 .leaderboard__light_button:hover {
   cursor: pointer;
-  background-color: #4d5fe7;
+  color: rgb(238, 238, 238);
 }
 
 @media screen and (max-width: 479px) {
   .profile__firstpart {
-    width: 80%;
+    width: 90%;
     margin: auto;
     margin-bottom: 2rem;
     margin-top: 1.5rem;
@@ -153,7 +155,7 @@
     font-weight: bold;
   }
   .total__coins {
-    font-size: 54px;
+    font-size: 49px;
   }
   .coins_text {
     font-size: 18px;
@@ -162,6 +164,8 @@
     font-size: 15px;
   }
   .coins__content img {
-    height: 4rem;
+    height: 4.5rem;
+    margin-bottom: -1rem;
+    margin-right: -0.5rem;
   }
 }

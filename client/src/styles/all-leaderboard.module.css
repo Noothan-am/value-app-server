@@ -98,3 +98,13 @@
 .values__content-coin img {
   margin-top: 0.3rem;
 }
+
+@media screen and (max-width: 550px) {
+  .leaderboard__heading {
+    padding: 14vw 7vh;
+    text-align: center;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.632);
+    font-size: 1.6rem;
+  }
+}
