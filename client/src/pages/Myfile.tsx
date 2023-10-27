@@ -10,7 +10,23 @@ import { UserId } from "../context/UserIdContext";
 const styles = require("../styles/myfile.module.css").default;
 const logoImage = require("../assets/images/Group 26943.png");
 const profileImage = require("../assets/images/profile-icon.png");
-const coinsGroup = require("../assets/images/coins-group.png");
+const becomeCoins = require("../assets/svg/coin.svg").default;
+
+interface coinsInfo {
+  index: number;
+  size: number;
+}
+
+const Coins = ({ index, size }: coinsInfo) => {
+  const styleforcoin = size - index;
+  return (
+    <>
+      <div className={styles.coin} style={{ zIndex: styleforcoin }}>
+        <img src={becomeCoins} alt="" />
+      </div>
+    </>
+  );
+};
 
 const Myfile = () => {
   const [userDetails, setUserDetails] = useState<any>();
@@ -19,6 +35,7 @@ const Myfile = () => {
 
   const { userId } = useParams();
   const navigator = useNavigate();
+  const { coins } = userInfo;
 
   const handleCelebrateClick = () => {
     if (userInfo.coins <= 0) {
@@ -108,6 +125,8 @@ const Myfile = () => {
 
   if (isLoading) return <Loading />;
 
+  const coinsArray = Array.from({ length: coins }, (_, index) => index + 1);
+
   return (
     <>
       <ToastContainer
@@ -137,7 +156,10 @@ const Myfile = () => {
           </div>
 
           <div className={styles["leaderboard"]}>
-            <LeaderBoardWithCoin userDetails={userDetails} />
+            <LeaderBoardWithCoin
+              userDetails={userDetails}
+              showLeaderBoard={true}
+            />
           </div>
 
           <div className={styles.myfile__tophalf__main}>
@@ -162,7 +184,11 @@ const Myfile = () => {
               <span>{userInfo.coins}</span>
             </div>
           </div>
-          <img src={coinsGroup} alt="Become logo" />
+          <div className={styles.overlapping__coins}>
+            {coinsArray.map((coin, index) => {
+              return <Coins key={index} index={index} size={coins} />;
+            })}
+          </div>
           <button
             type="submit"
             onClick={handleCelebrateClick}

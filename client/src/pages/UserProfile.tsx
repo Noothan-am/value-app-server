@@ -121,7 +121,10 @@ function MyProfile() {
         </div>
 
         <div className={style["leaderboard"]}>
-          <LeaderBoardWithCoin userDetails={userDetails} />
+          <LeaderBoardWithCoin
+            userDetails={userDetails}
+            showLeaderBoard={false}
+          />
         </div>
 
         <div className={style["profile__secondpart"]}>

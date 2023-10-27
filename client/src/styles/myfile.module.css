@@ -1,5 +1,20 @@
 .myfile {
   width: 100%;
+  overflow: hidden;
+}
+.overlapping__coins {
+  display: flex;
+  flex-direction: row;
+  /* width: 300px; */
+  margin-left: -15rem;
+}
+.coin {
+  width: 48px;
+  margin: auto;
+}
+.coin img {
+  width: 9rem;
+  height: 9rem;
 }
 
 .myfile__tophalf {
@@ -143,7 +158,6 @@
   margin-top: 0%;
   padding-bottom: 2rem;
 }
-
 .myfile__light_button {
   width: 100%;
   height: 55px;
@@ -165,18 +179,16 @@
 }
 
 .myfile__dark_button {
-  width: 100%;
-  height: 55px;
   margin: 10px 0;
-  padding: 10px;
+  padding: 12px;
   background-color: #4557dc;
   color: rgba(255, 255, 255, 1);
   letter-spacing: -0.36px;
   border: none;
-  font-size: 15px;
+  font-size: 16px;
   border-radius: 5px;
-  width: 13rem;
-  height: 2.5rem;
+  width: 16rem;
+  height: 3rem;
 }
 
 .myfile__dark_button:hover {
@@ -236,7 +248,7 @@
 }
 
 .myfile__downhalf__heading {
-  width: 233px;
+  width: 250px;
   margin: auto;
 }
 

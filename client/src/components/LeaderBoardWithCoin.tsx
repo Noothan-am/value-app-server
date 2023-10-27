@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const coinImage = require("../assets/svg/big-coin.svg").default;
 const style = require("../styles/leaderboard.module.css").default;
 
-function LeaderBoardWithCoin({ userDetails }: any) {
+function LeaderBoardWithCoin({ userDetails, showLeaderBoard }: any) {
   const [topLeaderboardUsers, setTopLeaderboardUsers] = useState<any>([]);
 
   const navigation = useNavigate();
@@ -62,23 +62,29 @@ function LeaderBoardWithCoin({ userDetails }: any) {
           </div>
           <div className={style["coins_text"]}>My Coins</div>
         </div>
-        <div className={style["profile__firstpart-leaderboard"]}>
-          <div className={style["leaderboard-heading"]}>LEADERBOARD</div>
-          <div className={style["leaderboard-members"]}>
-            {topLeaderboardUsers &&
-              topLeaderboardUsers.map((eachUser: any, index: number) => {
-                return (
-                  <Leaderboard user={eachUser} key={index} count={index + 1} />
-                );
-              })}
+        {showLeaderBoard && (
+          <div className={style["profile__firstpart-leaderboard"]}>
+            <div className={style["leaderboard-heading"]}>LEADERBOARD</div>
+            <div className={style["leaderboard-members"]}>
+              {topLeaderboardUsers &&
+                topLeaderboardUsers.map((eachUser: any, index: number) => {
+                  return (
+                    <Leaderboard
+                      user={eachUser}
+                      key={index}
+                      count={index + 1}
+                    />
+                  );
+                })}
+            </div>
+            <button
+              onClick={handleLeaderButtonClick}
+              className={style["leaderboard__light_button"]}
+            >
+              {"SHOW MORE>>"}
+            </button>
           </div>
-          <button
-            onClick={handleLeaderButtonClick}
-            className={style["leaderboard__light_button"]}
-          >
-            {"SHOW MORE>>"}
-          </button>
-        </div>
+        )}
       </div>
     </>
   );
