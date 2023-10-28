@@ -133,6 +133,7 @@
 
 .myfile__tophalf__main img {
   opacity: 0.5;
+  margin-left: 3.2rem;
 }
 
 .myfile__tophalf__main h4 {
@@ -299,6 +300,17 @@
   }
   .myfile__tophalf__content__left h2 {
     margin-top: -1.8rem;
+  }
+  .myfile__tophalf__main__user {
+    display: flex;
+    flex-direction: row;
+    width: 73%;
+    margin-bottom: 1rem;
+  }
+  .myfile__tophalf__main img {
+    opacity: 0.5;
+    margin-right: 1rem;
+    height: 3rem;
   }
 }
 

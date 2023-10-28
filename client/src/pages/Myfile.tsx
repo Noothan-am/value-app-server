@@ -168,11 +168,13 @@ const Myfile = () => {
           </div>
 
           <div className={styles.myfile__tophalf__main}>
-            <img
-              src={require("../assets/images/profile-icon.png")}
-              alt="profile-icon"
-            />
-            <h4>32 coins away to encash &gt;</h4>
+            <div className={styles.myfile__tophalf__main__user}>
+              <img
+                src={require("../assets/images/profile-icon.png")}
+                alt="profile-icon"
+              />
+              <h4>32 coins away to encash &gt;</h4>
+            </div>
             <button type="submit" className={styles.myfile__light_button}>
               Encash
             </button>
