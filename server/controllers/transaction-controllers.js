@@ -100,7 +100,9 @@ const updateProfile = async (fromId, toId, celebration_moment) => {
         },
       },
     ]);
+    return true;
   } catch (error) {
+    return false;
     console.log("error while updating profile", error);
   }
 };
@@ -128,7 +130,17 @@ const makeTransaction = async (req, res) => {
     ) {
       return res.status(400).send("Please fill all the fields");
     }
-    const transaction = await transactionSchema.create({
+    // const transaction = await transactionSchema.create({
+    //   from,
+    //   from_user_id,
+    //   to,
+    //   to_user_id,
+    //   celebrating_value,
+    //   celebration_moment,
+    //   image,
+    // });
+
+    const transaction = new transactionSchema({
       from,
       from_user_id,
       to,
@@ -138,9 +150,16 @@ const makeTransaction = async (req, res) => {
       image,
     });
 
-    await updateProfile(from_user_id, to_user_id, celebration_moment);
+    await transaction.save();
 
-    res.status(200).send("Transaction Successful");
+    const result = await updateProfile(
+      from_user_id,
+      to_user_id,
+      celebration_moment
+    );
+
+    if (result) res.status(200).send("Transaction Successful");
+    else res.status(400).send("Transaction Failed");
   } catch (error) {
     console.error(error);
     return res.status(500).send("Internal server error");

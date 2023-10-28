@@ -33,7 +33,10 @@ const Myfile = () => {
   const [isLoading, setIsLoading] = useState<any>(true);
   const { userInfo, setUserInfo } = useContext(UserId) as any;
 
-  const { userId } = useParams();
+  let { userId } = useParams();
+  if (!userId) {
+    userId = userInfo.userId;
+  }
   const navigator = useNavigate();
   const { coins } = userInfo;
 

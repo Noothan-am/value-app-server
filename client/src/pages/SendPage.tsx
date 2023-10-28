@@ -40,7 +40,7 @@ export default function SendPage() {
           body: JSON.stringify({
             from_user_id: userInfo.userId,
             to_user_id: id,
-            value,
+            value: value,
           }),
         }
       );
@@ -84,7 +84,6 @@ export default function SendPage() {
       });
       return;
     }
-    setIsLoading(false);
     if (userInfo.coins <= 0) {
       toast.warn("you don't have enough coins", {
         position: "top-right",
@@ -111,7 +110,7 @@ export default function SendPage() {
         });
         return;
       }
-
+      setIsLoading(true);
       const response = await fetch(
         `${process.env.REACT_APP_API_URL}/make-transaction`,
         {
@@ -131,9 +130,8 @@ export default function SendPage() {
         }
       );
       if (response.ok) {
-        setUserInfo({ ...userInfo, coins: userInfo.coins - 1 });
-        setIsLoading(false);
-        toast.success("send coins succesfully", {
+        setIsLoading(true);
+        toast.success("Transaction completed!", {
           position: "top-right",
           autoClose: 2000,
           hideProgressBar: false,
@@ -142,7 +140,11 @@ export default function SendPage() {
           progress: undefined,
           theme: "dark",
         });
-        navigator(`/my-profile/${userInfo.userId}`);
+        setUserInfo({ ...userInfo, coins: userInfo.coins - 1 });
+        setTimeout(() => {
+          // setIsLoading(false);
+          navigator(`/my-profile/${userInfo.userId}`);
+        }, 1000);
       } else {
         setIsLoading(false);
         toast.error("internel server error", {

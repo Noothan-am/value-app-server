@@ -1,11 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { BiLockAlt } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import { UserId } from "../context/UserIdContext";
-import { ToastContainer, Zoom, toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Loading from "./Loading";
 const styles = require("../styles/login.module.css").default;
 const bgimage = require("../assets/images/Loading-background.png");
 
@@ -60,7 +59,9 @@ const Login = () => {
           userName: data.userName,
           coins: data.coins,
         });
-        navigate(`/my-profile/${data.userId}`);
+        setTimeout(() => {
+          navigate(`/my-profile/${data.userId}`);
+        }, 1000);
       } else {
         toast.error("please enter valid credentials", {
           position: "top-right",
@@ -129,6 +130,7 @@ const Login = () => {
           <Button
             content={"Login"}
             type="submit"
+            disabled={true}
             handleClick={handleLoginSubmit}
           />
           <a href="/forgot-password" className={styles["login__form-link"]}>
