@@ -1,6 +1,8 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 // import Transaction from "../components/Transaction";
 import Loading from "./Loading";
+import Header from "../components/Header";
+import { UserId } from "../context/UserIdContext";
 const profileImage = require("../assets/images/profile-icon.png");
 const style = require("../styles/all-transactions.module.css").default;
 
@@ -46,6 +48,8 @@ function AllUserTransaction() {
   const [allTransaction, setAllTransaction] = useState<any>();
   const [isLoading, setIsLoading] = useState<any>(true);
 
+  const { userInfo } = useContext(UserId) as any;
+
   const fetchAllTransactions = useCallback(async () => {
     try {
       const response: any = await fetch(
@@ -84,6 +88,10 @@ function AllUserTransaction() {
   return (
     <>
       <div className={style["all-transaction"]}>
+        <Header
+          navigateTo={`/my-profile/${userInfo.userId}`}
+          content={"Back to Profile"}
+        />
         <div className={style["profile__secondpart-transaction"]}>
           <div className={style["profile__secondpart-title"]}>
             TRANSACTION HISTORY

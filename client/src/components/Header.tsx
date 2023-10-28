@@ -11,6 +11,7 @@ function Header({ content, navigateTo }: any) {
 
   const handleHeaderClick = () => {
     // navigate(`/my-profile/${userInfo.userId}`);
+    console.log("handleHeaderClick");
     navigate(navigateTo);
   };
 

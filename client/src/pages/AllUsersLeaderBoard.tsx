@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Header from "../components/Header";
+import { UserId } from "../context/UserIdContext";
 const style = require("../styles/all-leaderboard.module.css").default;
 const coinImage = require("../assets/svg/coin.svg").default;
 
 function AllUsersLeaderBoard() {
   const [topLeaderboardUsers, setTopLeaderboardUsers] = useState<any>([]);
+
+  const { userInfo } = useContext(UserId) as any;
 
   const fetchAllUserDetails = async () => {
     try {
@@ -79,6 +83,10 @@ function AllUsersLeaderBoard() {
   return (
     <>
       <div className={style["allUsers__leaderboard"]}>
+        <Header
+          navigateTo={`/my-profile/${userInfo.userId}`}
+          content={"Back to Profile"}
+        />
         <div className={style["leaderboard__heading"]}>LEADERBOARD</div>
         <div className={style["leaderboard__Users"]}>
           {topLeaderboardUsers &&

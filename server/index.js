@@ -13,7 +13,7 @@ const port = process.env.PORT || 6000;
 app.use(express.json());
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
+    origin: process.env.CLIENT_URL || 3000,
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );

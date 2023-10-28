@@ -10,10 +10,12 @@
 
 .profile__secondpart-title {
   font-weight: 600;
-  /* color: rgba(255, 255, 255); */
+  width: 100%;
+  text-align: center;
   color: rgba(255, 255, 255, 0.632);
   font-size: 1.2rem;
   margin-bottom: 1.5rem;
+  margin-top: -2rem;
 }
 
 .profile__secondpart-content {
@@ -252,8 +254,14 @@
 
 @media screen and (min-width: 1151px) {
   .profile__secondpart-title {
+    font-weight: 600;
     width: 80%;
     margin: auto;
+    text-align: start;
+    color: rgba(255, 255, 255, 0.632);
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    margin-top: -1rem;
   }
   .transaction__image img {
     position: absolute;

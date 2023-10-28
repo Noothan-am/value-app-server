@@ -1,6 +1,6 @@
 .allUsers__leaderboard {
   background-color: #0c1d87;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .leaderboard {
@@ -8,10 +8,10 @@
 }
 
 .leaderboard__heading {
-  padding: 6rem 10rem;
+  padding: 3rem 10rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.632);
-  font-size: 1.6rem;
+  font-size: 1.2rem;
 }
 
 .leaderboard-single-person {
@@ -48,7 +48,7 @@
 .values {
   display: flex;
   align-items: center;
-  width: 40%;
+  width: 35%;
   font-family: "Inter", sans-serif;
   margin-bottom: 0.6rem;
 }
@@ -68,7 +68,6 @@
 .values__content-right {
   display: flex;
   align-items: center;
-  width: 20%;
 }
 
 .values__content-right-coin {
@@ -99,12 +98,65 @@
   margin-top: 0.3rem;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 500px) {
   .leaderboard__heading {
-    padding: 14vw 7vh;
+    padding: 10vw 7vh;
     text-align: center;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.632);
-    font-size: 1.6rem;
+    font-size: 1.2rem;
+    margin-top: -2rem;
+  }
+
+  .values {
+    display: flex;
+    align-items: center;
+    font-family: "Inter", sans-serif;
+    margin-bottom: 0.6rem;
+    width: 100%;
+  }
+  .leaderboard__Users {
+    width: 70%;
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 900px) {
+  .leaderboard__heading {
+    padding: 8vw 7vh;
+    padding-top: 14vw;
+    text-align: center;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.632);
+    font-size: 1.2rem;
+    margin-top: -2rem;
+  }
+
+  .values {
+    display: flex;
+    align-items: center;
+    font-family: "Inter", sans-serif;
+    margin-bottom: 0.6rem;
+    width: 70%;
+    margin: auto;
+    font-size: 1.9rem;
+  }
+
+  .values__content {
+    font-family: "Inter", sans-serif;
+    font-size: 1.5rem;
+  }
+  .values__content-value {
+    font-size: 1.5rem;
+  }
+  .values__content-coin img {
+    margin-top: 1rem;
+    width: 3rem;
+    margin-right: -0.7rem;
+  }
+
+  .leaderboard__Users {
+    width: 70%;
+    margin-top: 1rem;
   }
 }
