@@ -8,7 +8,7 @@ const profileRouter = require("./routes/profile-router");
 const transactionRouter = require("./routes/transaction-router");
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 6000;
 
 app.use(express.json());
 app.use(
