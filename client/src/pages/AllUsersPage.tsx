@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import ProfileWithCoin from "../components/ProfileWithCoin";
 import Header from "../components/Header";
 import { useNavigate } from "react-router-dom";
@@ -13,7 +13,7 @@ function Profile() {
   const navigation = useNavigate();
   const { userInfo } = useContext(UserId) as any;
 
-  const fetchAllUsers = async () => {
+  const fetchAllUsers = useCallback(async () => {
     try {
       const response = await fetch(
         `${process.env.REACT_APP_API_URL}/all-user`,
@@ -38,7 +38,7 @@ function Profile() {
       console.log("Error while fetching users");
       console.error(err);
     }
-  };
+  }, [userInfo]);
 
   const handleUserClick = (user_id: string) => {
     navigation(`/send/${user_id}`);
@@ -53,7 +53,7 @@ function Profile() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [fetchAllUsers]);
 
   if (isLoading) return <Loading />;
 

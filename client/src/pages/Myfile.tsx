@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import moment from "moment";
-import { ToastContainer, Zoom, toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LeaderBoardWithCoin from "../components/LeaderBoardWithCoin";
 import Loading from "./Loading";
@@ -80,7 +80,7 @@ const Myfile = () => {
       console.log("Error while resetting the date");
       console.error(err);
     }
-  }, []);
+  }, [userInfo, setUserInfo]);
 
   const fetchUserDetails = useCallback(async () => {
     try {
