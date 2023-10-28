@@ -37,6 +37,7 @@ function MyProfile() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
           },
           body: JSON.stringify({
             userId: userId,
@@ -62,6 +63,7 @@ function MyProfile() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
           },
           body: JSON.stringify({
             userId: userId,

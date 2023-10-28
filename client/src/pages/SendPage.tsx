@@ -36,6 +36,7 @@ export default function SendPage() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
           },
           body: JSON.stringify({
             from_user_id: userInfo.userId,
@@ -117,6 +118,7 @@ export default function SendPage() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
           },
           body: JSON.stringify({
             from: userInfo.userName,
@@ -171,6 +173,7 @@ export default function SendPage() {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
           },
         }
       );

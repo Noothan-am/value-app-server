@@ -8,12 +8,12 @@ const profileRouter = require("./routes/profile-router");
 const transactionRouter = require("./routes/transaction-router");
 
 const app = express();
-const port = process.env.PORT || 6000;
+const port = process.env.PORT || 8000;
 
 app.use(express.json());
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || 3000,
+    origin: process.env.CLIENT_URL,
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
