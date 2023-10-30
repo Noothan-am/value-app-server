@@ -4,7 +4,11 @@ import { useNavigate } from "react-router-dom";
 const coinImage = require("../assets/svg/big-coin.svg").default;
 const style = require("../styles/leaderboard.module.css").default;
 
-function LeaderBoardWithCoin({ userDetails, showLeaderBoard }: any) {
+function LeaderBoardWithCoin({
+  userDetails,
+  showLeaderBoard,
+  setIsLoading,
+}: any) {
   const [topLeaderboardUsers, setTopLeaderboardUsers] = useState<any>([]);
 
   const navigation = useNavigate();
@@ -45,6 +49,7 @@ function LeaderBoardWithCoin({ userDetails, showLeaderBoard }: any) {
     fetchAllUserDetails()
       .then(() => {
         console.log("User details fetched");
+        setIsLoading(false);
       })
       .catch((error) => {
         console.log("Error in fetching user details", error);
