@@ -2,11 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import { UserId } from "../context/UserIdContext";
+import Loading from "./Loading";
 const style = require("../styles/all-leaderboard.module.css").default;
 const coinImage = require("../assets/svg/coin.svg").default;
 
 function AllUsersLeaderBoard() {
   const [topLeaderboardUsers, setTopLeaderboardUsers] = useState<any>([]);
+  const [isLoading, setIsLoading] = useState<any>(true);
 
   const { userInfo } = useContext(UserId) as any;
 
@@ -75,11 +77,14 @@ function AllUsersLeaderBoard() {
     fetchAllUserDetails()
       .then(() => {
         console.log("User details fetched");
+        setIsLoading(false);
       })
       .catch((error) => {
         console.log("Error in fetching user details", error);
       });
   }, []);
+
+  if (isLoading) return <Loading />;
 
   return (
     <>
