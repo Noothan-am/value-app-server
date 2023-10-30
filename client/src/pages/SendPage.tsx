@@ -132,7 +132,6 @@ export default function SendPage() {
         }
       );
       if (response.ok) {
-        setIsLoading(true);
         toast.success("Transaction completed!", {
           position: "top-right",
           autoClose: 2000,
@@ -142,6 +141,7 @@ export default function SendPage() {
           progress: undefined,
           theme: "dark",
         });
+        setIsLoading(true);
         setUserInfo({ ...userInfo, coins: userInfo.coins - 1 });
         setTimeout(() => {
           // setIsLoading(false);
