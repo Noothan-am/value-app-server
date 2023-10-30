@@ -1,14 +1,10 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Leaderboard from "./LeaderBoard";
 import { useNavigate } from "react-router-dom";
 const coinImage = require("../assets/svg/big-coin.svg").default;
 const style = require("../styles/leaderboard.module.css").default;
 
-function LeaderBoardWithCoin({
-  userDetails,
-  showLeaderBoard,
-  setIsLoading,
-}: any) {
+function LeaderBoardWithCoin({ userDetails, showLeaderBoard }: any) {
   const [topLeaderboardUsers, setTopLeaderboardUsers] = useState<any>([]);
 
   const navigation = useNavigate();
@@ -17,7 +13,7 @@ function LeaderBoardWithCoin({
     navigation("/leaderboard");
   };
 
-  const fetchAllUserDetails = useCallback(async () => {
+  const fetchAllUserDetails = async () => {
     try {
       const response: any = await fetch(
         `${process.env.REACT_APP_API_URL}/all-user`,
@@ -43,18 +39,17 @@ function LeaderBoardWithCoin({
       console.log("Error while fetching users");
       console.error(err);
     }
-  }, []);
+  };
 
   useEffect(() => {
     fetchAllUserDetails()
       .then(() => {
         console.log("User details fetched");
-        setIsLoading(false);
       })
       .catch((error) => {
         console.log("Error in fetching user details", error);
       });
-  }, [fetchAllUserDetails, setIsLoading]);
+  }, []);
 
   return (
     <>
