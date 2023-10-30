@@ -61,9 +61,9 @@ const Login = () => {
           userName: data.userName,
           coins: data.coins,
         });
-        // setTimeout(() => {
-        navigate(`/my-profile/${data.userId}`);
-        // }, 1000);
+        setTimeout(() => {
+          navigate(`/my-profile/${data.userId}`);
+        }, 500);
       } else {
         toast.error("please enter valid credentials", {
           position: "top-right",

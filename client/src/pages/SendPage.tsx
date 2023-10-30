@@ -143,10 +143,10 @@ export default function SendPage() {
           theme: "dark",
         });
         setUserInfo({ ...userInfo, coins: userInfo.coins - 1 });
-        // setTimeout(() => {
-        // setIsLoading(false);
-        navigator(`/my-profile/${userInfo.userId}`);
-        // }, 1000);
+        setTimeout(() => {
+          // setIsLoading(false);
+          navigator(`/my-profile/${userInfo.userId}`);
+        }, 500);
       } else {
         setIsLoading(false);
         toast.error("internel server error", {
