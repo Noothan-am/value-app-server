@@ -121,6 +121,7 @@ const Myfile = () => {
     fetchUserDetails()
       .then(() => {
         console.log("User details fetched");
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log("error while fetching the", err);
@@ -163,7 +164,6 @@ const Myfile = () => {
             <LeaderBoardWithCoin
               userDetails={userDetails}
               showLeaderBoard={true}
-              setIsLoading={setIsLoading}
             />
           </div>
 
