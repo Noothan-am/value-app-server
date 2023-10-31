@@ -109,7 +109,7 @@ const updateProfile = async (fromId, toId, celebration_moment) => {
 
 const makeTransaction = async (req, res) => {
   try {
-    const {
+    let {
       from,
       to,
       celebrating_value,
@@ -130,15 +130,13 @@ const makeTransaction = async (req, res) => {
     ) {
       return res.status(400).send("Please fill all the fields");
     }
-    // const transaction = await transactionSchema.create({
-    //   from,
-    //   from_user_id,
-    //   to,
-    //   to_user_id,
-    //   celebrating_value,
-    //   celebration_moment,
-    //   image,
-    // });
+    moment =
+      celebration_moment === "open_minded"
+        ? "Open-Minded"
+        : celebration_moment === "problem_solving"
+        ? "Problem-Solving"
+        : celebration_moment.slice(0, 1).toUpperCase() +
+          celebration_moment.slice(1, celebration_moment.length);
 
     const transaction = new transactionSchema({
       from,
@@ -146,7 +144,7 @@ const makeTransaction = async (req, res) => {
       to,
       to_user_id,
       celebrating_value,
-      celebration_moment,
+      celebration_moment: moment,
       image,
     });
 
@@ -159,7 +157,6 @@ const makeTransaction = async (req, res) => {
     );
 
     if (result) res.status(200).send("Transaction Successful");
-    else res.status(400).send("Transaction Failed");
   } catch (error) {
     console.error(error);
     return res.status(500).send("Internal server error");

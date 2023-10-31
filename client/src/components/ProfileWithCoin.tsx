@@ -1,21 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 const coin = require("../assets/svg/coin.svg").default;
-const profile = require("../assets/svg/profile.svg").default;
 const styles = require("../styles/profile-coin.module.css").default;
-
-// interface UserDetails {
-//   name: string;
-//   coins: number;
-// }
-
+// const img = require("../assets/images/Indu-Kanth.png").default;
 function ProfileWithCoin({ userDetails }: any) {
-  const { name, total_coins } = userDetails;
+  const { image, name, total_coins } = userDetails;
 
   return (
     <>
       <div className={styles["profile"]}>
         <div className={styles["profile__picture"]}>
-          <img src={profile} alt="" />
+          <img src={require("../assets/images/" + image)} alt="user profile" />
         </div>
 
         <div className={styles["profile__content"]}>

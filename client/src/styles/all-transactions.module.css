@@ -50,6 +50,8 @@
   position: absolute;
   margin-top: -1.6rem;
   margin-left: 0.6rem;
+  width: 41px;
+  opacity: 0.8;
 }
 
 .transaction__content {

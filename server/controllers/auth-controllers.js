@@ -17,6 +17,7 @@ const userLogin = async (req, res) => {
       userId: user.user_id,
       userName: user.name,
       coins: user.current_coins,
+      image: user.image,
     });
   } catch (error) {
     return res.status(500).json({ message: error });

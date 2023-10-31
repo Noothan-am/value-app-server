@@ -37,7 +37,7 @@
   color: whitesmoke;
 }
 
-.myfile__tophalf__nav__right_image {
+.myfile__tophalf__nav__right_image img {
   height: 40px;
   object-fit: contain;
   padding-top: 5px;
@@ -134,6 +134,7 @@
 .myfile__tophalf__main img {
   opacity: 0.5;
   margin-left: 3.2rem;
+  height: 3rem;
 }
 
 .myfile__tophalf__main h4 {
@@ -311,6 +312,23 @@
     opacity: 0.5;
     margin-right: 1rem;
     height: 3rem;
+  }
+  .myfile__tophalf__main h4 {
+    color: #ffffff;
+    opacity: 0.7;
+    font-family: "Inter", Helvetica;
+    font-size: 12px;
+    font-weight: normal;
+    letter-spacing: -0.16px;
+    line-height: 24px;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 0.6rem;
+    margin-left: -0.5rem;
+  }
+  .myfile__tophalf__main img {
+    opacity: 0.5;
+    height: 2.5rem;
   }
 }
 

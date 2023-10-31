@@ -123,7 +123,11 @@ function MyProfile() {
         </div>
 
         <div className={style["profile__greeting"]}>
-          <Greeting show={true} name={userDetails.name} />
+          <Greeting
+            show={true}
+            name={userDetails.name}
+            image={userDetails.image}
+          />
         </div>
 
         <div className={style["leaderboard"]}>

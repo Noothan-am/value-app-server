@@ -60,6 +60,7 @@ const Login = () => {
           userId: data.userId,
           userName: data.userName,
           coins: data.coins,
+          image: data.image,
         });
         setTimeout(() => {
           navigate(`/my-profile/${data.userId}`);
@@ -135,9 +136,9 @@ const Login = () => {
             disabled={true}
             handleClick={handleLoginSubmit}
           />
-          <a href="/forgot-password" className={styles["login__form-link"]}>
+          {/* <a href="/forgot-password" className={styles["login__form-link"]}>
             Forgot Password?
-          </a>
+          </a> */}
         </form>
       </div>
     </>

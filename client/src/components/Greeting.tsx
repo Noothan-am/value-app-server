@@ -1,13 +1,13 @@
 import React from "react";
 const style = require("../styles/greeting.module.css").default;
-const profileImage = require("../assets/images/profile-icon.png");
+// const profileImage = require("../assets/images/profile-icon.png");
 
-export default function Greeting({ show, name }: any) {
+export default function Greeting({ show, name, image }: any) {
   return (
     <>
       <div className={style["profile__greeting-details"]}>
         <div className={style["profile__greeting-image"]}>
-          <img src={profileImage} alt="" />
+          <img src={require("../assets/images/" + image)} alt="" />
         </div>
         {show && <div className={style["profile__greeting-greet"]}>Hello,</div>}
       </div>

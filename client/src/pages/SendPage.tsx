@@ -60,7 +60,7 @@ export default function SendPage() {
     if (userInput.length <= 300) {
       setCelebrationMoment(userInput);
     } else {
-      toast.error("charecter limit exceeded", {
+      toast.error("character limit exceeded", {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -73,8 +73,8 @@ export default function SendPage() {
   };
 
   const sendCoins = async () => {
-    if (celebrationMoment.length <= 80) {
-      toast.warn("minimum charechter limit is 80", {
+    if (celebrationMoment.length <= 25) {
+      toast.warn("minimum character limit is 25", {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -127,7 +127,7 @@ export default function SendPage() {
             to_user_id: id,
             celebration_moment: selectedOption.toLocaleLowerCase(),
             celebrating_value: celebrationMoment,
-            image: "ram",
+            image: userInfo.image,
           }),
         }
       );
@@ -271,7 +271,7 @@ export default function SendPage() {
               </select>
             </div>
             <div className={styles["sendPage__content-text"]}>
-              <label htmlFor="">{`Share the moment of Celebration: (charecter count ${celebrationMoment.length})`}</label>
+              <label htmlFor="">{`Share the moment of Celebration: (Character count ${celebrationMoment.length})`}</label>
               <textarea
                 name="Text1"
                 cols={60}

@@ -156,7 +156,10 @@ const Myfile = () => {
               className={styles.myfile__tophalf__nav__right_image}
               onClick={(e) => handleProflileClick(e)}
             >
-              <img src={profileImage} alt="profile-icon" />
+              <img
+                src={require("../assets/images/" + userDetails.image)}
+                alt="profile-icon"
+              />
             </div>
           </div>
 
@@ -170,10 +173,10 @@ const Myfile = () => {
           <div className={styles.myfile__tophalf__main}>
             <div className={styles.myfile__tophalf__main__user}>
               <img
-                src={require("../assets/images/profile-icon.png")}
+                src={require("../assets/images/" + userDetails.image)}
                 alt="profile-icon"
               />
-              <h4>32 coins away to encash &gt;</h4>
+              <h4>{userDetails.total_coins} coins away to encash &gt;</h4>
             </div>
             <button type="submit" className={styles.myfile__light_button}>
               Encash

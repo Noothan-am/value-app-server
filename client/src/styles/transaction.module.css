@@ -19,8 +19,10 @@
 
 .transaction__image img {
   position: absolute;
-  margin-top: -1.6rem;
+  /* margin-top: -1.6rem; */
   margin-left: 0.6rem;
+  width: 41px;
+  opacity: 0.8;
 }
 
 .transaction__content {
@@ -100,7 +102,7 @@
 @media screen and (min-width: 531px) and (max-width: 545px) {
   .transaction__image img {
     position: absolute;
-    margin-top: -1rem;
+    /* margin-top: -1rem; */
     margin-left: 0.6rem;
   }
 }
@@ -108,7 +110,7 @@
 @media screen and (min-width: 600px) and (max-width: 960px) {
   .transaction__image img {
     position: absolute;
-    margin-top: -1rem;
+    /* margin-top: -1rem; */
     margin-left: 0.6rem;
   }
 }
@@ -116,7 +118,7 @@
 @media screen and (min-width: 1320px) {
   .transaction__image img {
     position: absolute;
-    margin-top: -1rem;
+    /* margin-top: -1rem; */
     margin-left: 0.6rem;
   }
 }

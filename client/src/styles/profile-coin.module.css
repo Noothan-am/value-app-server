@@ -3,7 +3,7 @@
   align-items: center;
   width: 100%;
   width: fit-content;
-  margin: 0.8rem 1.7rem;
+  margin: 0.8rem 2.3rem;
 }
 
 .profile__content {
@@ -16,7 +16,7 @@
   font-weight: 600;
   font-family: "Inter", sans-serif;
   margin: auto;
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
 
 .profile__content-coins-count,
@@ -35,7 +35,8 @@
 }
 
 .profile__content-coins-image img {
-  margin-top: -4px;
+  margin-top: -5px;
+  margin-right: -0.4rem;
 }
 
 .profile__content-coins-count,
@@ -44,8 +45,26 @@
 }
 
 .profile__picture img {
-  width: 100%;
+  width: 125px;
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
+}
+@media screen and (max-width: 500px) {
+  .profile__picture img {
+    width: 100px;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .profile__content-name {
+    font-size: 1rem;
+  }
+  .profile__content-coins {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    width: fit-content;
+    margin: 0.8rem 1.4rem;
+  }
 }

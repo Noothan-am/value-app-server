@@ -3,7 +3,7 @@ import React, { useCallback, useContext, useEffect, useState } from "react";
 import Loading from "./Loading";
 import Header from "../components/Header";
 import { UserId } from "../context/UserIdContext";
-const profileImage = require("../assets/images/profile-icon.png");
+// const profileImage = require("../assets/images/profile-icon.png");
 const style = require("../styles/all-transactions.module.css").default;
 
 interface eachTransactionValue {
@@ -19,7 +19,10 @@ function Transaction({ eachTransaction }: any) {
     <>
       <div className={style["transaction"]}>
         <div className={style["transaction__image"]}>
-          <img src={profileImage} alt="" />
+          <img
+            src={require("../assets/images/" + eachTransaction.image)}
+            alt=""
+          />
         </div>
         <div className={style["transaction__content"]}>
           <div className={style["transaction__content-date"]}>
@@ -27,13 +30,17 @@ function Transaction({ eachTransaction }: any) {
           </div>
           <div className={style["transaction__content-header"]}>
             <div className={style["transaction__content-name"]}>
-              {eachTransaction.celebration_moment === "open_minded"
-                ? "open-minded"
-                : eachTransaction.celebration_moment === "problem_solving"
-                ? "problem-solving"
-                : eachTransaction.celebration_moment}
+              {eachTransaction.from}
             </div>
+
             <div className={style["transaction__content-amount"]}>+1 Coin</div>
+          </div>
+          <div className={style["transaction__content-description"]}>
+            {eachTransaction.celebration_moment === "open_minded"
+              ? "open-minded"
+              : eachTransaction.celebration_moment === "problem_solving"
+              ? "problem-solving"
+              : eachTransaction.celebration_moment}
           </div>
           <div className={style["transaction__content-description"]}>
             {eachTransaction.celebrating_value}
