@@ -136,9 +136,6 @@ const Login = () => {
             disabled={true}
             handleClick={handleLoginSubmit}
           />
-          {/* <a href="/forgot-password" className={styles["login__form-link"]}>
-            Forgot Password?
-          </a> */}
         </form>
       </div>
     </>

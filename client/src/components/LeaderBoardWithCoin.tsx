@@ -33,7 +33,7 @@ function LeaderBoardWithCoin({ userDetails, showLeaderBoard }: any) {
             return eachData;
           })
           .sort((a: any, b: any) => b.total_coins - a.total_coins);
-        setTopLeaderboardUsers([data[0], data[1]]);
+        setTopLeaderboardUsers([data[0], data[1], data[2]]);
       }
     } catch (err) {
       console.log("Error while fetching users");

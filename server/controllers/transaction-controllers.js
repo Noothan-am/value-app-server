@@ -71,7 +71,9 @@ const getAllTransactions = async (req, res) => {
         })
       )
       .reverse();
-
+    if (transactionDetails.length > 20) {
+      transactionDetails = transactionDetails.slice(0, 20);
+    }
     res.status(200).send(transactionDetails);
   } catch (error) {
     console.error(error);
