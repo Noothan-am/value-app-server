@@ -1,6 +1,7 @@
 .allUsers__leaderboard {
   background-color: #0c1d87;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 .leaderboard {
@@ -28,12 +29,13 @@
 }
 
 .leaderboard__Users {
-  width: 60%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 40vh;
+  height: 80vh;
   margin: auto;
+  margin-left: 10rem;
 }
 
 .leaderboard-number {
@@ -49,7 +51,7 @@
 .values {
   display: flex;
   align-items: center;
-  width: 35%;
+  width: 65%;
   font-family: "Inter", sans-serif;
   margin-bottom: 0.6rem;
 }
@@ -108,6 +110,33 @@
     font-size: 1.2rem;
     margin-top: -2rem;
   }
+  .leaderboard__Users {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 150vh;
+    margin: auto;
+    margin-left: 10rem;
+  }
+  .values__content {
+    font-size: 18px;
+  }
+  .leaderboard-number {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .values__content-value {
+    font-size: 19px;
+  }
+  .values__content-coin img {
+    margin-top: 0.5rem;
+  }
+  .leaderboard {
+    color: white;
+    width: 90%;
+    margin: 0rem auto;
+  }
 
   .values {
     display: flex;
@@ -117,12 +146,77 @@
     width: 100%;
   }
   .leaderboard__Users {
-    width: 70%;
     margin-top: 1rem;
+  }
+  .leaderboard__Users {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    margin: auto;
+    width: 85%;
+    margin: auto;
   }
 }
 
 @media screen and (min-width: 500px) and (max-width: 900px) {
+  .leaderboard__heading {
+    padding: 10vw 7vh;
+    text-align: center;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.632);
+    font-size: 1.2rem;
+    margin-top: -2rem;
+  }
+  .leaderboard__Users {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 280vh;
+    margin: auto;
+    /* margin-left: 10rem; */
+  }
+  .values__content {
+    font-size: 18px;
+  }
+  .leaderboard-number {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .values__content-value {
+    font-size: 19px;
+  }
+  .values__content-coin img {
+    margin-top: 0.5rem;
+  }
+  .leaderboard {
+    color: white;
+    width: 90%;
+    margin: 0rem auto;
+  }
+
+  .values {
+    display: flex;
+    align-items: center;
+    font-family: "Inter", sans-serif;
+    margin-bottom: 0.6rem;
+    width: 100%;
+  }
+  .leaderboard__Users {
+    margin-top: 1rem;
+  }
+  .leaderboard__Users {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    margin: auto;
+    width: 85%;
+    margin: auto;
+  }
   .leaderboard__heading {
     padding: 8vw 7vh;
     padding-top: 14vw;
@@ -132,13 +226,21 @@
     font-size: 1.2rem;
     margin-top: -2rem;
   }
+  .leaderboard__Users {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-height: 180vh;
+    margin: auto;
+  }
 
   .values {
     display: flex;
     align-items: center;
     font-family: "Inter", sans-serif;
     margin-bottom: 0.6rem;
-    width: 70%;
+    width: 100%;
     margin: auto;
     font-size: 1.9rem;
   }
@@ -155,7 +257,6 @@
     width: 3rem;
     margin-right: -0.7rem;
   }
-
   .leaderboard__Users {
     width: 70%;
     margin-top: 1rem;

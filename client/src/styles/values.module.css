@@ -8,7 +8,7 @@
 
 .values__content {
   flex: 1;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 400;
 }
 
@@ -32,4 +32,27 @@
 
 .values__content-right-value {
   font-size: 14px;
+}
+
+@media screen and (max-width: 450px) {
+  .values {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: white;
+    font-family: "Inter", sans-serif;
+    max-height: 50px;
+  }
+  .values__content-value {
+    font-size: 1.3rem;
+  }
+  .values__content-coin img {
+    width: 2.8rem;
+    margin-top: 0.7rem;
+    margin-right: -0.8rem;
+  }
+  .profile__secondpart-transaction {
+    width: 90%;
+    margin: auto;
+  }
 }

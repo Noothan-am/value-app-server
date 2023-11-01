@@ -149,7 +149,7 @@ function MyProfile() {
                 onClick={handleTransactionButtonClick}
                 className={style["leaderboard__light_button"]}
               >
-                {"Show More>>"}
+                {"VIEW MORE>>"}
               </button>
             </div>
             <div className={style["profile__secondpart-content"]}>

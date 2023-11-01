@@ -42,7 +42,7 @@ function AllUsersLeaderBoard() {
 
   const Leaderboard = ({ eachLeaderBoardUser, count }: any) => {
     const navigator = useNavigate();
-    const { user_id } = eachLeaderBoardUser;
+    const { user_id, name, total_coins } = eachLeaderBoardUser;
 
     const handleClickLeaderboard = () => {
       navigator(`/user/${user_id}`);
@@ -57,14 +57,14 @@ function AllUsersLeaderBoard() {
               onClick={handleClickLeaderboard}
               className={style["values__content"]}
             >
-              {eachLeaderBoardUser.name}
+              {name}
             </button>
             <div className={style["values__content-right"]}>
               <div className={style["values__content-coin"]}>
                 <img src={coinImage} alt="" />
               </div>
               <div className={style["values__content-value"]}>
-                {eachLeaderBoardUser.total_coins}
+                {total_coins < 10 ? "0" + total_coins : total_coins}
               </div>
             </div>
           </div>

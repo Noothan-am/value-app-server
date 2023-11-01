@@ -7,6 +7,7 @@
   flex-direction: row;
   /* width: 300px; */
   margin-left: -15rem;
+  margin-top: -1rem;
 }
 .coin {
   width: 48px;
@@ -38,7 +39,7 @@
 }
 
 .myfile__tophalf__nav__right_image img {
-  height: 40px;
+  height: 35px;
   object-fit: contain;
   padding-top: 5px;
   opacity: 0.5;
@@ -159,20 +160,24 @@
   line-height: 15px;
   margin-top: 0%;
   padding-bottom: 2rem;
+  margin-bottom: -1rem;
 }
 .myfile__light_button {
-  width: 100%;
-  height: 55px;
-  margin: 10px 0;
-  padding: 10px;
-  background-color: #4557dc;
-  color: rgba(255, 255, 255, 1);
-  opacity: 0.5;
+  background-color: #4557dc85;
+  margin-bottom: 0.7rem;
   border: none;
-  font-size: 1rem;
   border-radius: 5px;
-  width: 250px;
+  width: 300px;
+  opacity: 0.4;
+  text-align: center;
   height: 3rem;
+}
+.myfile__light_button button {
+  background: none;
+  font-size: 1rem;
+  border: none;
+  margin-top: 0.85rem;
+  color: rgba(255, 255, 255, 1);
 }
 
 .myfile__light_button:hover {
@@ -182,15 +187,17 @@
 
 .myfile__dark_button {
   margin: 10px 0;
-  padding: 12px;
+  padding: 16px;
   background-color: #4557dc;
   color: rgba(255, 255, 255, 1);
   letter-spacing: -0.36px;
   border: none;
-  font-size: 16px;
+  font-size: 18px;
+  padding-top: 1.2rem;
   border-radius: 5px;
-  width: 16rem;
+  width: 19rem;
   height: 3rem;
+  padding-bottom: 2.3rem;
 }
 
 .myfile__dark_button:hover {
@@ -250,7 +257,7 @@
 }
 
 .myfile__downhalf__heading {
-  width: 250px;
+  width: 290px;
   margin: auto;
 }
 
@@ -286,10 +293,29 @@
     justify-content: space-between;
     align-items: center;
     margin: auto;
+    width: 80%;
   }
   .myfile__tophalf__content {
     width: 85%;
     margin: auto;
+  }
+  .myfile__light_button {
+    background-color: #4557dc85;
+    margin-bottom: 0.7rem;
+    border: none;
+    border-radius: 5px;
+    width: 75%;
+    opacity: 0.4;
+    text-align: center;
+    height: 3rem;
+    padding: 0.2rem;
+  }
+  .myfile__light_button button {
+    background: none;
+    font-size: 1rem;
+    border: none;
+    margin-top: 0.85rem;
+    color: rgba(255, 255, 255, 1);
   }
   .myfile__tophalf__content__left span {
     font-size: 58px;
@@ -305,8 +331,9 @@
   .myfile__tophalf__main__user {
     display: flex;
     flex-direction: row;
-    width: 73%;
+    width: 105%;
     margin-bottom: 1rem;
+    margin-top: -2rem;
   }
   .myfile__tophalf__main img {
     opacity: 0.5;

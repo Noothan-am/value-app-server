@@ -98,24 +98,30 @@
 
 @media screen and (max-width: 480px) {
   .login {
-    width: 70%;
+    width: 80%;
   }
   .login__title {
-    font-size: 8vw;
+    /* font-size: 9vw; */
+    font-weight: 600;
+    font-size: 15vw;
+    margin-top: -4rem;
+    text-align: start;
   }
   .login__form-email-input {
-    width: 90%;
     height: 1rem;
-    margin-left: 1%;
-    margin-top: 1rem;
+    padding: 1rem;
+    padding-left: 0.1rem;
   }
   .login__form-password-input {
+    padding: 1rem;
+    padding-left: 0.4rem;
     height: 1.4rem;
-    width: 80%;
+    width: 100%;
+    margin-left: 1.7rem;
   }
   .login__form-password-input::placeholder,
   .login__form-email-input::placeholder {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
   .login__form-password-lock {
     height: 1.6rem;
@@ -125,5 +131,8 @@
     margin-top: 0.8rem;
     margin-left: 33%;
     font-size: 0.7rem;
+  }
+  .login__form-password {
+    margin-left: -1.4rem;
   }
 }

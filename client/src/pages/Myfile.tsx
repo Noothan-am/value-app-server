@@ -178,9 +178,9 @@ const Myfile = () => {
               />
               <h4>{userDetails.total_coins} coins away to encash &gt;</h4>
             </div>
-            <button type="submit" className={styles.myfile__light_button}>
-              Encash
-            </button>
+            <div className={styles.myfile__light_button}>
+              <button type="submit">Encash</button>
+            </div>
             <h5>Next Encashment Cycle: Q4 2023</h5>
           </div>
         </div>

@@ -3,6 +3,7 @@
   min-height: 100vh;
   background-color: #0c1d87;
   font-family: Arial, sans-serif;
+  overflow: hidden;
 }
 .profile__secondpart {
   display: flex;
@@ -28,7 +29,7 @@
 
 .profile__greeting {
   display: flex;
-  width: 75%;
+  width: 68%;
   margin: auto;
   margin-bottom: -1rem;
 }
@@ -107,7 +108,7 @@
     font-weight: 600;
     color: rgba(255, 255, 255, 0.632);
     margin-bottom: 1.5rem;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
   .profile__secondpart-title button {
     border: none;
@@ -134,5 +135,26 @@
     font-weight: 500;
     font-family: "Inter", sans-serif;
     cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .profile__greeting {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    margin-bottom: -1rem;
+  }
+  .profile__secondpart {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 90%;
+  }
+  .profile__greeting {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    margin-bottom: -1rem;
   }
 }

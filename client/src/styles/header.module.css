@@ -8,6 +8,9 @@
   margin: 2rem 8rem;
 }
 
+.header__container {
+}
+
 .header__container-goback {
   display: flex;
   justify-content: space-evenly;
@@ -38,12 +41,12 @@
 
 @media screen and (max-width: 630px) {
   .header__container-logo img {
-    margin: 2.5rem 15vw;
+    margin: 2.5rem 10vw;
     height: 40px;
     width: 110px;
   }
   .header__container-goback {
-    margin: 1vw 14vw;
+    margin: 1vw 10vw;
   }
 }
 @media screen and (max-width: 452px) {

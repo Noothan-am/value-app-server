@@ -53,7 +53,13 @@ function LeaderBoardWithCoin({ userDetails, showLeaderBoard }: any) {
 
   return (
     <>
-      <div className={style["profile__firstpart"]}>
+      <div
+        className={
+          showLeaderBoard
+            ? style["profile__firstpart"]
+            : style["profile__firstpart-2"]
+        }
+      >
         <div
           className={
             showLeaderBoard
@@ -90,7 +96,7 @@ function LeaderBoardWithCoin({ userDetails, showLeaderBoard }: any) {
               onClick={handleLeaderButtonClick}
               className={style["leaderboard__light_button"]}
             >
-              {"SHOW MORE>>"}
+              {"VIEW MORE>>"}
             </button>
           </div>
         )}

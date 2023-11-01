@@ -19,7 +19,7 @@ function ProfileWithCoin({ userDetails }: any) {
               <img src={coin} alt="" />
             </div>
             <div className={styles["profile__content-coins-count"]}>
-              {total_coins}
+              {total_coins < 10 ? "0" + total_coins : total_coins}
             </div>
           </div>
         </div>
