@@ -21,9 +21,10 @@ function Values({ valuesInfo, userDetails }: any) {
             <img src={coinImage} alt="" />
           </div>
           <div className={style["values__content-value"]}>
-            {userDetails[valuesInfo.toLocaleLowerCase()] < 10
+            {/* {userDetails[valuesInfo.toLocaleLowerCase()] < 10
               ? "0" + userDetails[valuesInfo.toLocaleLowerCase()]
-              : userDetails[valuesInfo.toLocaleLowerCase()]}
+              : userDetails[valuesInfo.toLocaleLowerCase()]} */}
+            {userDetails[valuesInfo.toLocaleLowerCase()]}
           </div>
         </div>
       </div>

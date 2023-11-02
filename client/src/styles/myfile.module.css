@@ -42,7 +42,6 @@
   height: 35px;
   object-fit: contain;
   padding-top: 5px;
-  opacity: 0.5;
 }
 .myfile__tophalf__nav__right_image:hover {
   cursor: pointer !important;
@@ -133,7 +132,6 @@
 }
 
 .myfile__tophalf__main img {
-  opacity: 0.5;
   margin-left: 3.2rem;
   height: 3rem;
 }
@@ -336,7 +334,6 @@
     margin-top: -2rem;
   }
   .myfile__tophalf__main img {
-    opacity: 0.5;
     margin-right: 1rem;
     height: 3rem;
   }
@@ -354,7 +351,6 @@
     margin-left: -0.5rem;
   }
   .myfile__tophalf__main img {
-    opacity: 0.5;
     height: 2.5rem;
   }
 }

@@ -64,7 +64,8 @@ function AllUsersLeaderBoard() {
                 <img src={coinImage} alt="" />
               </div>
               <div className={style["values__content-value"]}>
-                {total_coins < 10 ? "0" + total_coins : total_coins}
+                {/* {total_coins < 10 ? "0" + total_coins : total_coins} */}
+                {total_coins}
               </div>
             </div>
           </div>
