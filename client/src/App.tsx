@@ -11,11 +11,13 @@ import MyProfile from "./pages/MyProfile";
 import AllUsersLeaderBoard from "./pages/AllUsersLeaderBoard";
 import AllUserTransaction from "./pages/AllUserTransaction";
 import UserProfile from "./pages/UserProfile";
+import Modal from "./components/Modal";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Login />} />
+      <Route path="/modal" element={<Modal />} />
       <Route path="/my-profile/:userId" element={<Myfile />} />
       <Route path="/loading" element={<Loading />} />
       <Route path="/login" element={<Login />} />

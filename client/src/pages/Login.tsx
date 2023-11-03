@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const styles = require("../styles/login.module.css").default;
 const bgimage = require("../assets/images/Loading-background.png");
+const becomeCoins = require("../assets/svg/loading-logo.svg").default;
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");
@@ -102,10 +103,10 @@ const Login = () => {
         draggable
         theme="light"
       />
-      <div className={styles["login__background-image"]}>
-        <img src={bgimage} alt="" />
-      </div>
 
+      <div className={styles["login__become-coins"]}>
+        <img src={becomeCoins} alt="" />
+      </div>
       <div className={styles["login"]}>
         <h1 className={styles["login__title"]}>Welcome Back!</h1>
         <form className={styles["login__form"]} method="POST">

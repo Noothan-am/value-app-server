@@ -59,6 +59,30 @@
   margin-left: 18rem;
 }
 
+.profile__secondpart-buttons-1 {
+  margin-bottom: 20px;
+  padding: 9px;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  background-color: var(--button-background-color);
+  color: blue;
+  font-size: 0.8rem;
+  margin-right: 0.7rem;
+}
+.profile__secondpart-buttons-2 {
+  background-color: #4557dc85;
+  color: rgb(255, 255, 255);
+  margin-bottom: 0.7rem;
+  border: none;
+  border-radius: 5px;
+  opacity: 0.4;
+  width: 6rem;
+  font-size: 0.7rem;
+  text-align: center;
+  height: 2rem;
+}
+
 @media screen and (min-width: 950px) and (max-width: 1180px) {
   .profile__secondpart {
     display: flex;

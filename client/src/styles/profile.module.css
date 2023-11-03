@@ -59,6 +59,8 @@
     margin: 1rem 1rem;
   }
   .profile__users {
-    width: 90%;
+    width: 100%;
+    margin: 1rem auto;
+    overflow: hidden;
   }
 }

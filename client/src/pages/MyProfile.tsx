@@ -140,6 +140,14 @@ function MyProfile() {
         <div className={style["profile__secondpart"]}>
           <div className={style["profile__secondpart-values"]}>
             <div className={style["profile__secondpart-title"]}>VALUES</div>
+            <div className={style["profile__secondpart-buttons"]}>
+              <button className={style["profile__secondpart-buttons-1"]}>
+                All Time
+              </button>
+              <button className={style["profile__secondpart-buttons-2"]}>
+                Current Quarter
+              </button>
+            </div>
             <div className={style["profile__secondpart-content"]}>
               {valueInfo.map((eachValue: string) => (
                 <Values valuesInfo={eachValue} userDetails={userDetails} />

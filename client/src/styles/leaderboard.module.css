@@ -23,7 +23,8 @@
 }
 
 .profile__firstpart-coins-2 {
-  width: 70%;
+  width: 85%;
+  margin: auto;
 }
 .coins__content img {
   height: 7rem;
@@ -190,7 +191,7 @@
     margin-bottom: 2rem;
   }
   .profile__firstpart-coins-2 {
-    width: 90%;
+    width: 100%;
   }
   .leaderboard-heading {
     font-size: 12px;

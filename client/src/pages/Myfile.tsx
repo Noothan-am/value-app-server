@@ -6,10 +6,10 @@ import LeaderBoardWithCoin from "../components/LeaderBoardWithCoin";
 import Loading from "./Loading";
 import { useNavigate, useParams } from "react-router-dom";
 import { UserId } from "../context/UserIdContext";
+import ModalComponent from "../components/Modal";
 
 const styles = require("../styles/myfile.module.css").default;
 const logoImage = require("../assets/images/Group 26943.png");
-const profileImage = require("../assets/images/profile-icon.png");
 const becomeCoins = require("../assets/svg/coin.svg").default;
 
 interface coinsInfo {
@@ -31,6 +31,7 @@ const Coins = ({ index, size }: coinsInfo) => {
 const Myfile = () => {
   const [userDetails, setUserDetails] = useState<any>();
   const [isLoading, setIsLoading] = useState<any>(true);
+  const [open, setOpen] = useState(false);
   const { userInfo, setUserInfo } = useContext(UserId) as any;
 
   let { userId } = useParams();
@@ -60,6 +61,9 @@ const Myfile = () => {
     e.preventDefault();
     navigator(`/my-page/${userId}`);
   };
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const resetDate = useCallback(async () => {
     try {
@@ -144,6 +148,7 @@ const Myfile = () => {
         draggable
         theme="light"
       />
+      <ModalComponent handleClose={handleClose} open={open} />
       <div className={styles.myfile}>
         <div className={styles.myfile__tophalf}>
           <div className={styles.myfile__tophalf__nav}>
@@ -152,10 +157,7 @@ const Myfile = () => {
               src={logoImage}
               alt="Become logo"
             />
-            <div
-              className={styles.myfile__tophalf__nav__right_image}
-              onClick={(e) => handleProflileClick(e)}
-            >
+            <div className={styles.myfile__tophalf__nav__right_image}>
               <img
                 src={require("../assets/images/" + userDetails.image)}
                 alt="profile-icon"
@@ -172,11 +174,18 @@ const Myfile = () => {
 
           <div className={styles.myfile__tophalf__main}>
             <div className={styles.myfile__tophalf__main__user}>
-              <img
-                src={require("../assets/images/" + userDetails.image)}
-                alt="profile-icon"
-              />
-              <h4>{userDetails.total_coins} coins away to encash &gt;</h4>
+              <div
+                onClick={(e) => handleProflileClick(e)}
+                className={styles.myfile__tophalf__main__user__img}
+              >
+                <img
+                  src={require("../assets/images/" + userDetails.image)}
+                  alt="profile-icon"
+                />
+              </div>
+              <button onClick={handleOpen} className={styles["modal-button"]}>
+                <h4>{userDetails.total_coins} coins away to encash &gt;</h4>
+              </button>
             </div>
             <div className={styles.myfile__light_button}>
               <button type="submit">Encash</button>

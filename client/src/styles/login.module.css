@@ -14,6 +14,12 @@
   transform: translate(-50%, -50%);
 }
 
+.login__become-coins img {
+  margin: 2rem;
+  margin-left: 15vw;
+  width: 10rem;
+}
+
 .login__title {
   color: #353a48;
   font-size: 3rem;
@@ -100,11 +106,16 @@
   .login {
     width: 80%;
   }
+  .login__become-coins img {
+    margin-top: -1rem;
+    width: 7rem;
+    margin: 2.5rem;
+  }
   .login__title {
     /* font-size: 9vw; */
     font-weight: 600;
-    font-size: 15vw;
-    margin-top: -4rem;
+    font-size: 7vw;
+    margin-top: -1rem;
     text-align: start;
   }
   .login__form-email-input {
