@@ -14,7 +14,9 @@ export default function Leaderboard({ user, count }: any) {
         onClick={handleOnclickLeaderboard}
         className={style["leaderboard-single-person"]}
       >
-        <div className={style["leaderboard-number"]}>{count}</div>
+        <div className={style["leaderboard-number"]}>
+          {count}.<span> </span>
+        </div>
         <div className={style["leaderboard-name"]}>{user.name}</div>
       </button>
     </>

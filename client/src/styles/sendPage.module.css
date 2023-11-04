@@ -13,7 +13,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 2rem;
+  margin-top: 0rem;
 }
 
 .sendpage__content-profile {
@@ -48,7 +48,6 @@
 
 .sendPage__content-radio label {
   font-size: 1rem;
-  margin-bottom: 5px;
 }
 
 .sendPage__content-radio select {
@@ -69,12 +68,11 @@
 .sendPage__content-text {
   display: flex;
   flex-direction: column;
-  margin: 20px auto;
+  margin: 28px auto;
 }
 
 .sendPage__content-text label {
   font-weight: 400;
-  margin-bottom: 5px;
 }
 
 .sendPage__content-text textarea {
@@ -97,8 +95,9 @@
     margin: auto;
   }
   .sendPage__content-button {
-    width: 60vw;
+    width: 100%;
     margin: auto;
+    font-weight: 600;
   }
   .sendpage__content-coin img {
     width: 20vw;
@@ -112,7 +111,7 @@
   }
   .sendPage__content-input {
     width: 85%;
-    margin-top: 3.5rem;
+    margin-top: 1rem;
   }
   .sendPage__content-user-info {
     width: 85%;
@@ -146,11 +145,12 @@
   }
   .sendPage__content {
     width: 99%;
-    margin: 1rem auto;
+    margin: 0rem auto;
   }
   .sendPage__content-button {
-    width: 60vw;
+    width: 100%;
     margin: auto;
+    font-weight: 600;
   }
   .sendpage__content-coin img {
     width: 37vw;

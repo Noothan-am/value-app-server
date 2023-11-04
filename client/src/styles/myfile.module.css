@@ -147,10 +147,10 @@
 }
 
 .myfile__tophalf__main h5 {
-  color: #ffffff;
+  color: #ffffffc7;
   opacity: 0.5;
   font-family: "Inter", Helvetica;
-  font-size: 8px;
+  font-size: 11px;
   font-weight: 400;
   letter-spacing: -0.1px;
   line-height: 15px;
@@ -192,7 +192,6 @@
 }
 
 .myfile__dark_button {
-  margin: 10px 0;
   padding: 16px;
   background-color: #4557dc;
   color: rgba(255, 255, 255, 1);
@@ -202,6 +201,7 @@
   padding-top: 1.2rem;
   border-radius: 5px;
   width: 19rem;
+  font-weight: 700;
   height: 3rem;
   padding-bottom: 2.3rem;
 }
@@ -275,12 +275,12 @@
 .myfile__downhalf h4 {
   color: #000000;
   font-family: "Inter", Helvetica;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 200;
   letter-spacing: -0.14px;
   line-height: 21px;
   opacity: 0.5;
-  margin: 0;
+  margin-top: 5px;
 }
 
 .myfile__downhalf__heading__date {
@@ -302,6 +302,14 @@
     width: 80%;
     margin-top: -1rem;
   }
+  .myfile__downhalf {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: 95vw;
+  }
   .myfile__tophalf__content {
     width: 85%;
     margin: auto;
@@ -311,7 +319,7 @@
     margin-bottom: 0.7rem;
     border: none;
     border-radius: 5px;
-    width: 75%;
+    width: 80%;
     opacity: 0.4;
     text-align: center;
     height: 3rem;

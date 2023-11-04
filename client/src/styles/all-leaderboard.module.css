@@ -33,7 +33,7 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 80vh;
+  height: fit-content;
   margin: auto;
   margin-left: 10rem;
 }
@@ -85,8 +85,8 @@
   margin-top: 1px;
 }
 
-.values__content-right-value {
-  /* font-size: 20px; */
+.values__content-coin img {
+  margin-right: -0.5rem;
 }
 
 .leaderboard-number {
@@ -95,6 +95,7 @@
 
 .values__content-value {
   font-size: 20px;
+  font-weight: 600;
 }
 
 .values__content-coin img {
@@ -103,11 +104,11 @@
 
 @media screen and (max-width: 500px) {
   .leaderboard__heading {
-    padding: 10vw 7vh;
-    text-align: center;
+    padding: 8vw 5vh;
+    text-align: start;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.632);
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-top: -2rem;
   }
   .leaderboard__Users {
@@ -115,7 +116,7 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 150vh;
+    height: fit-content;
     margin: auto;
     margin-left: 10rem;
   }
@@ -135,14 +136,14 @@
   .leaderboard {
     color: white;
     width: 90%;
-    margin: 0rem auto;
+    margin: -0.3rem auto;
   }
 
   .values {
     display: flex;
     align-items: center;
     font-family: "Inter", sans-serif;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.7rem;
     width: 100%;
   }
   .leaderboard__Users {
@@ -153,7 +154,7 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    min-height: 100vh;
+    min-height: fit-content;
     margin: auto;
     width: 85%;
     margin: auto;
@@ -174,7 +175,7 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 280vh;
+    height: fit-content;
     margin: auto;
     /* margin-left: 10rem; */
   }
@@ -201,7 +202,7 @@
     display: flex;
     align-items: center;
     font-family: "Inter", sans-serif;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.7rem;
     width: 100%;
   }
   .leaderboard__Users {
@@ -212,15 +213,14 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    min-height: 100vh;
+    min-height: fit-content;
     margin: auto;
     width: 85%;
     margin: auto;
   }
   .leaderboard__heading {
-    padding: 8vw 7vh;
-    padding-top: 14vw;
-    text-align: center;
+    padding: 8vw 12vh;
+    text-align: start;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.632);
     font-size: 1.2rem;
@@ -231,7 +231,7 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    min-height: 180vh;
+    min-height: fit-content;
     margin: auto;
   }
 

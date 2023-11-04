@@ -54,7 +54,6 @@ const Myfile = () => {
   };
 
   const handleProflileClick = (e: any) => {
-    console.log("handleProflileClick", userDetails);
     e.preventDefault();
     navigator(`/my-page/${userDetails.user_id}`);
   };
@@ -75,13 +74,15 @@ const Myfile = () => {
         }
       );
       if (response) {
-        setUserDetails({ ...userDetails, current_coins: 5 });
+        return true;
+      } else {
+        return false;
       }
     } catch (err) {
       console.log("Error while resetting the date");
       console.error(err);
     }
-  }, [userDetails]);
+  }, []);
 
   const fetchUserDetails = useCallback(async () => {
     try {
@@ -101,20 +102,22 @@ const Myfile = () => {
       if (!response.ok) throw new Error("Error while fetching users");
       if (response) {
         const jsonData = await response.json();
-        setUserDetails(jsonData);
         const reset_date = jsonData.reset_date;
         let b = moment(moment().format("DD-MM-YYYY"), "DD-MM-YYYY");
         let a = moment(reset_date, "DD-MM-YYYY");
         const difference = b.diff(a, "months");
         if (difference >= 1) {
-          await resetDate();
+          const data = await resetDate();
+          if (data) setUserDetails({ ...jsonData, current_coins: 5 });
+        } else {
+          setUserDetails(jsonData);
         }
       }
     } catch (err) {
       console.log("Error while fetching users");
       console.error(err);
     }
-  }, [userId, resetDate]);
+  }, [userId]);
 
   useEffect(() => {
     fetchUserDetails()

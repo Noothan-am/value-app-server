@@ -60,7 +60,7 @@
   }
   .profile__users {
     width: 100%;
-    margin: 1rem auto;
+    margin: 0rem auto;
     overflow: hidden;
   }
 }

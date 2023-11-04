@@ -45,6 +45,7 @@
   }
   .values__content-value {
     font-size: 1.3rem;
+    font-weight: 600;
   }
   .values__content-coin img {
     width: 2.8rem;

@@ -96,7 +96,7 @@ function LeaderBoardWithCoin({ userDetails, showLeaderBoard }: any) {
               onClick={handleLeaderButtonClick}
               className={style["leaderboard__light_button"]}
             >
-              {"VIEW MORE>>"}
+              {"VIEW ALL>>"}
             </button>
           </div>
         )}
