@@ -2,11 +2,11 @@ import React, { useContext, useState } from "react";
 import { BiLockAlt } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
-import { UserId } from "../context/UserIdContext";
+// import { UserId } from "../context/UserIdContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const styles = require("../styles/login.module.css").default;
-const bgimage = require("../assets/images/Loading-background.png");
+// const bgimage = require("../assets/images/Loading-background.png");
 const becomeCoins = require("../assets/svg/loading-logo.svg").default;
 
 const Login = () => {
@@ -14,7 +14,6 @@ const Login = () => {
   const [password, setPassword] = useState<string>("");
 
   const navigate = useNavigate();
-  const { setUserInfo } = useContext(UserId) as any;
 
   const handleLoginSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -57,12 +56,7 @@ const Login = () => {
           theme: "dark",
         });
         const data = await result.json();
-        setUserInfo({
-          userId: data.userId,
-          userName: data.userName,
-          coins: data.coins,
-          image: data.image,
-        });
+        localStorage.setItem("userInfo", JSON.stringify(data));
         setTimeout(() => {
           navigate(`/my-profile/${data.userId}`);
         }, 500);

@@ -4,9 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { UserId } from "../context/UserIdContext";
 function ErrorPage() {
   const navigate = useNavigate();
-  const { userInfo } = useContext(UserId) as any;
+  const userData: any = localStorage.getItem("userInfo");
+  const data = JSON.parse(userData);
+  let userId = data?.userId;
   const handleClickBackToHome = () => {
-    navigate(`/my-profile/${userInfo.userId}`);
+    navigate(`/my-profile/${userId}`);
   };
   return (
     <>

@@ -2,7 +2,6 @@ import React, { useCallback, useContext, useEffect, useState } from "react";
 import ProfileWithCoin from "../components/ProfileWithCoin";
 import Header from "../components/Header";
 import { useNavigate } from "react-router-dom";
-import { UserId } from "../context/UserIdContext";
 import Loading from "./Loading";
 const styles = require("../styles/profile.module.css").default;
 
@@ -11,7 +10,10 @@ function Profile() {
   const [isLoading, setIsLoading] = useState<any>(true);
 
   const navigation = useNavigate();
-  const { userInfo } = useContext(UserId) as any;
+
+  const userData: any = localStorage.getItem("userInfo");
+  const data = JSON.parse(userData);
+  let userId = data?.userId;
 
   const fetchAllUsers = useCallback(async () => {
     try {
@@ -28,9 +30,8 @@ function Profile() {
       if (!response.ok) throw new Error("Error while fetching users");
       if (response) {
         const jsonData = await response.json();
-        console.log("id", userInfo.userId);
         const result = await jsonData.filter((eachUser: any) => {
-          return eachUser.user_id !== userInfo.userId;
+          return eachUser.user_id !== userId;
         });
         console.log(JSON.stringify(result));
         setAllUsers(result);
@@ -39,7 +40,7 @@ function Profile() {
       console.log("Error while fetching users");
       console.error(err);
     }
-  }, [userInfo]);
+  }, [userId]);
 
   const handleUserClick = (user_id: string) => {
     navigation(`/send/${user_id}`);
@@ -62,8 +63,8 @@ function Profile() {
     <>
       <div className={styles["profile"]}>
         <Header
-          navigateTo={`/my-profile/${userInfo.userId}`}
-          content={"Who do you want to Celebrate?"}
+          navigateTo={`/my-profile/${userId}`}
+          content={"Back to Profile"}
         />
         <div className={styles["profile__users"]}>
           {allUsers.map((eachUser: any) => {

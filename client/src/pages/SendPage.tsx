@@ -24,12 +24,13 @@ export default function SendPage() {
   const [isLoading, setIsLoading] = useState<any>(true);
 
   const { id } = useParams();
-  const { userInfo, setUserInfo } = useContext(UserId) as any;
   const navigator = useNavigate();
+  const userData: any = localStorage.getItem("userInfo");
+  const data = JSON.parse(userData);
+  let userId = data?.userId;
 
   const findUserValid = async () => {
     try {
-      const value = selectedOption.toLocaleLowerCase();
       const response = await fetch(
         `${process.env.REACT_APP_API_URL}/valid-user`,
         {
@@ -39,9 +40,9 @@ export default function SendPage() {
             "Access-Control-Allow-Origin": "*",
           },
           body: JSON.stringify({
-            from_user_id: userInfo.userId,
+            from_user_id: userId,
             to_user_id: id,
-            value: value,
+            value: selectedOption,
           }),
         }
       );
@@ -85,7 +86,7 @@ export default function SendPage() {
       });
       return;
     }
-    if (userInfo.coins <= 0) {
+    if (data.coins <= 0) {
       toast.warn("you don't have enough coins", {
         position: "top-right",
         autoClose: 2000,
@@ -121,13 +122,13 @@ export default function SendPage() {
             "Access-Control-Allow-Origin": "*",
           },
           body: JSON.stringify({
-            from: userInfo.userName,
-            from_user_id: userInfo.userId,
+            from: data.userName,
+            from_user_id: data.userId,
             to: user.name,
             to_user_id: id,
             celebration_moment: selectedOption.toLocaleLowerCase(),
             celebrating_value: celebrationMoment,
-            image: userInfo.image,
+            image: data.image,
           }),
         }
       );
@@ -142,10 +143,9 @@ export default function SendPage() {
           theme: "dark",
         });
         setIsLoading(true);
-        setUserInfo({ ...userInfo, coins: userInfo.coins - 1 });
         setTimeout(() => {
           // setIsLoading(false);
-          navigator(`/my-profile/${userInfo.userId}`);
+          navigator(`/my-profile/${userId}`);
         }, 500);
       } else {
         setIsLoading(false);

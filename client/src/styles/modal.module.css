@@ -1,4 +1,19 @@
-.top-part {
+/* .top-part {
   display: flex;
-  flex-direction: row;
-}
+  flex-direction: r;
+} */
+
+/* @media screen and (min-width: 400px) {
+  .box-modal {
+    width: 800px;
+    height: 400px;
+     position: "absolute";
+    top: "88%";
+   left: "50%";
+   transform: translate(-50%, -50%);
+   width: 300px;
+   height: 750px;
+   bgcolor: "background";
+   borderRadius: 7,
+   box-s : 24,
+   /* p: 4, */

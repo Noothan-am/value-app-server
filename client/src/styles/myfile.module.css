@@ -32,6 +32,7 @@
   padding-top: 44px;
   width: 80%;
   margin: auto;
+  margin-top: -2rem;
 }
 
 .leaderboard {
@@ -299,6 +300,7 @@
     align-items: center;
     margin: auto;
     width: 80%;
+    margin-top: -1rem;
   }
   .myfile__tophalf__content {
     width: 85%;

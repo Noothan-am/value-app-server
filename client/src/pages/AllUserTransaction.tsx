@@ -55,7 +55,9 @@ function AllUserTransaction() {
   const [allTransaction, setAllTransaction] = useState<any>();
   const [isLoading, setIsLoading] = useState<any>(true);
 
-  const { userInfo } = useContext(UserId) as any;
+  const userData: any = localStorage.getItem("userInfo");
+  const data = JSON.parse(userData);
+  let userId = data?.userId;
 
   const fetchAllTransactions = useCallback(async () => {
     try {
@@ -97,7 +99,7 @@ function AllUserTransaction() {
     <>
       <div className={style["all-transaction"]}>
         <Header
-          navigateTo={`/my-profile/${userInfo.userId}`}
+          navigateTo={`/my-profile/${userId}`}
           content={"Back to Profile"}
         />
         <div className={style["profile__secondpart-transaction"]}>

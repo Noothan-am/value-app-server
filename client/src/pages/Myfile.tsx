@@ -32,17 +32,13 @@ const Myfile = () => {
   const [userDetails, setUserDetails] = useState<any>();
   const [isLoading, setIsLoading] = useState<any>(true);
   const [open, setOpen] = useState(false);
-  const { userInfo, setUserInfo } = useContext(UserId) as any;
 
   let { userId } = useParams();
-  if (!userId) {
-    userId = userInfo.userId;
-  }
+
   const navigator = useNavigate();
-  const { coins } = userInfo;
 
   const handleCelebrateClick = () => {
-    if (userInfo.coins <= 0) {
+    if (userDetails.current_coins <= 0) {
       toast.warn("you don't have enough coins", {
         position: "top-right",
         autoClose: 2000,
@@ -58,8 +54,9 @@ const Myfile = () => {
   };
 
   const handleProflileClick = (e: any) => {
+    console.log("handleProflileClick", userDetails);
     e.preventDefault();
-    navigator(`/my-page/${userId}`);
+    navigator(`/my-page/${userDetails.user_id}`);
   };
 
   const handleOpen = () => setOpen(true);
@@ -78,14 +75,13 @@ const Myfile = () => {
         }
       );
       if (response) {
-        console.log("Successfully reset the date");
-        setUserInfo({ ...userInfo, coins: 5 });
+        setUserDetails({ ...userDetails, current_coins: 5 });
       }
     } catch (err) {
       console.log("Error while resetting the date");
       console.error(err);
     }
-  }, [userInfo, setUserInfo]);
+  }, [userDetails]);
 
   const fetchUserDetails = useCallback(async () => {
     try {
@@ -105,7 +101,7 @@ const Myfile = () => {
       if (!response.ok) throw new Error("Error while fetching users");
       if (response) {
         const jsonData = await response.json();
-
+        setUserDetails(jsonData);
         const reset_date = jsonData.reset_date;
         let b = moment(moment().format("DD-MM-YYYY"), "DD-MM-YYYY");
         let a = moment(reset_date, "DD-MM-YYYY");
@@ -113,7 +109,6 @@ const Myfile = () => {
         if (difference >= 1) {
           await resetDate();
         }
-        setUserDetails(jsonData);
       }
     } catch (err) {
       console.log("Error while fetching users");
@@ -134,7 +129,10 @@ const Myfile = () => {
 
   if (isLoading) return <Loading />;
 
-  const coinsArray = Array.from({ length: coins }, (_, index) => index + 1);
+  const coinsArray = Array.from(
+    { length: userDetails.current_coins },
+    (_, index) => index + 1
+  );
 
   return (
     <>
@@ -200,12 +198,18 @@ const Myfile = () => {
             </div>
             <div className={styles.myfile__downhalf__heading__rigthpart}>
               <h2>Available coins</h2>
-              <span>{userInfo.coins}</span>
+              <span>{userDetails.current_coins}</span>
             </div>
           </div>
           <div className={styles.overlapping__coins}>
             {coinsArray.map((coin, index) => {
-              return <Coins key={index} index={index} size={coins} />;
+              return (
+                <Coins
+                  key={index}
+                  index={index}
+                  size={userDetails.current_coins}
+                />
+              );
             })}
           </div>
           <button

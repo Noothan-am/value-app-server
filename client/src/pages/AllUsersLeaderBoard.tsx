@@ -10,7 +10,9 @@ function AllUsersLeaderBoard() {
   const [topLeaderboardUsers, setTopLeaderboardUsers] = useState<any>([]);
   const [isLoading, setIsLoading] = useState<any>(true);
 
-  const { userInfo } = useContext(UserId) as any;
+  const userData: any = localStorage.getItem("userInfo");
+  const data = JSON.parse(userData);
+  let userId = data?.userId;
 
   const fetchAllUserDetails = async () => {
     try {
@@ -91,7 +93,7 @@ function AllUsersLeaderBoard() {
     <>
       <div className={style["allUsers__leaderboard"]}>
         <Header
-          navigateTo={`/my-profile/${userInfo.userId}`}
+          navigateTo={`/my-profile/${userId}`}
           content={"Back to Profile"}
         />
         <div className={style["leaderboard__heading"]}>LEADERBOARD</div>

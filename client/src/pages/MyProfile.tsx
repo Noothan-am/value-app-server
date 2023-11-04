@@ -6,7 +6,7 @@ import LeaderBoardWithCoin from "../components/LeaderBoardWithCoin";
 import Loading from "./Loading";
 // import { useParams } from "react-router-dom";
 import { UserId } from "../context/UserIdContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Greeting from "../components/Greeting";
 
 const style = require("../styles/myprofile.module.css").default;
@@ -23,8 +23,8 @@ function MyProfile() {
   const [allTransaction, setAllTransaction] = useState<any>();
   const [isLoading, setIsLoading] = useState<any>(true);
 
-  const { userInfo } = useContext(UserId) as any;
   const navigation = useNavigate();
+  let { userId } = useParams();
 
   const handleTransactionButtonClick = () => {
     navigation("/transactions");
@@ -41,7 +41,7 @@ function MyProfile() {
             "Access-Control-Allow-Origin": "*",
           },
           body: JSON.stringify({
-            userId: userInfo.userId,
+            userId: userId,
           }),
         }
       );
@@ -54,7 +54,7 @@ function MyProfile() {
       console.log("Error while fetching users");
       console.error(err);
     }
-  }, [userInfo.userId]);
+  }, [userId]);
 
   const fetchAllTransactions = useCallback(async () => {
     try {
@@ -67,7 +67,7 @@ function MyProfile() {
             "Access-Control-Allow-Origin": "*",
           },
           body: JSON.stringify({
-            userId: userInfo.userId,
+            userId: userId,
           }),
         }
       );
@@ -80,7 +80,7 @@ function MyProfile() {
       console.log("Error while fetching users");
       console.error(err);
     }
-  }, [userInfo]);
+  }, [userId]);
 
   useEffect(() => {
     fetchAllTransactions()
@@ -117,7 +117,7 @@ function MyProfile() {
       <div className={style["profile"]}>
         <div className={style["profile__header"]}>
           <Header
-            navigateTo={`/my-profile/${userInfo.userId}`}
+            navigateTo={`/my-profile/${userId}`}
             content={"Back to Profile"}
           />
         </div>

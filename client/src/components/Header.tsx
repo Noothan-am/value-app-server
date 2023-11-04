@@ -7,10 +7,8 @@ const styles = require("../styles/header.module.css").default;
 
 function Header({ content, navigateTo }: any) {
   const navigate = useNavigate();
-  // const { userInfo } = useContext(UserId) as any;
 
   const handleHeaderClick = () => {
-    // navigate(`/my-profile/${userInfo.userId}`);
     console.log("handleHeaderClick");
     navigate(navigateTo);
   };
