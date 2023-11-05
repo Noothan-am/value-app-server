@@ -29,7 +29,7 @@
 
 .profile__greeting {
   display: flex;
-  width: 68%;
+  width: 80%;
   margin: auto;
   margin-bottom: -1rem;
 }
@@ -38,6 +38,8 @@
   font-weight: 600;
   color: rgba(255, 255, 255, 0.632);
   margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
 }
 .profile__secondpart-title button {
   background: none;
@@ -170,6 +172,13 @@
     margin: auto;
     margin-bottom: -1rem;
   }
+  .profile__greeting {
+    display: flex;
+    width: 68%;
+    margin: auto;
+    margin-bottom: -1rem;
+  }
+
   .profile__secondpart {
     display: flex;
     flex-direction: column;

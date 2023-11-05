@@ -32,7 +32,7 @@
   padding-top: 44px;
   width: 80%;
   margin: auto;
-  margin-top: -2rem;
+  margin-top: -1rem;
 }
 
 .leaderboard {
@@ -301,6 +301,15 @@
     margin: auto;
     width: 80%;
     margin-top: -1rem;
+  }
+  .myfile__tophalf__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 44px;
+    width: 80%;
+    margin: auto;
+    margin-top: -2rem;
   }
   .myfile__downhalf {
     background-color: white;

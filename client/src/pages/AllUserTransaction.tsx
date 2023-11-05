@@ -1,8 +1,7 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 // import Transaction from "../components/Transaction";
 import Loading from "./Loading";
 import Header from "../components/Header";
-import { UserId } from "../context/UserIdContext";
 // const profileImage = require("../assets/images/profile-icon.png");
 const style = require("../styles/all-transactions.module.css").default;
 
