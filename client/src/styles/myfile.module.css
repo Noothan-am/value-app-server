@@ -132,6 +132,7 @@
 .myfile__tophalf__main img {
   margin-left: 3.2rem;
   height: 3rem;
+  cursor: pointer;
 }
 
 .myfile__tophalf__main h4 {
