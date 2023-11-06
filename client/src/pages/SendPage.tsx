@@ -7,6 +7,7 @@ import Button from "../components/Button";
 import { useNavigate, useParams } from "react-router-dom";
 import { UserId } from "../context/UserIdContext";
 import Loading from "./Loading";
+import LoadingScreen from "./LoadingScreen";
 
 const styles = require("../styles/sendPage.module.css").default;
 const coin = require("../assets/svg/big-coin.svg").default;
@@ -203,7 +204,7 @@ export default function SendPage() {
       });
   }, [fetchAllUsers]);
 
-  if (isLoading) return <Loading />;
+  if (isLoading) return <LoadingScreen />;
 
   return (
     <>

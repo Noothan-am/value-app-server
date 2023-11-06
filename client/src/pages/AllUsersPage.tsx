@@ -3,6 +3,7 @@ import ProfileWithCoin from "../components/ProfileWithCoin";
 import Header from "../components/Header";
 import { useNavigate } from "react-router-dom";
 import Loading from "./Loading";
+import LoadingScreen from "./LoadingScreen";
 const styles = require("../styles/profile.module.css").default;
 
 function Profile() {
@@ -57,7 +58,7 @@ function Profile() {
       });
   }, [fetchAllUsers]);
 
-  if (isLoading) return <Loading />;
+  if (isLoading) return <LoadingScreen />;
 
   return (
     <>

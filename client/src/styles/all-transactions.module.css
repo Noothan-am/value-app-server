@@ -9,14 +9,14 @@
 }
 
 .profile__secondpart-title {
-  font-weight: 600;
-  width: 100%;
-  text-align: start;
-  color: rgba(255, 255, 255, 0.632);
+  color: hsla(0, 0%, 100%, 0.632);
   font-size: 1.2rem;
+  font-weight: 600;
   margin-bottom: -0.5rem;
   margin-top: -3rem;
-  margin-left: 2rem;
+  text-align: start;
+  margin-left: auto;
+  width: 92%;
 }
 
 .profile__secondpart-content {
@@ -98,6 +98,11 @@
   margin-right: 2rem;
 }
 
+.transaction__image {
+  height: 100%;
+  margin-top: 20rem;
+}
+
 @media screen and (max-width: 540px) {
   .transaction {
     display: flex;
@@ -109,6 +114,8 @@
   }
   .transaction__image {
     margin-top: 0rem;
+    height: 100%;
+    margin-top: 3rem;
   }
   .transaction__content-date {
     font-size: 11px;
@@ -162,6 +169,8 @@
   }
   .transaction__image {
     margin-top: 0rem;
+    height: 100%;
+    margin-top: 3rem;
   }
   .transaction__content-date {
     font-size: 11px;
@@ -216,6 +225,8 @@
   }
   .transaction__image {
     margin-top: 0rem;
+    height: 100%;
+    margin-top: 3rem;
   }
   .transaction__content-date {
     font-size: 11px;
@@ -281,6 +292,8 @@
   }
   .transaction__image {
     margin-top: 0rem;
+    height: 100%;
+    margin-top: 3rem;
   }
   .transaction__content-date {
     font-size: 11px;

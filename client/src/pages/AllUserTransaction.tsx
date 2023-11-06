@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 // import Transaction from "../components/Transaction";
 import Loading from "./Loading";
 import Header from "../components/Header";
+import LoadingScreen from "./LoadingScreen";
 // const profileImage = require("../assets/images/profile-icon.png");
 const style = require("../styles/all-transactions.module.css").default;
 
@@ -92,7 +93,7 @@ function AllUserTransaction() {
       });
   }, [fetchAllTransactions]);
 
-  if (isLoading) return <Loading />;
+  if (isLoading) return <LoadingScreen />;
 
   return (
     <>

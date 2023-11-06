@@ -6,6 +6,7 @@ import LeaderBoardWithCoin from "../components/LeaderBoardWithCoin";
 import Loading from "./Loading";
 import { useNavigate, useParams } from "react-router-dom";
 import Greeting from "../components/Greeting";
+import LoadingScreen from "./LoadingScreen";
 
 const style = require("../styles/myprofile.module.css").default;
 
@@ -109,7 +110,7 @@ function MyProfile() {
     "Celebrating",
   ];
 
-  if (isLoading) return <Loading />;
+  if (isLoading) return <LoadingScreen />;
 
   return (
     <>

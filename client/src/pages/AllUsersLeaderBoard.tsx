@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import { UserId } from "../context/UserIdContext";
 import Loading from "./Loading";
+import LoadingScreen from "./LoadingScreen";
 const style = require("../styles/all-leaderboard.module.css").default;
 const coinImage = require("../assets/svg/coin.svg").default;
 
@@ -87,7 +88,7 @@ function AllUsersLeaderBoard() {
       });
   }, []);
 
-  if (isLoading) return <Loading />;
+  if (isLoading) return <LoadingScreen />;
 
   return (
     <>

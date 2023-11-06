@@ -7,6 +7,7 @@ import Loading from "./Loading";
 import { useNavigate, useParams } from "react-router-dom";
 import { UserId } from "../context/UserIdContext";
 import ModalComponent from "../components/Modal";
+import LoadingScreen from "./LoadingScreen";
 
 const styles = require("../styles/myfile.module.css").default;
 const logoImage = require("../assets/images/Group 26943.png");
@@ -117,7 +118,7 @@ const Myfile = () => {
       console.log("Error while fetching users");
       console.error(err);
     }
-  }, [userId]);
+  }, [resetDate, userId]);
 
   useEffect(() => {
     fetchUserDetails()
@@ -130,7 +131,7 @@ const Myfile = () => {
       });
   }, [fetchUserDetails]);
 
-  if (isLoading) return <Loading />;
+  if (isLoading) return <LoadingScreen />;
 
   const coinsArray = Array.from(
     { length: userDetails.current_coins },

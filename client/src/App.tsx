@@ -12,15 +12,16 @@ import AllUsersLeaderBoard from "./pages/AllUsersLeaderBoard";
 import AllUserTransaction from "./pages/AllUserTransaction";
 import UserProfile from "./pages/UserProfile";
 import Modal from "./components/Modal";
+import LoadingScreen from "./pages/LoadingScreen";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Login />} />
+      <Route path="/" element={<Loading />} />
       <Route path="/modal" element={<Modal />} />
       <Route path="/my-profile/:userId" element={<Myfile />} />
-      <Route path="/loading" element={<Loading />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/loading" element={<LoadingScreen />} />
       <Route path="/profile" element={<AllUsersPage />} />
       <Route path="/send/:id" element={<SendPage />} />
       <Route path="*" element={<ErrorPage />} />
