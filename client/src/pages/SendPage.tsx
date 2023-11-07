@@ -52,7 +52,7 @@ export default function SendPage() {
         return result.isValidUser;
       }
     } catch (error) {
-      console.log(error);
+      console.log("error while finding valid user", error);
       return false;
     }
   };
@@ -244,7 +244,6 @@ export default function SendPage() {
                 id="cars"
                 onChange={(e) => {
                   setSelectedOption(e.target.value);
-                  console.log(e.target.value);
                 }}
                 value={selectedOption}
               >

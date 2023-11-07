@@ -83,7 +83,6 @@ const getAllTransactions = async (req, res) => {
 
 const updateProfile = async (fromId, toId, celebration_moment) => {
   try {
-    console.log(fromId, toId);
     await userInfoSchema.updateOne({ user_id: fromId }, [
       {
         $set: {

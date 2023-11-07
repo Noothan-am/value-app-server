@@ -36,7 +36,6 @@ const Login = () => {
     }
 
     try {
-      console.log("login", process.env.REACT_APP_API_URL);
       const result = await fetch(`${process.env.REACT_APP_API_URL}/login`, {
         method: "POST",
         headers: {

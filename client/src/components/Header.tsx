@@ -9,7 +9,6 @@ function Header({ content, navigateTo }: any) {
   const navigate = useNavigate();
 
   const handleHeaderClick = () => {
-    console.log("handleHeaderClick");
     navigate(navigateTo);
   };
 

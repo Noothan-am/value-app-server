@@ -34,7 +34,6 @@ function Profile() {
         const result = await jsonData.filter((eachUser: any) => {
           return eachUser.user_id !== userId;
         });
-        console.log(JSON.stringify(result));
         setAllUsers(result);
       }
     } catch (err) {
