@@ -17,3 +17,7 @@
    borderRadius: 7,
    box-s : 24,
    /* p: 4, */
+
+p {
+  margin: 3px 0;
+}

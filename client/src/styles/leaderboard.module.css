@@ -91,6 +91,7 @@
   font-family: "Inter", sans-serif;
   width: 130px;
   margin-left: -5rem;
+  text-decoration: underline;
 }
 
 .leaderboard-name {
@@ -184,6 +185,7 @@
   font-family: "Inter", sans-serif;
   width: 130px;
   margin-left: -5rem;
+  text-decoration: underline;
   /* margin-left: -2.4rem; */
 }
 

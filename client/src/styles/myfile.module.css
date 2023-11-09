@@ -43,6 +43,7 @@
   height: 35px;
   object-fit: contain;
   padding-top: 5px;
+  cursor: pointer;
 }
 
 .myfile__tophalf__nav__left_image {
@@ -132,7 +133,7 @@
 .myfile__tophalf__main img {
   margin-left: 3.2rem;
   height: 3rem;
-  cursor: pointer;
+  opacity: 0.5;
 }
 
 .myfile__tophalf__main h4 {

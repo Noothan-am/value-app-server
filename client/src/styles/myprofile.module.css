@@ -162,6 +162,7 @@
     font-weight: 500;
     font-family: "Inter", sans-serif;
     cursor: pointer;
+    text-decoration: underline;
   }
 }
 

@@ -84,7 +84,7 @@ function ModalComponent({ open, handleClose }: any) {
               industry. Lorem Ipsum has been the industry's standard dummy text
               ever since the 1500s, when an unknown.
             </p>
-            <Typography id="modal-modal-description" sx={{ mt: 1 }}>
+            <Typography id="modal-modal-description" sx={{ mt: 4 }}>
               Encashment Cycle
             </Typography>
             <p>

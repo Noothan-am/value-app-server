@@ -159,7 +159,10 @@ const Myfile = () => {
               src={logoImage}
               alt="Become logo"
             />
-            <div className={styles.myfile__tophalf__nav__right_image}>
+            <div
+              className={styles.myfile__tophalf__nav__right_image}
+              onClick={(e) => handleProflileClick(e)}
+            >
               <img
                 src={require("../assets/images/" + userDetails.image)}
                 alt="profile-icon"
@@ -176,17 +179,14 @@ const Myfile = () => {
 
           <div className={styles.myfile__tophalf__main}>
             <div className={styles.myfile__tophalf__main__user}>
-              <div
-                onClick={(e) => handleProflileClick(e)}
-                className={styles.myfile__tophalf__main__user__img}
-              >
+              <div className={styles.myfile__tophalf__main__user__img}>
                 <img
                   src={require("../assets/images/" + userDetails.image)}
                   alt="profile-icon"
                 />
               </div>
               <button onClick={handleOpen} className={styles["modal-button"]}>
-                <h4>{userDetails.total_coins} coins away to encash &gt;</h4>
+                <h4>25 coins away to encash &gt;</h4>
               </button>
             </div>
             <div className={styles.myfile__light_button}>

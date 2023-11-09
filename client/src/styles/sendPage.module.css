@@ -75,6 +75,11 @@
   font-weight: 400;
 }
 
+.sendPage__content-text label,
+.sendPage__content-radio label {
+  font-family: "Inter", sans-serif;
+}
+
 .sendPage__content-text textarea {
   text-align: start;
   border-radius: 5px;
@@ -132,7 +137,7 @@
   }
   .sendPage__content-text label,
   .sendPage__content-radio label {
-    font-size: 3.3vw;
+    font-size: 11px;
     margin-top: 0rem;
   }
   .sendpage__content-coin-amount {

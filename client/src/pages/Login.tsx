@@ -5,6 +5,7 @@ import Button from "../components/Button";
 // import { UserId } from "../context/UserIdContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import LoadingScreen from "./LoadingScreen";
 const styles = require("../styles/login.module.css").default;
 // const bgimage = require("../assets/images/Loading-background.png");
 const becomeCoins = require("../assets/svg/loading-logo.svg").default;
@@ -12,12 +13,13 @@ const becomeCoins = require("../assets/svg/loading-logo.svg").default;
 const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
   const handleLoginSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
+    setIsLoading(true);
     const inputEmail = email.trim();
     const inputPassword = password.trim();
 
@@ -31,6 +33,7 @@ const Login = () => {
         progress: undefined,
         theme: "dark",
       });
+      setIsLoading(false);
       console.log("empty fields found");
       return;
     }
@@ -44,6 +47,7 @@ const Login = () => {
         },
         body: JSON.stringify({ email: inputEmail, password: inputPassword }),
       });
+      setIsLoading(false);
       if (result.ok) {
         toast.success("Login Succesfull", {
           position: "top-right",
@@ -71,6 +75,7 @@ const Login = () => {
         });
       }
     } catch (error) {
+      setIsLoading(false);
       toast.error("Internal server error!!", {
         position: "top-right",
         autoClose: 2000,
@@ -83,6 +88,8 @@ const Login = () => {
       console.log("error while login: ", error);
     }
   };
+
+  if (isLoading) return <LoadingScreen />;
 
   return (
     <>
