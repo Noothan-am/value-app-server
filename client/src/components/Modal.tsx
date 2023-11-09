@@ -16,13 +16,12 @@ const style: any = {
   borderRadius: 7,
   boxShadow: 24,
   p: 4,
-  // height: "55vh",
   width: 200,
 };
 
 function ModalComponent({ open, handleClose }: any) {
-  const largeScreen = window.innerWidth >= 300; // Change this breakpoint as needed
-  const height = window.innerHeight <= 780; // Change this breakpoint as needed
+  const largeScreen = window.innerWidth >= 300;
+  const height = window.innerHeight <= 780;
 
   if (largeScreen) {
     if (window.innerWidth < 412) style.width = 300;
@@ -80,6 +79,16 @@ function ModalComponent({ open, handleClose }: any) {
               Minimum Requirements
             </Typography>
             <p>
+              For you to be eligible to Encash during the Encashment Cycle,
+              you'll have to minimum of 25 Coins. Example: If you've less than
+              25 Coins during the last 2 weeks of Mar, you'll have to wait to
+              reach 25 or 25+ coins to encash during the next encashment cycle
+              which will be Jun.
+            </p>
+            <Typography id="modal-modal-description" sx={{ mt: 4 }}>
+              Encashment Cycle
+            </Typography>
+            <p>
               Encashment refers to the process in which you can convert your
               Coins to Cash. Encashment Cycle denotes the periodicity in which
               you'll be able to encash the the coins. At the last 2 weeks of
@@ -89,16 +98,6 @@ function ModalComponent({ open, handleClose }: any) {
               become active in the last 2 weeks of Mar, Jun, Sep and Dec which
               if you choose to act upon, will be added to your forthcoming
               payroll cycle.
-            </p>
-            <Typography id="modal-modal-description" sx={{ mt: 4 }}>
-              Encashment Cycle
-            </Typography>
-            <p>
-              For you to be eligible to Encash during the Encashment Cycle,
-              you'll have to minimum of 25 Coins. Example: If you've less than
-              25 Coins during the last 2 weeks of Mar, you'll have to wait to
-              reach 25 or 25+ coins to encash during the next encashment cycle
-              which will be Jun.
             </p>
           </Box>
         </Fade>

@@ -32,6 +32,10 @@ const transactionInfoSchema = new Schema({
     type: String,
     default: moment().format("DD-MM-YYYY"),
   },
+  diff: {
+    type: String,
+    default: moment().format("MM-YYYY"),
+  },
 });
 
 const transactionSchema = model("TransactionInfoSchema", transactionInfoSchema);

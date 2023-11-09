@@ -92,7 +92,13 @@ const getLeaderboard = async (req, res) => {
 
 const getValidUser = async (req, res) => {
   try {
-    const { from_user_id, to_user_id, value } = req.body;
+    let { from_user_id, to_user_id, value } = req.body;
+    if (value == "Open_Minded") {
+      value = "Open-Minded";
+    } else if (value == "Problem_Solving") {
+      value = "Problem-Solving";
+    }
+
     const allTransactionDetails = await transactionSchema.find({
       from_user_id,
       to_user_id,
@@ -103,11 +109,14 @@ const getValidUser = async (req, res) => {
       return res.status(200).send({ isValidUser: true });
     }
 
-    let current_date = moment(moment().format("DD-MM-YYYY"), "DD-MM-YYYY");
+    let current_date = moment(moment().format("MM-YYYY"), "MM-YYYY");
+    console.log({ current_date });
     let isValid = true;
-    allTransactionDetails.map(({ date }) => {
-      let date_to_check = moment(date, "DD-MM-YYYY");
+    allTransactionDetails.map(({ diff }) => {
+      let date_to_check = moment(diff, "MM-YYYY");
+      console.log({ date_to_check });
       const difference = current_date.diff(date_to_check, "months");
+      console.log({ difference });
       if (difference <= 0) {
         isValid = false;
       }
