@@ -19,6 +19,7 @@
   width: 50%;
   /* margin: auto; */
 }
+
 .profile__secondpart-content {
   width: 100%;
 }
@@ -84,6 +85,10 @@
   font-size: 0.7rem;
   text-align: center;
   height: 2rem;
+}
+
+.profile__secondpart-title button {
+  text-decoration: underline;
 }
 
 @media screen and (min-width: 950px) and (max-width: 1180px) {
