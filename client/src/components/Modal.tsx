@@ -34,7 +34,7 @@ function ModalComponent({ open, handleClose }: any) {
   }
 
   if (height) {
-    style.height = 500;
+    style.height = 800;
   } else {
     style.height = 600;
   }
@@ -80,18 +80,25 @@ function ModalComponent({ open, handleClose }: any) {
               Minimum Requirements
             </Typography>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown.
+              Encashment refers to the process in which you can convert your
+              Coins to Cash. Encashment Cycle denotes the periodicity in which
+              you'll be able to encash the the coins. At the last 2 weeks of
+              every Financial Quarter, the Encash button will become active.
+              Financial Quarters refers to Apr-May-Jun, Jul-Aug-Sep, Oct-Nov-Dec
+              and Jan-Feb-Mar. With that understanding, the Encash button will
+              become active in the last 2 weeks of Mar, Jun, Sep and Dec which
+              if you choose to act upon, will be added to your forthcoming
+              payroll cycle.
             </p>
             <Typography id="modal-modal-description" sx={{ mt: 4 }}>
               Encashment Cycle
             </Typography>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled.
+              For you to be eligible to Encash during the Encashment Cycle,
+              you'll have to minimum of 25 Coins. Example: If you've less than
+              25 Coins during the last 2 weeks of Mar, you'll have to wait to
+              reach 25 or 25+ coins to encash during the next encashment cycle
+              which will be Jun.
             </p>
           </Box>
         </Fade>

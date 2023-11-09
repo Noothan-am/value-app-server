@@ -3,7 +3,6 @@ import Header from "../components/Header";
 import Values from "../components/Values";
 import Transaction from "../components/Transaction";
 import LeaderBoardWithCoin from "../components/LeaderBoardWithCoin";
-import Loading from "./Loading";
 import { useNavigate, useParams } from "react-router-dom";
 import Greeting from "../components/Greeting";
 import LoadingScreen from "./LoadingScreen";

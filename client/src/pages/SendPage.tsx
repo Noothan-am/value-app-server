@@ -1,12 +1,10 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "../components/Header";
 import ProfileWithCoin from "../components/ProfileWithCoin";
 import Button from "../components/Button";
 import { useNavigate, useParams } from "react-router-dom";
-import { UserId } from "../context/UserIdContext";
-import Loading from "./Loading";
 import LoadingScreen from "./LoadingScreen";
 
 const styles = require("../styles/sendPage.module.css").default;

@@ -158,6 +158,7 @@
     margin: auto;
     width: 85%;
     margin: auto;
+    padding-bottom: 4rem;
   }
 }
 
@@ -217,6 +218,7 @@
     margin: auto;
     width: 85%;
     margin: auto;
+    padding-bottom: 4rem;
   }
   .leaderboard__heading {
     padding: 8vw 12vh;

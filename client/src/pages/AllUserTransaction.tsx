@@ -1,9 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
-// import Transaction from "../components/Transaction";
-import Loading from "./Loading";
 import Header from "../components/Header";
 import LoadingScreen from "./LoadingScreen";
-// const profileImage = require("../assets/images/profile-icon.png");
 const style = require("../styles/all-transactions.module.css").default;
 
 interface eachTransactionValue {
@@ -98,10 +95,7 @@ function AllUserTransaction() {
   return (
     <>
       <div className={style["all-transaction"]}>
-        <Header
-          navigateTo={`/my-profile/${userId}`}
-          content={"Back to Profile"}
-        />
+        <Header navigateTo={`/my-profile/${userId}`} content={"Back to Home"} />
         <div className={style["profile__secondpart-transaction"]}>
           <div className={style["profile__secondpart-title"]}>
             TRANSACTION HISTORY

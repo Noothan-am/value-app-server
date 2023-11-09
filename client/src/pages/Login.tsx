@@ -1,13 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { BiLockAlt } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
-// import { UserId } from "../context/UserIdContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LoadingScreen from "./LoadingScreen";
 const styles = require("../styles/login.module.css").default;
-// const bgimage = require("../assets/images/Loading-background.png");
 const becomeCoins = require("../assets/svg/loading-logo.svg").default;
 
 const Login = () => {

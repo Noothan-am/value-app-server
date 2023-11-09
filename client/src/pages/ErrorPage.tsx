@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import "../styles/error.css";
 import { useNavigate } from "react-router-dom";
-import { UserId } from "../context/UserIdContext";
 function ErrorPage() {
   const navigate = useNavigate();
   const userData: any = localStorage.getItem("userInfo");

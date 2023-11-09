@@ -1,11 +1,8 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Header from "../components/Header";
 import Values from "../components/Values";
 import Transaction from "../components/Transaction";
 import LeaderBoardWithCoin from "../components/LeaderBoardWithCoin";
-import Loading from "./Loading";
-// import { useParams } from "react-router-dom";
-import { UserId } from "../context/UserIdContext";
 import { useNavigate, useParams } from "react-router-dom";
 import Greeting from "../components/Greeting";
 import LoadingScreen from "./LoadingScreen";
@@ -119,7 +116,7 @@ function MyProfile() {
         <div className={style["profile__header"]}>
           <Header
             navigateTo={`/my-profile/${userId}`}
-            content={"Back to Profile"}
+            content={"Back to Home"}
           />
         </div>
 

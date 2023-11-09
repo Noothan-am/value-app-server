@@ -1,8 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
-import { UserId } from "../context/UserIdContext";
-import Loading from "./Loading";
 import LoadingScreen from "./LoadingScreen";
 const style = require("../styles/all-leaderboard.module.css").default;
 const coinImage = require("../assets/svg/coin.svg").default;
@@ -93,10 +91,7 @@ function AllUsersLeaderBoard() {
   return (
     <>
       <div className={style["allUsers__leaderboard"]}>
-        <Header
-          navigateTo={`/my-profile/${userId}`}
-          content={"Back to Profile"}
-        />
+        <Header navigateTo={`/my-profile/${userId}`} content={"Back to Home"} />
         <div className={style["leaderboard__heading"]}>LEADERBOARD</div>
         <div className={style["leaderboard__Users"]}>
           {topLeaderboardUsers &&
