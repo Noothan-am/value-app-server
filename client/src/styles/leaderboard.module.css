@@ -234,6 +234,8 @@
     font-family: "Inter", sans-serif;
     width: 130px;
     /* margin-left: -1.2rem; */
+    text-decoration: underline;
+
     margin-left: -3.2rem;
   }
 

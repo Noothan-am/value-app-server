@@ -52,6 +52,7 @@
   background: none;
   margin-left: 5rem;
   cursor: pointer;
+  text-decoration: underline;
 }
 .profile__secondpart-title button:hover {
   color: white;
@@ -147,6 +148,7 @@
     font-size: 0.7rem;
     margin-left: 1.3rem;
     cursor: pointer;
+    text-decoration: underline;
   }
 }
 @media screen and (max-width: 890px) {
