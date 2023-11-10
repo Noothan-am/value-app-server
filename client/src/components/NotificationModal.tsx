@@ -25,8 +25,13 @@ const style: any = {
 };
 
 function ModalComponent({ open, handleCloseModal, unseenTransactions }: any) {
-  //   const largeScreen = window.innerWidth >= 300;
-  //   const height = window.innerHeight <= 780;
+  // const largeScreen = window.innerWidth >= 300;
+  const width = window.innerWidth >= 600;
+  console.log(width);
+  if (width) {
+    style.width = "90%";
+    style.left = "58vw";
+  }
 
   //   if (largeScreen) {
   //     if (window.innerWidth < 412) style.width = 300;
@@ -117,7 +122,6 @@ function ModalComponent({ open, handleCloseModal, unseenTransactions }: any) {
                   }
                 )
               )}
-              {/* {} */}
             </div>
           </Box>
         </Fade>
