@@ -6,6 +6,8 @@ import LeaderBoardWithCoin from "../components/LeaderBoardWithCoin";
 import { useNavigate, useParams } from "react-router-dom";
 import ModalComponent from "../components/Modal";
 import LoadingScreen from "./LoadingScreen";
+import { GoBell } from "react-icons/go";
+import NotificationModal from "../components/NotificationModal";
 
 const styles = require("../styles/myfile.module.css").default;
 const logoImage = require("../assets/images/Group 26943.png");
@@ -30,7 +32,10 @@ const Coins = ({ index, size }: coinsInfo) => {
 const Home = () => {
   const [userDetails, setUserDetails] = useState<any>();
   const [isLoading, setIsLoading] = useState<any>(true);
+  const [transactionCount, setTransactionCount] = useState(0);
+  const [unseenTransactions, setUnseenTransactions] = useState([]);
   const [open, setOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   let { userId } = useParams();
 
@@ -56,9 +61,15 @@ const Home = () => {
     e.preventDefault();
     navigator(`/my-page/${userDetails.user_id}`);
   };
-
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const handleOpenModal = () => {
+    handleNotificationClick().then(() => {
+      setShowModal(true);
+      setTransactionCount(0);
+    });
+  };
+  const handleCloseModal = () => setShowModal(false);
 
   const resetDate = useCallback(async () => {
     try {
@@ -118,16 +129,67 @@ const Home = () => {
     }
   }, [resetDate, userId]);
 
+  const handleNotificationClick = useCallback(async () => {
+    try {
+      const response: any = await fetch(
+        `${process.env.REACT_APP_API_URL}/update-transactions`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+          body: JSON.stringify({
+            userId: userId,
+          }),
+        }
+      );
+      if (!response.ok) throw new Error("Error while fetching users");
+      if (response) {
+        setShowModal(true);
+      }
+    } catch (error) {}
+  }, [userId]);
+
+  const fetchUnseenTransactions = useCallback(async () => {
+    try {
+      const response: any = await fetch(
+        `${process.env.REACT_APP_API_URL}/get-transactions`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+          body: JSON.stringify({
+            userId: userId,
+          }),
+        }
+      );
+      if (response.ok) {
+        const allTransactions = await response.json();
+        const remTrans = allTransactions.filter(
+          (transaction: any) => transaction.has_seen !== true
+        );
+        setUnseenTransactions(remTrans);
+        setTransactionCount(remTrans.length);
+      }
+    } catch (error) {
+      console.log("Error while fetching transactions", error);
+    }
+  }, [userId]);
+
   useEffect(() => {
     fetchUserDetails()
       .then(() => {
         console.log("User details fetched");
+        fetchUnseenTransactions();
         setIsLoading(false);
       })
       .catch((err) => {
         console.log("error while fetching the", err);
       });
-  }, [fetchUserDetails]);
+  }, [fetchUnseenTransactions, fetchUserDetails]);
 
   if (isLoading) return <LoadingScreen />;
 
@@ -149,6 +211,11 @@ const Home = () => {
         theme="light"
       />
       <ModalComponent handleClose={handleClose} open={open} />
+      <NotificationModal
+        unseenTransactions={unseenTransactions}
+        open={showModal}
+        handleCloseModal={handleCloseModal}
+      />
       <div className={styles.myfile}>
         <div className={styles.myfile__tophalf}>
           <div className={styles.myfile__tophalf__nav}>
@@ -157,14 +224,31 @@ const Home = () => {
               src={logoImage}
               alt="Become logo"
             />
-            <div
-              className={styles.myfile__tophalf__nav__right_image}
-              onClick={(e) => handleProflileClick(e)}
-            >
-              <img
-                src={require("../assets/images/" + userDetails.image)}
-                alt="profile-icon"
-              />
+            <div className={styles.myfile__tophalf__nav__right_image}>
+              <div
+                onClick={(e) => handleProflileClick(e)}
+                className={styles.myfile__tophalf__nav__right_image}
+              >
+                <img
+                  src={require("../assets/images/" + userDetails.image)}
+                  alt="profile-icon"
+                />
+              </div>
+              <div className={styles.myfile_tophalf_nav_notification}>
+                <div
+                  style={
+                    transactionCount > 0
+                      ? { display: "block" }
+                      : { display: "none" }
+                  }
+                  className={styles.myfile_tophalf_nav_transaction_count}
+                >
+                  {transactionCount}
+                </div>
+                <div className={styles.myfile_tophalf_nav_transaction_bell}>
+                  <GoBell className={styles.bell} onClick={handleOpenModal} />
+                </div>
+              </div>
             </div>
           </div>
 

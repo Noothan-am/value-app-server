@@ -71,7 +71,10 @@ function MyProfile() {
       );
       if (!response.ok) throw new Error("Error while fetching users");
       if (response) {
-        const jsonData = await response.json();
+        let jsonData = await response.json();
+        if (jsonData.length > 4) {
+          jsonData = jsonData.slice(0, 5);
+        }
         setAllTransaction(jsonData);
       }
     } catch (err) {
@@ -81,17 +84,10 @@ function MyProfile() {
   }, [userId]);
 
   useEffect(() => {
-    fetchAllTransactions()
+    fetchUserDetails()
       .then(() => {
         console.log("All transactions fetched successfully");
-        fetchUserDetails()
-          .then(() => {
-            "succesfully fetched user details";
-            setIsLoading(false);
-          })
-          .catch((err) => {
-            console.log("error while fetching the", err);
-          });
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log("error while fetching all transactions", err);

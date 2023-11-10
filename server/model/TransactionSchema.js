@@ -27,6 +27,11 @@ const transactionInfoSchema = new Schema({
   },
   celebration_moment: {
     type: String,
+    required: true,
+  },
+  has_seen: {
+    type: Boolean,
+    default: false,
   },
   date: {
     type: String,

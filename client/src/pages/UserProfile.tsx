@@ -72,7 +72,10 @@ function MyProfile() {
       );
       if (!response.ok) throw new Error("Error while fetching users");
       if (response) {
-        const jsonData = await response.json();
+        let jsonData = await response.json();
+        if (jsonData.length > 4) {
+          jsonData = jsonData.slice(0, 5);
+        }
         setAllTransaction(jsonData);
       }
     } catch (err) {

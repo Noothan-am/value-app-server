@@ -110,13 +110,10 @@ const getValidUser = async (req, res) => {
     }
 
     let current_date = moment(moment().format("MM-YYYY"), "MM-YYYY");
-    console.log({ current_date });
     let isValid = true;
     allTransactionDetails.map(({ diff }) => {
       let date_to_check = moment(diff, "MM-YYYY");
-      console.log({ date_to_check });
       const difference = current_date.diff(date_to_check, "months");
-      console.log({ difference });
       if (difference <= 0) {
         isValid = false;
       }

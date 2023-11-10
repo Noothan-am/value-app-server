@@ -20,6 +20,7 @@ const getUserTransactions = async (req, res) => {
           celebrating_value,
           celebration_moment,
           date,
+          has_seen,
           image,
         }) => ({
           from,
@@ -28,14 +29,11 @@ const getUserTransactions = async (req, res) => {
           celebrating_value,
           celebration_moment,
           date,
+          has_seen,
           image,
         })
       )
       .reverse();
-
-    if (transactionDetails.length > 4) {
-      transactionDetails = transactionDetails.slice(0, 5);
-    }
     res.send(transactionDetails);
   } catch (error) {
     console.error(error);
@@ -164,4 +162,23 @@ const makeTransaction = async (req, res) => {
   }
 };
 
-module.exports = { getUserTransactions, makeTransaction, getAllTransactions };
+const updateTransaction = async (req, res) => {
+  try {
+    const { userId } = req.body;
+    await transactionSchema.updateMany(
+      { to_user_id: userId },
+      { $set: { has_seen: true } }
+    );
+    res.status(200).send("Successfully updated");
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send("Internal server error");
+  }
+};
+
+module.exports = {
+  getUserTransactions,
+  makeTransaction,
+  getAllTransactions,
+  updateTransaction,
+};
