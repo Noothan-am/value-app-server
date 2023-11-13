@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Backdrop from "@mui/material/Backdrop";
 import Modal from "@mui/material/Modal";
-import { RxCross1 } from "react-icons/rx";
 import { Fade } from "@mui/material";
 import Transaction from "./Transaction";
 const styles = require("../styles/modal.module.css");
@@ -16,6 +15,7 @@ const style: any = {
   bgcolor: "#0c1d87",
   color: "white",
   borderRadius: 7,
+  fontFamily: "Inter, sans-serif",
   boxShadow: 24,
   p: 4,
   width: "76%",
@@ -85,6 +85,7 @@ function ModalComponent({ open, handleCloseModal, unseenTransactions }: any) {
                   cursor: "pointer",
                   fontSize: "15px",
                   color: "white",
+                  fontFamily: "Inter, sans-serif",
                 }}
                 onClick={handleCloseModal}
               >
@@ -130,73 +131,3 @@ function ModalComponent({ open, handleCloseModal, unseenTransactions }: any) {
 }
 
 export default ModalComponent;
-// import React, { useState } from "react";
-// import {
-//   MDBIcon,
-//   MDBBtn,
-//   MDBSideNav,
-//   MDBSideNavItem,
-//   MDBSideNavLink,
-//   MDBSideNavMenu,
-//   MDBSideNavCollapse,
-// } from "mdb-react-ui-kit";
-
-// export default function ModalComponent() {
-//   const [rightOpen, setRightOpen] = useState(true);
-//   const [rightCollapse1, setRightCollapse1] = useState(true);
-//   const [rightCollapse2, setRightCollapse2] = useState(false);
-
-//   return (
-//     <>
-//       <MDBSideNav
-//         right
-//         isOpen={rightOpen}
-//         absolute
-//         getOpenState={(e: any) => setRightOpen(e)}
-//       >
-//         <MDBSideNavMenu>
-//           <MDBSideNavItem>
-//             <MDBSideNavLink>
-//               <MDBIcon far icon="smile" className="fa-fw me-3" />
-//               <span className="sidenav-non-slim">Link 1</span>
-//             </MDBSideNavLink>
-//           </MDBSideNavItem>
-//           <MDBSideNavItem>
-//             <MDBSideNavLink
-//               icon="angle-down"
-//               shouldBeExpanded={rightCollapse1}
-//               onClick={() => setRightCollapse1(!rightCollapse1)}
-//             >
-//               <MDBIcon fas icon="grin" className="fa-fw me-3" />
-//               <span className="sidenav-non-slim">Category 1</span>
-//             </MDBSideNavLink>
-//             <MDBSideNavCollapse show={rightCollapse1}>
-//               <MDBSideNavLink>Link 2</MDBSideNavLink>
-//               <MDBSideNavLink>Link 3</MDBSideNavLink>
-//             </MDBSideNavCollapse>
-//           </MDBSideNavItem>
-//           <MDBSideNavItem>
-//             <MDBSideNavLink
-//               icon="angle-down"
-//               shouldBeExpanded={rightCollapse2}
-//               onClick={() => setRightCollapse2(!rightCollapse2)}
-//             >
-//               <MDBIcon fas icon="grin" className="fa-fw me-3" />
-//               Category 1
-//             </MDBSideNavLink>
-//             <MDBSideNavCollapse show={rightCollapse2}>
-//               <MDBSideNavLink>Link 4</MDBSideNavLink>
-//               <MDBSideNavLink>Link 5</MDBSideNavLink>
-//             </MDBSideNavCollapse>
-//           </MDBSideNavItem>
-//         </MDBSideNavMenu>
-//       </MDBSideNav>
-
-//       <div style={{ padding: "20px" }} className="text-center">
-//         <MDBBtn onClick={() => setRightOpen(!rightOpen)}>
-//           <MDBIcon fas icon="bars" />
-//         </MDBBtn>
-//       </div>
-//     </>
-//   );
-// }
