@@ -16,11 +16,22 @@ interface User {
   coins: number;
 }
 
+const valueInfo = [
+  "Tenacious",
+  "Resourceful",
+  "Open Minded",
+  "Problem Solving",
+  "Holistic",
+  "Inquisitive",
+  "Celebrating",
+];
+
 export default function SendPage() {
   const [selectedOption, setSelectedOption] = useState<string>("Tenacious");
   const [celebrationMoment, setCelebrationMoment] = useState<string>("");
-  const [user, setUser] = useState({} as any);
+  const [seletectedValues, setSelectedValues] = useState<any>([]);
   const [isLoading, setIsLoading] = useState<any>(true);
+  const [user, setUser] = useState({} as any);
 
   const { id } = useParams();
   const navigator = useNavigate();
@@ -191,16 +202,48 @@ export default function SendPage() {
     }
   }, [id]);
 
+  const checkOptions = useCallback(async () => {
+    try {
+      const response: any = await fetch(
+        `${process.env.REACT_APP_API_URL}/get-values`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+          body: JSON.stringify({
+            from_user_id: userId,
+            to_user_id: id,
+          }),
+        }
+      );
+      if (response.ok) {
+        const result = await response.json();
+        setSelectedValues(result);
+      }
+    } catch (error) {
+      console.log("Error while fetching transactions", error);
+    }
+  }, [id, userId]);
+
   useEffect(() => {
     fetchAllUsers()
       .then(() => {
         console.log("Fetched all users successfully");
-        setIsLoading(false);
+        checkOptions()
+          .then(() => {
+            console.log("Fetched values");
+            setIsLoading(false);
+          })
+          .catch((error) => {
+            console.log("Fetched all users failed", error);
+          });
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [fetchAllUsers]);
+  }, [checkOptions, fetchAllUsers]);
 
   if (isLoading) return <LoadingScreen />;
 
@@ -245,7 +288,25 @@ export default function SendPage() {
                 }}
                 value={selectedOption}
               >
-                <option className="options" value="Tenacious">
+                {valueInfo.map((valueInfo: any) => {
+                  let res = valueInfo;
+                  if (valueInfo === "Problem Solving") res = "Problem_Solving";
+                  else if (valueInfo === "Open Minded") res = "Open_Minded";
+                  if (seletectedValues.includes(valueInfo)) {
+                    return (
+                      <option className="options" disabled value={res}>
+                        {valueInfo}
+                      </option>
+                    );
+                  } else {
+                    return (
+                      <option className="options" value={res}>
+                        {valueInfo}
+                      </option>
+                    );
+                  }
+                })}
+                {/* <option className="options" value="Tenacious">
                   Tenacious
                 </option>
                 <option className="options" value="Resourceful">
@@ -265,7 +326,7 @@ export default function SendPage() {
                 </option>
                 <option className="options" value="Celebrating">
                   Celebrating
-                </option>
+                </option> */}
               </select>
             </div>
             <div className={styles["sendPage__content-text"]}>

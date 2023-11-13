@@ -1,5 +1,6 @@
 const transactionSchema = require("../model/TransactionSchema");
 const userInfoSchema = require("../model/UserInfoSchema");
+const moment = require("moment");
 
 const getUserTransactions = async (req, res) => {
   try {
@@ -21,6 +22,7 @@ const getUserTransactions = async (req, res) => {
           celebration_moment,
           date,
           has_seen,
+          diff,
           image,
         }) => ({
           from,
@@ -30,6 +32,7 @@ const getUserTransactions = async (req, res) => {
           celebration_moment,
           date,
           has_seen,
+          diff,
           image,
         })
       )
@@ -176,7 +179,35 @@ const updateTransaction = async (req, res) => {
   }
 };
 
+const getValues = async (req, res) => {
+  try {
+    let { from_user_id, to_user_id } = req.body;
+    const allTransactionDetails = await transactionSchema.find({
+      from_user_id,
+      to_user_id,
+    });
+
+    if (!allTransactionDetails || allTransactionDetails.length === 0) {
+      return res.status(200).send([]);
+    }
+
+    let current_date = moment(moment().format("MM-YYYY"), "MM-YYYY");
+    const values = allTransactionDetails.map((transaction) => {
+      let date_to_check = moment(transaction.diff, "MM-YYYY");
+      const difference = current_date.diff(date_to_check, "months");
+      if (difference <= 0) {
+        return transaction.celebration_moment;
+      }
+    });
+    return res.status(200).send(values);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send("Internal server error");
+  }
+};
+
 module.exports = {
+  getValues,
   getUserTransactions,
   makeTransaction,
   getAllTransactions,

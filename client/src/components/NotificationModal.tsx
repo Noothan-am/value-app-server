@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Backdrop from "@mui/material/Backdrop";
 import Modal from "@mui/material/Modal";
-import { GrClose } from "react-icons/gr";
+import { RxCross1 } from "react-icons/rx";
 import { Fade } from "@mui/material";
 import Transaction from "./Transaction";
 const styles = require("../styles/modal.module.css");
@@ -69,27 +69,26 @@ function ModalComponent({ open, handleCloseModal, unseenTransactions }: any) {
               style={{ display: "flex", justifyContent: "space-between" }}
               className={styles["top-part"]}
             >
-              <div>
-                <Typography
-                  id="modal-modal-title"
-                  variant="h6"
-                  fontSize={"15px"}
-                  marginBottom={"10px"}
-                  component="h2"
-                >
-                  NOTIFICATIONS
-                </Typography>
-              </div>
-              <div>
-                <GrClose
-                  style={{
-                    marginTop: "6px",
-                    fontWeight: "bold",
-                    cursor: "pointer",
-                    color: "white",
-                  }}
-                  onClick={handleCloseModal}
-                />
+              <Typography
+                id="modal-modal-title"
+                variant="h6"
+                fontSize={"15px"}
+                marginBottom={"10px"}
+                component="h2"
+                display={"flex"}
+              >
+                <div>NOTIFICATIONS</div>
+              </Typography>
+              <div
+                style={{
+                  marginTop: "4px",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  color: "white",
+                }}
+                onClick={handleCloseModal}
+              >
+                X
               </div>
             </div>
             <div
