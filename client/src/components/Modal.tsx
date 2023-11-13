@@ -78,7 +78,7 @@ function ModalComponent({ open, handleClose }: any) {
                 />
               </div>
             </div>
-            <Typography id="modal-modal-description" sx={{ mt: 4 }}>
+            <Typography id="modal-modal-description" sx={{ mt: 3 }}>
               Minimum Requirements
             </Typography>
             <p>
@@ -88,7 +88,7 @@ function ModalComponent({ open, handleClose }: any) {
               reach 25 or 25+ coins to encash during the next encashment cycle
               which will be Jun.
             </p>
-            <Typography id="modal-modal-description" sx={{ mt: 4 }}>
+            <Typography id="modal-modal-description" sx={{ mt: 3 }}>
               Encashment Cycle
             </Typography>
             <p>
