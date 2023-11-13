@@ -132,7 +132,7 @@ const makeTransaction = async (req, res) => {
     ) {
       return res.status(400).send("Please fill all the fields");
     }
-    moment =
+    let moment =
       celebration_moment === "open_minded"
         ? "Open-Minded"
         : celebration_moment === "problem_solving"
