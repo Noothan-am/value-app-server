@@ -35,7 +35,7 @@ function ModalComponent({ open, handleClose }: any) {
   if (height) {
     style.height = 800;
   } else {
-    style.height = 600;
+    style.height = 750;
   }
 
   return (
