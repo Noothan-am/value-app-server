@@ -18,11 +18,13 @@ const style: any = {
   p: 4,
   overflow: "scroll",
   width: 200,
+  height: 800,
 };
 
 function ModalComponent({ open, handleClose }: any) {
   const largeScreen = window.innerWidth >= 300;
-  const height = window.innerHeight <= 780;
+  console.log(window.innerHeight);
+  const height = window.outerHeight <= 780;
 
   if (largeScreen) {
     if (window.innerWidth < 412) style.width = 300;
@@ -36,7 +38,7 @@ function ModalComponent({ open, handleClose }: any) {
   if (height) {
     style.height = 850;
   } else {
-    style.height = 750;
+    style.height = 770;
   }
 
   return (
