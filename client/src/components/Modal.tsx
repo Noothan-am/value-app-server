@@ -16,6 +16,7 @@ const style: any = {
   borderRadius: 7,
   boxShadow: 24,
   p: 4,
+  overflow: "scroll",
   width: 200,
 };
 
@@ -33,7 +34,7 @@ function ModalComponent({ open, handleClose }: any) {
   }
 
   if (height) {
-    style.height = 800;
+    style.height = 850;
   } else {
     style.height = 750;
   }
