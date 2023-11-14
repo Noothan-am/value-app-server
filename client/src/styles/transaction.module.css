@@ -1,7 +1,7 @@
 .transaction {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: start;
   border-radius: 10px;
   padding: 10px;
   width: 100%;
@@ -10,7 +10,7 @@
 
 .transaction__image {
   width: 50px;
-  height: 50px;
+  height: 100%;
   border-radius: 50%;
   overflow: hidden;
   margin-right: 10px;
@@ -28,8 +28,15 @@
   flex: 1;
 }
 
-.transaction__content-date {
+.transaction__content-value {
   font-weight: 500;
+  color: rgba(255, 255, 255, 0.674);
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.transaction__content-date {
+  font-weight: 100;
   color: rgba(255, 255, 255, 0.674);
   font-size: 14px;
   margin-bottom: 5px;
@@ -43,13 +50,13 @@
 
 .transaction__content-description {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 100;
   color: rgba(255, 255, 255, 0.674);
   line-height: 1.5;
 }
 
 .transaction__image {
-  margin-top: -2rem;
+  /* margin-top: -2rem; */
 }
 
 .transaction__content-header {
@@ -69,16 +76,18 @@
 @media screen and (max-width: 540px) {
   .transaction {
     display: flex;
-    align-items: center;
+    align-items: start;
     border-radius: 10px;
     padding: 10px;
-    width: 107%;
-    margin-left: -1rem;
+    width: 100%;
     color: white;
   }
   .transaction__content-date {
     font-size: 11px;
     margin-bottom: 5px;
+  }
+  .transaction__content-value {
+    font-weight: 500;
   }
 
   .transaction__content-name {
@@ -89,7 +98,7 @@
 
   .transaction__content-description {
     font-size: 12px;
-    font-weight: 500;
+    font-weight: 100;
     width: 92%;
     color: rgba(255, 255, 255, 0.674);
     line-height: 1.5;
@@ -104,6 +113,9 @@
     /* margin-top: -1rem; */
     margin-left: 0.6rem;
   }
+  .transaction__content-value {
+    font-weight: 500;
+  }
 }
 
 @media screen and (min-width: 600px) and (max-width: 960px) {
@@ -112,6 +124,9 @@
     /* margin-top: -1rem; */
     margin-left: 0.6rem;
   }
+  .transaction__content-value {
+    font-weight: 500;
+  }
 }
 
 @media screen and (min-width: 1320px) {
@@ -119,5 +134,8 @@
     position: absolute;
     /* margin-top: -1rem; */
     margin-left: 0.6rem;
+  }
+  .transaction__content-value {
+    font-weight: 500;
   }
 }

@@ -2,8 +2,13 @@
   color: white;
   min-height: 100vh;
   background-color: #0c1d87;
-  font-family: Arial, sans-serif;
+  font-family: "Inter", sans-serif;
   overflow: hidden;
+}
+.transaction__image {
+  margin-top: 0rem;
+  height: 100%;
+  margin-top: 3rem;
 }
 .profile__secondpart {
   display: flex;

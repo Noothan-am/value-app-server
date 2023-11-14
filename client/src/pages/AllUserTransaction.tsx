@@ -32,7 +32,7 @@ function Transaction({ eachTransaction }: any) {
 
             <div className={style["transaction__content-amount"]}>+1 Coin</div>
           </div>
-          <div className={style["transaction__content-description"]}>
+          <div className={style["transaction__content-value"]}>
             {eachTransaction.celebration_moment === "open_minded"
               ? "open-minded"
               : eachTransaction.celebration_moment === "problem_solving"
