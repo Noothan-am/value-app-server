@@ -68,11 +68,11 @@ export default function SendPage() {
 
   const handleOnChangeForTextArea = (e: any) => {
     const userInput = e.target.value;
-    if (userInput.length <= 300) {
+    if (userInput.length <= 200) {
       setCelebrationMoment(userInput);
     } else {
       toast.error("character limit exceeded", {
-        position: "top-right",
+        position: "bottom-right",
         autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -84,9 +84,9 @@ export default function SendPage() {
   };
 
   const sendCoins = async () => {
-    if (celebrationMoment.length <= 25) {
-      toast.warn("minimum character limit is 25", {
-        position: "top-right",
+    if (celebrationMoment.length <= 20) {
+      toast.warn("minimum character limit is 20", {
+        position: "bottom-right",
         autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -330,7 +330,27 @@ export default function SendPage() {
               </select>
             </div>
             <div className={styles["sendPage__content-text"]}>
-              <label htmlFor="">{`Share the moment of Celebration: (Character count ${celebrationMoment.length})`}</label>
+              <label htmlFor="">
+                Share the moment of Celebration:
+                <span
+                  style={
+                    celebrationMoment.length < 200 &&
+                    celebrationMoment.length >= 20
+                      ? {
+                          color: "green",
+                          fontSize: "12px",
+                          marginLeft: "7px",
+                        }
+                      : {
+                          color: "red",
+                          fontSize: "12px",
+                          marginLeft: "7px",
+                        }
+                  }
+                >
+                  (Characters Left {200 - celebrationMoment.length})
+                </span>
+              </label>
               <textarea
                 name="Text1"
                 cols={60}

@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 const style = require("../styles/leaderboard.module.css").default;
+const coinImage = require("../assets/svg/coin.svg").default;
 
 export default function Leaderboard({ user, count }: any) {
   const navigator = useNavigate();
@@ -18,6 +19,10 @@ export default function Leaderboard({ user, count }: any) {
           {count}.<span> </span>
         </div>
         <div className={style["leaderboard-name"]}>{user.name}</div>
+        <div className={style["leaderboard-coin"]}>
+          <img src={coinImage} alt="" />
+        </div>
+        <div className={style["leaderboard-number"]}>{user.total_coins}</div>
       </button>
     </>
   );

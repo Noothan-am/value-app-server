@@ -33,6 +33,7 @@ function Profile() {
         const result = await jsonData.filter((eachUser: any) => {
           return eachUser.user_id !== userId;
         });
+        result.sort((a: any, b: any) => a.name.localeCompare(b.name));
         setAllUsers(result);
       }
     } catch (err) {
