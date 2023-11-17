@@ -68,7 +68,7 @@
 
 .leaderboard-single-person {
   text-align: center;
-  margin-bottom: 4px;
+  margin-bottom: -2px;
   font-weight: 400;
   background: none;
   color: white;
@@ -122,7 +122,7 @@
   }
   .leaderboard-coin {
     margin-top: -0.1rem;
-    margin-right: -0.4rem;
+    margin-right: -0.6rem;
   }
 }
 
@@ -132,7 +132,7 @@
   }
   .leaderboard-coin {
     margin-top: -0.1rem;
-    margin-right: -0.4rem;
+    margin-right: -0.6rem;
   }
   .coins__content img {
     height: 6rem;
@@ -148,7 +148,7 @@
   }
   .leaderboard-coin {
     margin-top: -0.4rem;
-    margin-right: -0.4rem;
+    margin-right: -0.6rem;
   }
   .leaderboard-heading {
     font-weight: 600;
@@ -192,7 +192,7 @@
 }
 
 .leaderboard__light_button {
-  padding: 9px;
+  padding: 5px;
   background: none;
   color: rgba(255, 255, 255, 0.459);
   border: none;
@@ -221,7 +221,7 @@
   }
   .leaderboard-coin {
     margin-top: -0.4rem;
-    margin-right: -0.4rem;
+    margin-right: -0.6em;
   }
   .profile__firstpart-2 {
     width: 106%;
@@ -237,7 +237,7 @@
   }
   .leaderboard-heading {
     font-size: 11px;
-    margin-left: -0.5rem;
+    margin-left: -0.7rem;
   }
   .total__coins {
     font-size: 76px;
@@ -266,7 +266,7 @@
   }
   .leaderboard-number {
     font-size: 15px;
-    font-weight: 100;
+    font-weight: bold;
   }
   .total__coins {
     font-size: 49px;
