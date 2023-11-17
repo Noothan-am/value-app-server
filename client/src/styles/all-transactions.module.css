@@ -13,7 +13,7 @@
   font-size: 1.05rem;
   font-weight: 600;
   margin-bottom: -0.5rem;
-  margin-top: -3rem;
+  margin-top: -1rem;
   text-align: start;
   margin-left: auto;
   width: 92%;
@@ -164,7 +164,7 @@
     width: 100%;
   }
   .profile__secondpart-transaction {
-    padding: 3rem 0.7rem;
+    padding: 1rem 0.7rem;
   }
 }
 @media screen and (min-width: 531px) and (max-width: 750px) {

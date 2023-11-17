@@ -79,6 +79,7 @@
     border-radius: 10px;
     width: 100%;
     color: white;
+    margin-top: 1.5rem;
   }
   .transaction__content-date {
     font-size: 11px;
@@ -97,7 +98,7 @@
   .transaction__content-description {
     font-size: 12px;
     font-weight: 100;
-    width: 92%;
+    width: 95%;
     color: rgba(255, 255, 255, 0.674);
     line-height: 1.5;
   }

@@ -22,7 +22,7 @@ const style: any = {
   width: "76%",
   height: "90%",
   fontSize: "2px",
-  overflow: "scroll",
+  overflowy: "scroll",
 };
 
 function ModalComponent({ open, handleCloseModal, unseenTransactions }: any) {
@@ -67,7 +67,11 @@ function ModalComponent({ open, handleCloseModal, unseenTransactions }: any) {
         <Fade in={open}>
           <Box sx={style}>
             <div
-              style={{ display: "flex", justifyContent: "space-between" }}
+              style={{
+                display: "flex",
+                width: "90%",
+                justifyContent: "space-between",
+              }}
               className={styles["top-part"]}
             >
               <Typography

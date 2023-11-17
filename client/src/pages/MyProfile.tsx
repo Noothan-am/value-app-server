@@ -75,6 +75,7 @@ function MyProfile() {
         if (jsonData.length > 4) {
           jsonData = jsonData.slice(0, 5);
         }
+        console.log({ jsonData });
         setAllTransaction(jsonData);
       }
     } catch (err) {
@@ -84,10 +85,17 @@ function MyProfile() {
   }, [userId]);
 
   useEffect(() => {
-    fetchUserDetails()
+    fetchAllTransactions()
       .then(() => {
         console.log("All transactions fetched successfully");
-        setIsLoading(false);
+        fetchUserDetails()
+          .then(() => {
+            console.log("user details fetched successfully");
+            setIsLoading(false);
+          })
+          .catch((err) => {
+            console.log("error while fetching user details", err);
+          });
       })
       .catch((err) => {
         console.log("error while fetching all transactions", err);
