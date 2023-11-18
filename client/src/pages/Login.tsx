@@ -5,6 +5,7 @@ import Button from "../components/Button";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LoadingScreen from "./LoadingScreen";
+import moment from "moment";
 const styles = require("../styles/login.module.css").default;
 const becomeCoins = require("../assets/svg/loading-logo.svg").default;
 
@@ -58,6 +59,7 @@ const Login = () => {
         });
         const data = await result.json();
         localStorage.setItem("userInfo", JSON.stringify(data));
+        localStorage.setItem("lastLoginDate", moment().format("MM"));
         setTimeout(() => {
           navigate(`/my-profile/${data.userId}`);
         }, 500);
