@@ -204,12 +204,9 @@ const makeTransaction = async (req, res) => {
         },
       ];
 
-      await axios.post(
-        "https://hooks.slack.com/services/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",
-        {
-          blocks: blocks,
-        }
-      );
+      await axios.post(process.env.SLACK_API_URL, {
+        blocks: blocks,
+      });
       res.status(200).send("Transaction Successful");
     } else {
       res.status(500).send("Internal Server Error");
