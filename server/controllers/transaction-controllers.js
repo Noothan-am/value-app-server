@@ -205,7 +205,7 @@ const makeTransaction = async (req, res) => {
       ];
 
       await axios.post(
-        "https://hooks.slack.com/services/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",
+        "https://hooks.slack.com/services/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",
         {
           blocks: blocks,
         }
