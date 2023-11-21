@@ -290,9 +290,12 @@ export default function SendPage() {
               >
                 {valueInfo.map((valueInfo: any) => {
                   let res = valueInfo;
-                  if (valueInfo === "Problem Solving") res = "Problem_Solving";
-                  else if (valueInfo === "Open Minded") res = "Open_Minded";
+                  if (valueInfo === "Problem Solving") res = "Problem-Solving";
+                  else if (valueInfo === "Open Minded") res = "Open-Minded";
                   if (seletectedValues.includes(valueInfo)) {
+                    if (valueInfo === "Problem Solving")
+                      res = "Problem_Solving";
+                    else if (valueInfo === "Open Minded") res = "Open_Minded";
                     return (
                       <option className="options" disabled value={res}>
                         {valueInfo}

@@ -167,46 +167,46 @@ const makeTransaction = async (req, res) => {
           : celebration_moment.slice(0, 1).toUpperCase() +
             celebration_moment.slice(1, celebration_moment.length);
 
-      const randomGifLinks = [
-        "https://media.giphy.com/media/DKnMqdm9i980E/giphy.gif",
-        "https://media.giphy.com/media/wZjlCH43M3M0U/giphy.gif",
-        "https://tenor.com/bejcz.gif",
-        "https://tenor.com/9KEE.gif",
-        "https://tenor.com/bOuAg.gif",
-      ];
-      const randomNumber = Math.floor(Math.random() * (4 - 0 + 1)) + 0;
-      const blocks = [
-        {
-          type: "section",
-          text: {
-            type: "mrkdwn",
-            text: "*Congratulations 🎉*",
-          },
-        },
-        {
-          type: "section",
-          text: {
-            type: "mrkdwn",
-            text: `*${from}* celebrated *${to}* for being *${moment}*`,
-          },
-        },
-        {
-          type: "section",
-          text: {
-            type: "mrkdwn",
-            text: `\`${celebrating_value}\``,
-          },
-        },
-        {
-          type: "image",
-          image_url: `${randomGifLinks[randomNumber]}`,
-          alt_text: "GIF Alt Text",
-        },
-      ];
+      // const randomGifLinks = [
+      //   "https://media.giphy.com/media/DKnMqdm9i980E/giphy.gif",
+      //   "https://media.giphy.com/media/wZjlCH43M3M0U/giphy.gif",
+      //   "https://tenor.com/bejcz.gif",
+      //   "https://tenor.com/9KEE.gif",
+      //   "https://tenor.com/bOuAg.gif",
+      // ];
+      // const randomNumber = Math.floor(Math.random() * (4 - 0 + 1)) + 0;
+      // const blocks = [
+      //   {
+      //     type: "section",
+      //     text: {
+      //       type: "mrkdwn",
+      //       text: "*Congratulations 🎉*",
+      //     },
+      //   },
+      //   {
+      //     type: "section",
+      //     text: {
+      //       type: "mrkdwn",
+      //       text: `*${from}* celebrated *${to}* for being *${moment}*`,
+      //     },
+      //   },
+      //   {
+      //     type: "section",
+      //     text: {
+      //       type: "mrkdwn",
+      //       text: `\`${celebrating_value}\``,
+      //     },
+      //   },
+      //   {
+      //     type: "image",
+      //     image_url: `${randomGifLinks[randomNumber]}`,
+      //     alt_text: "GIF Alt Text",
+      //   },
+      // ];
 
-      await axios.post(process.env.SLACK_API, {
-        blocks: blocks,
-      });
+      // await axios.post(process.env.SLACK_API, {
+      //   blocks: blocks,
+      // });
       res.status(200).send("Transaction Successful");
     } else {
       res.status(500).send("Internal Server Error");
