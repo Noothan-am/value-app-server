@@ -5,6 +5,7 @@
   border-radius: 10px;
   width: 100%;
   color: white;
+  margin-top: 1rem;
 }
 
 .transaction__image {
@@ -79,7 +80,7 @@
     border-radius: 10px;
     width: 100%;
     color: white;
-    margin-top: 1.5rem;
+    margin-top: 1.3rem;
   }
   .transaction__content-date {
     font-size: 11px;

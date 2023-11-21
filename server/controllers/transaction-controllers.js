@@ -1,6 +1,7 @@
+const moment = require("moment");
+const axios = require("axios");
 const transactionSchema = require("../model/TransactionSchema");
 const userInfoSchema = require("../model/UserInfoSchema");
-const moment = require("moment");
 
 const getUserTransactions = async (req, res) => {
   try {
@@ -104,42 +105,41 @@ const updateProfile = async (fromId, toId, celebration_moment) => {
     ]);
     return true;
   } catch (error) {
-    return false;
     console.log("error while updating profile", error);
+    return false;
   }
 };
 
 const makeTransaction = async (req, res) => {
+  let {
+    from,
+    to,
+    celebrating_value,
+    celebration_moment,
+    image,
+    to_user_id,
+    from_user_id,
+  } = req.body;
+  if (
+    !from ||
+    !to ||
+    !celebrating_value ||
+    !celebration_moment ||
+    !image ||
+    !from_user_id ||
+    !to_user_id
+  ) {
+    return res.status(400).send("Please fill all the fields");
+  }
+  let moment =
+    celebration_moment === "open_minded"
+      ? "Open-Minded"
+      : celebration_moment === "problem_solving"
+      ? "Problem-Solving"
+      : celebration_moment.slice(0, 1).toUpperCase() +
+        celebration_moment.slice(1, celebration_moment.length);
+
   try {
-    let {
-      from,
-      to,
-      celebrating_value,
-      celebration_moment,
-      image,
-      to_user_id,
-      from_user_id,
-    } = req.body;
-
-    if (
-      !from ||
-      !to ||
-      !celebrating_value ||
-      !celebration_moment ||
-      !image ||
-      !from_user_id ||
-      !to_user_id
-    ) {
-      return res.status(400).send("Please fill all the fields");
-    }
-    let moment =
-      celebration_moment === "open_minded"
-        ? "Open-Minded"
-        : celebration_moment === "problem_solving"
-        ? "Problem-Solving"
-        : celebration_moment.slice(0, 1).toUpperCase() +
-          celebration_moment.slice(1, celebration_moment.length);
-
     const transaction = new transactionSchema({
       from,
       from_user_id,
@@ -158,7 +158,62 @@ const makeTransaction = async (req, res) => {
       celebration_moment
     );
 
-    if (result) res.status(200).send("Transaction Successful");
+    if (result) {
+      moment =
+        celebration_moment === "open_minded"
+          ? "Open-Minded"
+          : celebration_moment === "problem_solving"
+          ? "Problem-Solving"
+          : celebration_moment.slice(0, 1).toUpperCase() +
+            celebration_moment.slice(1, celebration_moment.length);
+
+      const randomGifLinks = [
+        "https://media.giphy.com/media/DKnMqdm9i980E/giphy.gif",
+        "https://media.giphy.com/media/wZjlCH43M3M0U/giphy.gif",
+        "https://tenor.com/bejcz.gif",
+        "https://tenor.com/9KEE.gif",
+        "https://tenor.com/bOuAg.gif",
+      ];
+      const randomNumber = Math.floor(Math.random() * (4 - 0 + 1)) + 0;
+      const blocks = [
+        {
+          type: "section",
+          text: {
+            type: "mrkdwn",
+            text: "*Congratulations 🎉*",
+          },
+        },
+        {
+          type: "section",
+          text: {
+            type: "mrkdwn",
+            text: `*${from}* celebrated *${to}* for being *${moment}*`,
+          },
+        },
+        {
+          type: "section",
+          text: {
+            type: "mrkdwn",
+            text: `\`${celebrating_value}\``,
+          },
+        },
+        {
+          type: "image",
+          image_url: `${randomGifLinks[randomNumber]}`,
+          alt_text: "GIF Alt Text",
+        },
+      ];
+
+      await axios.post(
+        "https://hooks.slack.com/services/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",
+        {
+          blocks: blocks,
+        }
+      );
+      res.status(200).send("Transaction Successful");
+    } else {
+      res.status(500).send("Internal Server Error");
+    }
   } catch (error) {
     console.error(error);
     return res.status(500).send("Internal server error");
