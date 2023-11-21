@@ -204,7 +204,7 @@ const makeTransaction = async (req, res) => {
         },
       ];
 
-      await axios.post(process.env.SLACK_API_URL, {
+      await axios.post(process.env.SLACK_API, {
         blocks: blocks,
       });
       res.status(200).send("Transaction Successful");
