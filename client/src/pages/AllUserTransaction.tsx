@@ -26,32 +26,35 @@ function Transaction({ eachTransaction }: any) {
           <div className={style["transaction__content-date"]}>
             {eachTransaction.date}
           </div>
-          <div className={style["transaction__content-header"]}>
-            <div className={style["transaction__content-name"]}>
-              {eachTransaction.from}
+          <div className={style["transaction__details"]}>
+            <div className={style["transaction__content-header"]}>
+              <div className={style["transaction__content-name"]}>
+                {eachTransaction.from}
+              </div>
+              <div className={style["transaction__amount-count-red"]}>
+                -1 Coin
+              </div>
             </div>
-            <div className={style["transaction__content-name"]}>
-              <TbArrowsLeftRight />
+            <div className={style["transaction__content-header"]}>
+              <div className={style["transaction__content-arrow"]}>
+                <TbArrowsLeftRight />
+              </div>
+              <div className={style["transaction__content-value"]}>
+                {eachTransaction.celebration_moment === "open_minded"
+                  ? "open-minded"
+                  : eachTransaction.celebration_moment === "problem_solving"
+                  ? "problem-solving"
+                  : eachTransaction.celebration_moment}
+              </div>
             </div>
-            <div className={style["transaction__content-name"]}>
-              {eachTransaction.to}
+            <div className={style["transaction__content-header"]}>
+              <div className={style["transaction__content-name"]}>
+                {eachTransaction.to}
+              </div>
+              <div className={style["transaction__amount-count-green"]}>
+                +1 Coin
+              </div>
             </div>
-            {/* <div className={style["transaction__content-amount"]}>+1 Coin</div> */}
-          </div>
-          <div className={style["transaction__amount-count"]}>
-            <div className={style["transaction__amount-count-red"]}>
-              -1 Coin
-            </div>
-            <div className={style["transaction__amount-count-green"]}>
-              +1 Coin
-            </div>
-          </div>
-          <div className={style["transaction__content-value"]}>
-            {eachTransaction.celebration_moment === "open_minded"
-              ? "open-minded"
-              : eachTransaction.celebration_moment === "problem_solving"
-              ? "problem-solving"
-              : eachTransaction.celebration_moment}
           </div>
         </div>
       </div>
