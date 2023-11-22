@@ -99,7 +99,7 @@ function ModalComponent({ open, handleCloseModal, unseenTransactions }: any) {
             </div>
             <div
               className="profile__secondpart-content"
-              style={{ marginTop: "3px" }}
+              style={{ marginTop: "3px", width: "90%" }}
             >
               {unseenTransactions.length <= 0 ? (
                 <Typography
@@ -120,6 +120,7 @@ function ModalComponent({ open, handleCloseModal, unseenTransactions }: any) {
                   (eachTransaction: any, index: number) => {
                     return (
                       <Transaction
+                        showDiscription={true}
                         key={index}
                         eachTransaction={eachTransaction}
                       />

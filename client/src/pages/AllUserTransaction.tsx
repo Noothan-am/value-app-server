@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import Header from "../components/Header";
 import LoadingScreen from "./LoadingScreen";
+import { TbArrowsLeftRight } from "react-icons/tb";
 const style = require("../styles/all-transactions.module.css").default;
 
 interface eachTransactionValue {
@@ -29,8 +30,21 @@ function Transaction({ eachTransaction }: any) {
             <div className={style["transaction__content-name"]}>
               {eachTransaction.from}
             </div>
-
-            <div className={style["transaction__content-amount"]}>+1 Coin</div>
+            <div className={style["transaction__content-name"]}>
+              <TbArrowsLeftRight />
+            </div>
+            <div className={style["transaction__content-name"]}>
+              {eachTransaction.to}
+            </div>
+            {/* <div className={style["transaction__content-amount"]}>+1 Coin</div> */}
+          </div>
+          <div className={style["transaction__amount-count"]}>
+            <div className={style["transaction__amount-count-red"]}>
+              -1 Coin
+            </div>
+            <div className={style["transaction__amount-count-green"]}>
+              +1 Coin
+            </div>
           </div>
           <div className={style["transaction__content-value"]}>
             {eachTransaction.celebration_moment === "open_minded"
@@ -38,9 +52,6 @@ function Transaction({ eachTransaction }: any) {
               : eachTransaction.celebration_moment === "problem_solving"
               ? "problem-solving"
               : eachTransaction.celebration_moment}
-          </div>
-          <div className={style["transaction__content-description"]}>
-            {eachTransaction.celebrating_value}
           </div>
         </div>
       </div>
