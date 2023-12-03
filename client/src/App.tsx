@@ -11,12 +11,14 @@ import MyProfile from "./pages/MyProfile";
 import AllUsersLeaderBoard from "./pages/AllUsersLeaderBoard";
 import AllUserTransaction from "./pages/AllUserTransaction";
 import UserProfile from "./pages/UserProfile";
+import AdminDashBoard from "./pages/AdminDashBoard";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Loading />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/admin-login" element={<AdminDashBoard />} />
       <Route path="/my-profile/:userId" element={<Home />} />
       <Route path="/my-page/:userId" element={<MyProfile />} />
       <Route path="/user/:userId" element={<UserProfile />} />
