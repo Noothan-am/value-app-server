@@ -1,3 +1,4 @@
+import moment from "moment";
 import React, { useEffect, useState } from "react";
 const styles = require("../styles/admin-dashboard.module.css").default;
 
@@ -5,6 +6,7 @@ function AdminDashBoard() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [week, setWeek] = useState("");
   const [allUserDetails, setAllUserDetails] = useState([]);
 
   const fetchusers = async () => {
@@ -44,6 +46,10 @@ function AdminDashBoard() {
   }, []);
 
   const handleLogin = async () => {
+    if (!username.trim() || !password.trim() || !week) {
+      alert("Please enter all the fields");
+      return;
+    }
     if (
       username === process.env.REACT_APP_USER_NAME &&
       password === process.env.REACT_APP_PASSWORD
@@ -70,7 +76,7 @@ function AdminDashBoard() {
         type: "section",
         text: {
           type: "mrkdwn",
-          text: "Week 1 Summary 🎉",
+          text: `Week ${week} Summary 🎉`,
         },
       },
     ];
@@ -91,7 +97,7 @@ function AdminDashBoard() {
         body: JSON.stringify(block),
       })
         .then((response) => {
-          setMessage("Login successful!");
+          setMessage("sent Message successfully!");
         })
         .catch((error) => {
           setMessage("please send again!");
@@ -117,6 +123,14 @@ function AdminDashBoard() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div className={styles.inputContainer}>
+          <label>Week No:</label>
+          <input
+            type="number"
+            value={week}
+            onChange={(e) => setWeek(e.target.value)}
           />
         </div>
         <button className={styles.loginButton} onClick={handleLogin}>
