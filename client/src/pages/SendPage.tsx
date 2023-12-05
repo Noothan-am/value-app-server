@@ -6,6 +6,7 @@ import ProfileWithCoin from "../components/ProfileWithCoin";
 import Button from "../components/Button";
 import { useNavigate, useParams } from "react-router-dom";
 import LoadingScreen from "./LoadingScreen";
+import FooterNavbar from "../components/FooterNavbar";
 
 const styles = require("../styles/sendPage.module.css").default;
 const coin = require("../assets/svg/big-coin.svg").default;
@@ -312,27 +313,6 @@ export default function SendPage() {
                     );
                   }
                 })}
-                {/* <option className="options" value="Tenacious">
-                  Tenacious
-                </option>
-                <option className="options" value="Resourceful">
-                  Resourceful
-                </option>
-                <option className="options" value="Open_Minded">
-                  Open Minded
-                </option>
-                <option className="options" value="Problem_Solving">
-                  Problem Solving
-                </option>
-                <option className="options" value="Holistic">
-                  Holistic
-                </option>
-                <option className="options" value="Inquisitive">
-                  Inquisitive
-                </option>
-                <option className="options" value="Celebrating">
-                  Celebrating
-                </option> */}
               </select>
             </div>
             <div className={styles["sendPage__content-text"]}>
@@ -370,6 +350,9 @@ export default function SendPage() {
               <Button handleClick={sendCoins} content={"Celebrate Becoming"} />
             </div>
           </div>
+        </div>
+        <div className={styles["navbar"]}>
+          <FooterNavbar userid={userId} />
         </div>
       </div>
     </>

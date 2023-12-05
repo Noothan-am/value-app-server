@@ -8,6 +8,7 @@ import ModalComponent from "../components/Modal";
 import LoadingScreen from "./LoadingScreen";
 import { GoBell } from "react-icons/go";
 import NotificationModal from "../components/NotificationModal";
+import FooterNavbar from "../components/FooterNavbar";
 
 const styles = require("../styles/myfile.module.css").default;
 const logoImage = require("../assets/images/Group 26943.png");
@@ -307,6 +308,9 @@ const Home = () => {
           </button>
           <h4>You can gift 1 coin at a time</h4>
         </div>
+      </div>
+      <div className={styles["navbar"]}>
+        <FooterNavbar userid={userDetails.user_id} />
       </div>
     </>
   );

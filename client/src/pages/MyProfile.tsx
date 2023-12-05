@@ -6,6 +6,7 @@ import LeaderBoardWithCoin from "../components/LeaderBoardWithCoin";
 import { useNavigate, useParams } from "react-router-dom";
 import Greeting from "../components/Greeting";
 import LoadingScreen from "./LoadingScreen";
+import FooterNavbar from "../components/FooterNavbar";
 
 const style = require("../styles/myprofile.module.css").default;
 
@@ -180,6 +181,9 @@ function MyProfile() {
                 )}
             </div>
           </div>
+        </div>
+        <div className={style["navbar"]}>
+          <FooterNavbar userid={userId} />
         </div>
       </div>
     </>

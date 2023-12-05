@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import LoadingScreen from "./LoadingScreen";
+import FooterNavbar from "../components/FooterNavbar";
 const style = require("../styles/all-leaderboard.module.css").default;
 const coinImage = require("../assets/svg/coin.svg").default;
 
@@ -104,6 +105,9 @@ function AllUsersLeaderBoard() {
                 />
               );
             })}
+        </div>
+        <div className={style["navbar"]}>
+          <FooterNavbar userid={userId} />
         </div>
       </div>
     </>

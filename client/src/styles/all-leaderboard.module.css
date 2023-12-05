@@ -7,7 +7,15 @@
 .leaderboard {
   color: white;
 }
-
+.navbar {
+  height: 3rem;
+  background-color: #e8eaf5;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin-top: 20px;
+}
 .leaderboard__heading {
   padding: 3rem 10rem;
   font-weight: 600;
@@ -36,6 +44,7 @@
   height: fit-content;
   margin: auto;
   margin-left: 10rem;
+  margin-bottom: 3rem;
 }
 
 .leaderboard-number {
@@ -119,6 +128,7 @@
     height: fit-content;
     margin: auto;
     margin-left: 10rem;
+    margin-bottom: 2rem;
   }
   .values__content {
     font-size: 18px;
@@ -158,6 +168,7 @@
     margin: auto;
     width: 85%;
     margin: auto;
+    margin-bottom: 2rem;
     padding-bottom: 1rem;
   }
 }
@@ -178,6 +189,8 @@
     flex-wrap: wrap;
     height: fit-content;
     margin: auto;
+    margin-bottom: 2rem;
+
     /* margin-left: 10rem; */
   }
   .values__content {
@@ -218,6 +231,7 @@
     margin: auto;
     width: 85%;
     margin: auto;
+    margin-bottom: 2rem;
     padding-bottom: 1rem;
   }
   .leaderboard__heading {
@@ -235,6 +249,7 @@
     flex-wrap: wrap;
     min-height: fit-content;
     margin: auto;
+    margin-bottom: 2rem;
   }
 
   .values {
@@ -262,5 +277,6 @@
   .leaderboard__Users {
     width: 70%;
     margin-top: 1rem;
+    margin-bottom: 2rem;
   }
 }

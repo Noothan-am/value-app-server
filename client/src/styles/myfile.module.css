@@ -57,6 +57,16 @@
   color: whitesmoke;
 }
 
+.navbar {
+  height: 3rem;
+  background-color: #e8eaf5;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin-top: 20px;
+}
+
 .myfile__tophalf__nav__right_image {
   display: flex;
   justify-content: space-between;
@@ -259,7 +269,7 @@
 
 .myfile__downhalf img {
   width: 300px;
-  margin-top: 2rem;
+  margin-top: 1.2rem;
 }
 
 .myfile__downhalf__heading h2 {
@@ -319,6 +329,7 @@
   line-height: 21px;
   opacity: 0.5;
   margin-top: 5px;
+  margin-bottom: 2.5rem;
 }
 
 .myfile__downhalf__heading__date {
@@ -360,6 +371,15 @@
   .myfile__tophalf__content {
     width: 85%;
     margin: auto;
+  }
+  .navbar {
+    height: 3rem;
+    background-color: #e8eaf5;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 2rem;
   }
   .myfile__light_button {
     background-color: #4557dc85;
@@ -432,6 +452,6 @@
 @media screen and (max-width: 350px) {
   .myfile__downhalf img {
     width: 250px;
-    margin-top: 2rem;
+    margin-top: 1.2rem;
   }
 }

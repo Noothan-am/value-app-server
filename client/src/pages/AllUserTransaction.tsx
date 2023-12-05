@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import Header from "../components/Header";
 import LoadingScreen from "./LoadingScreen";
 import { TbArrowsLeftRight } from "react-icons/tb";
+import FooterNavbar from "../components/FooterNavbar";
 const style = require("../styles/all-transactions.module.css").default;
 
 interface eachTransactionValue {
@@ -126,6 +127,9 @@ function AllUserTransaction() {
                   );
                 }
               )}
+          </div>
+          <div className={style["navbar"]}>
+            <FooterNavbar userid={userId} />
           </div>
         </div>
       </div>

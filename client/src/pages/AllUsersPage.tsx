@@ -3,6 +3,7 @@ import ProfileWithCoin from "../components/ProfileWithCoin";
 import Header from "../components/Header";
 import { useNavigate } from "react-router-dom";
 import LoadingScreen from "./LoadingScreen";
+import FooterNavbar from "../components/FooterNavbar";
 const styles = require("../styles/profile.module.css").default;
 
 function Profile() {
@@ -78,6 +79,9 @@ function Profile() {
               </div>
             );
           })}
+        </div>
+        <div className={styles["navbar"]}>
+          <FooterNavbar userid={userId} />
         </div>
       </div>
     </>

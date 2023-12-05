@@ -1,0 +1,17 @@
+.footer-navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100%;
+  width: 85%;
+  margin: auto;
+  align-items: center;
+}
+
+.footer-navbar-buttons {
+  height: 1.4rem;
+  width: 1.4rem;
+}
+.footer-navbar-buttons:hover {
+  cursor: pointer;
+}
