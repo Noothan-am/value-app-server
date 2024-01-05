@@ -24,6 +24,9 @@ function MyProfile() {
 
   const navigation = useNavigate();
   let { userId } = useParams();
+  const userData: any = localStorage.getItem("userInfo");
+  const data = JSON.parse(userData);
+  let myId = data?.userId;
 
   const handleTransactionButtonClick = () => {
     navigation("/transactions");
@@ -183,7 +186,7 @@ function MyProfile() {
           </div>
         </div>
         <div className={style["navbar"]}>
-          <FooterNavbar userid={userId} />
+          <FooterNavbar userid={myId} />
         </div>
       </div>
     </>
