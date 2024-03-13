@@ -16,6 +16,7 @@ app.use(
   cors({
     origin: "*",
     methods: ["GET", "POST", "PUT", "DELETE"],
+    maxAge: 3600 * 24,
   })
 );
 app.use(authRouter);
