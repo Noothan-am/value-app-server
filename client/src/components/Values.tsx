@@ -1,5 +1,5 @@
 import React from "react";
-const coinImage = require("../assets/svg/coin.svg").default;
+const coinImage = require("../assets/images/coin.png");
 const style = require("../styles/values.module.css").default;
 
 function Values({ valuesInfo, userDetails }: any) {

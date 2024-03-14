@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-const coin = require("../assets/svg/coin.svg").default;
+const coin = require("../assets/images/coin.png");
 const styles = require("../styles/profile-coin.module.css").default;
 // const img = require("../assets/images/Indu-Kanth.png").default;
 function ProfileWithCoin({ userDetails }: any) {

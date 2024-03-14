@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Leaderboard from "./LeaderBoard";
 import { useNavigate } from "react-router-dom";
-const coinImage = require("../assets/svg/big-coin.svg").default;
+const coinImage = require("../assets/images/big-coin.png");
 const style = require("../styles/leaderboard.module.css").default;
 
 function LeaderBoardWithCoin({ userDetails, showLeaderBoard }: any) {

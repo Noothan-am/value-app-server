@@ -9,7 +9,7 @@ import LoadingScreen from "./LoadingScreen";
 import FooterNavbar from "../components/FooterNavbar";
 
 const styles = require("../styles/sendPage.module.css").default;
-const coin = require("../assets/svg/big-coin.svg").default;
+const coin = require("../assets/images/big-coin.png");
 
 interface User {
   user_id: string;

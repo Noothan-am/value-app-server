@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 const style = require("../styles/leaderboard.module.css").default;
-const coinImage = require("../assets/svg/coin.svg").default;
+const coinImage = require("../assets/images/coin.png");
 
 export default function Leaderboard({ user, count }: any) {
   const navigator = useNavigate();

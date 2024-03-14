@@ -11,7 +11,10 @@
 
 .leaderboard-coin {
   margin-top: -0.1rem;
-  margin-right: -0.4rem;
+  margin-right: -0.1rem;
+}
+.leaderboard-coin > img {
+  height: 1.9rem;
 }
 
 .leaderboard-single-person {
@@ -32,8 +35,9 @@
   margin: auto;
 }
 .coins__content img {
-  height: 7rem;
-  margin-bottom: -2rem;
+  height: 4.5rem;
+  margin-bottom: -1.3rem;
+  margin-right: 1.3rem;
 }
 
 .coins__content {
@@ -100,16 +104,17 @@
 
 .leaderboard-name {
   font-size: 23px;
+  margin-right: 2px;
 }
 
 .leaderboard-heading {
   font-weight: 600;
   color: rgba(255, 255, 255, 0.632);
   margin-bottom: 0.7rem;
-  margin-left: -1rem;
+  margin-left: -5rem;
 }
 .leaderboard-name {
-  margin-left: 4px;
+  margin-left: 2px;
 }
 
 @media screen and (min-width: 701px) and (max-width: 1030px) {
@@ -121,7 +126,7 @@
   }
   .leaderboard-coin {
     margin-top: -0.1rem;
-    margin-right: -0.6rem;
+    margin-right: -0.1rem;
   }
 }
 
@@ -131,10 +136,15 @@
   }
   .leaderboard-coin {
     margin-top: -0.1rem;
-    margin-right: -0.6rem;
+    margin-right: -0.2rem;
   }
   .coins__content img {
-    height: 6rem;
+    height: 4.5rem;
+    margin-bottom: -1.3rem;
+    margin-right: 1.3rem;
+  }
+  .leaderboard-coin > img {
+    height: 1.7rem;
   }
   .profile__firstpart-coins-2 {
     width: 80%;
@@ -147,13 +157,14 @@
   }
   .leaderboard-coin {
     margin-top: -0.4rem;
-    margin-right: -0.6rem;
+    margin-right: -0.2rem;
   }
   .leaderboard-heading {
     font-weight: 600;
     color: rgba(255, 255, 255, 0.632);
     margin-bottom: 0.7rem;
   }
+
   .coins_text {
     font-size: 20px;
   }
@@ -176,7 +187,9 @@
     justify-content: space-between;
   }
   .coins__content img {
-    height: 6rem;
+    height: 3rem;
+    margin-bottom: -0.6rem;
+    margin-right: 0.5rem;
   }
   .total__coins {
     font-size: 76px;
@@ -199,7 +212,7 @@
   font-weight: 500;
   font-family: "Inter", sans-serif;
   width: 130px;
-  margin-left: -5rem;
+  margin-left: -9rem;
   text-decoration: underline;
   /* margin-left: -2.4rem; */
 }
@@ -218,8 +231,13 @@
     margin-left: -1.5rem;
   }
   .leaderboard-coin {
-    margin-top: -0.4rem;
-    margin-right: -0.6em;
+    margin-top: -0.2rem;
+    margin-right: -0.1em;
+    margin-left: 2px;
+  }
+  .leaderboard-coin > img {
+    height: 1.6rem;
+    width: 1.5rem;
   }
   .profile__firstpart-2 {
     width: 106%;
@@ -235,7 +253,7 @@
   }
   .leaderboard-heading {
     font-size: 11px;
-    margin-left: -1rem;
+    margin-left: -3rem;
   }
   .total__coins {
     font-size: 76px;
@@ -254,7 +272,7 @@
     /* margin-left: -1.2rem; */
     text-decoration: underline;
 
-    margin-left: -3.2rem;
+    margin-left: -5.2rem;
   }
 
   .coins_text {
@@ -272,8 +290,8 @@
     font-size: 15px;
   }
   .coins__content img {
-    height: 4.5rem;
-    margin-bottom: -1rem;
-    margin-right: -0.4rem;
+    height: 3rem;
+    margin-bottom: -0.6rem;
+    margin-right: 0.5rem;
   }
 }

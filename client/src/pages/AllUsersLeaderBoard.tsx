@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import LoadingScreen from "./LoadingScreen";
 import FooterNavbar from "../components/FooterNavbar";
 const style = require("../styles/all-leaderboard.module.css").default;
-const coinImage = require("../assets/svg/coin.svg").default;
+const coinImage = require("../assets/images/coin.png");
 
 function AllUsersLeaderBoard() {
   const [topLeaderboardUsers, setTopLeaderboardUsers] = useState<any>([]);

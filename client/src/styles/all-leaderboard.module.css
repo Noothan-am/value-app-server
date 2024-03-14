@@ -94,9 +94,9 @@
   margin-top: 1px;
 }
 
-.values__content-coin img {
+/* .values__content-coin img {
   margin-right: -0.5rem;
-}
+} */
 
 .leaderboard-number {
   margin-right: 1rem;
@@ -109,6 +109,7 @@
 
 .values__content-coin img {
   margin-top: 0.3rem;
+  width: 2rem;
 }
 
 @media screen and (max-width: 500px) {
@@ -142,6 +143,7 @@
   }
   .values__content-coin img {
     margin-top: 0.5rem;
+    width: 2rem;
   }
   .leaderboard {
     color: white;
@@ -205,6 +207,7 @@
   }
   .values__content-coin img {
     margin-top: 0.5rem;
+    width: 2rem;
   }
   .leaderboard {
     color: white;
@@ -271,8 +274,8 @@
   }
   .values__content-coin img {
     margin-top: 1rem;
-    width: 3rem;
-    margin-right: -0.7rem;
+    width: 2rem;
+    /* margin-right: -0.7rem; */
   }
   .leaderboard__Users {
     width: 70%;

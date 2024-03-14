@@ -6,16 +6,17 @@
   display: flex;
   flex-direction: row;
   /* width: 300px; */
-  margin-left: -15rem;
+  margin-left: -3.5rem;
   margin-top: -1rem;
+  margin-bottom: 1rem;
 }
 .coin {
-  width: 48px;
+  width: 45px;
   margin: auto;
 }
 .coin img {
   width: 9rem;
-  height: 9rem;
+  height: 88px;
 }
 
 .myfile__tophalf {
@@ -268,7 +269,7 @@
 }
 
 .myfile__downhalf img {
-  width: 300px;
+  width: 100px;
   margin-top: 1.2rem;
 }
 
@@ -450,8 +451,8 @@
   }
 }
 @media screen and (max-width: 350px) {
-  .myfile__downhalf img {
-    width: 250px;
-    margin-top: 1.2rem;
-  }
+  /* .myfile__downhalf img {
+      width: 20px;
+      margin-top: 1.2rem;
+    } */
 }

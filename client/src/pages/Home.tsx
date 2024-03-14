@@ -12,7 +12,7 @@ import FooterNavbar from "../components/FooterNavbar";
 
 const styles = require("../styles/myfile.module.css").default;
 const logoImage = require("../assets/images/Group 26943.png");
-const becomeCoins = require("../assets/svg/coin.svg").default;
+const becomeCoins = require("../assets/images/big-coin.png");
 
 interface coinsInfo {
   index: number;

@@ -4,12 +4,19 @@
   width: 100%;
   color: white;
   font-family: "Inter", sans-serif;
+  margin: 0.5rem 0rem;
 }
 
 .values__content {
   flex: 1;
   font-size: 20px;
   font-weight: 400;
+}
+
+.values__content-coin img {
+  width: 1.8rem;
+  margin-top: 0.2rem;
+  /* margin-right: -0.5rem; */
 }
 
 .values__content-right {
@@ -42,15 +49,16 @@
     color: white;
     font-family: "Inter", sans-serif;
     max-height: 50px;
+    margin: 0.5rem 0rem;
   }
   .values__content-value {
     font-size: 1.3rem;
     font-weight: 600;
   }
   .values__content-coin img {
-    width: 2.8rem;
-    margin-top: 0.7rem;
-    margin-right: -0.5rem;
+    width: 1.7rem;
+    margin-top: 0.2rem;
+    margin-right: -0rem;
   }
   .profile__secondpart-transaction {
     width: 90%;
