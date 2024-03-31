@@ -111,7 +111,7 @@
   font-weight: 600;
   color: rgba(255, 255, 255, 0.632);
   margin-bottom: 0.7rem;
-  margin-left: -5rem;
+  margin-left: -2rem;
 }
 .leaderboard-name {
   margin-left: 2px;
@@ -176,7 +176,7 @@
     font-weight: bold;
   }
   .profile__firstpart-coins-2 {
-    width: 100%;
+    width: 92%;
   }
   .profile__firstpart {
     flex-direction: row;
@@ -212,9 +212,8 @@
   font-weight: 500;
   font-family: "Inter", sans-serif;
   width: 130px;
-  margin-left: -9rem;
+  margin-left: -5.2rem;
   text-decoration: underline;
-  /* margin-left: -2.4rem; */
 }
 
 .leaderboard__light_button:hover {
@@ -224,11 +223,11 @@
 
 @media screen and (max-width: 479px) {
   .profile__firstpart {
-    width: 100%;
+    width: 82%;
     margin: auto;
     margin-bottom: 0rem;
     margin-top: 2rem;
-    margin-left: -1.5rem;
+    gap: 4rem;
   }
   .leaderboard-coin {
     margin-top: -0.2rem;
@@ -249,11 +248,11 @@
     margin-bottom: 2rem;
   }
   .profile__firstpart-coins-2 {
-    width: 100%;
+    width: 92%;
   }
   .leaderboard-heading {
     font-size: 11px;
-    margin-left: -3rem;
+    margin-left: -1rem;
   }
   .total__coins {
     font-size: 76px;
@@ -269,10 +268,8 @@
     font-weight: 500;
     font-family: "Inter", sans-serif;
     width: 130px;
-    /* margin-left: -1.2rem; */
     text-decoration: underline;
-
-    margin-left: -5.2rem;
+    margin-left: -3.4rem;
   }
 
   .coins_text {
