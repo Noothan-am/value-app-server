@@ -14,7 +14,7 @@ const port = process.env.PORT || 8000;
 app.use(express.json());
 app.use(
   cors({
-    origin: "*",
+    origin: process.env.CLIENT_URL,
     methods: ["GET", "POST", "PUT", "DELETE"],
     maxAge: 3600 * 24,
   })
