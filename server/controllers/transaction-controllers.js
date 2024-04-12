@@ -169,12 +169,15 @@ const makeTransaction = async (req, res) => {
 
       const randomGifLinks = [
         "https://media.giphy.com/media/DKnMqdm9i980E/giphy.gif",
-        "https://media.giphy.com/media/wZjlCH43M3M0U/giphy.gif",
-        "https://tenor.com/bejcz.gif",
-        "https://tenor.com/9KEE.gif",
-        "https://tenor.com/bOuAg.gif",
       ];
-      const randomNumber = Math.floor(Math.random() * (4 - 0 + 1)) + 0;
+
+      console.log(
+        "this is the log message: " + to,
+        from,
+        moment,
+        celebrating_value
+      );
+
       const blocks = [
         {
           type: "section",
@@ -199,7 +202,7 @@ const makeTransaction = async (req, res) => {
         },
         {
           type: "image",
-          image_url: `${randomGifLinks[randomNumber]}`,
+          image_url: `${randomGifLinks[0]}`,
           alt_text: "GIF Alt Text",
         },
       ];
