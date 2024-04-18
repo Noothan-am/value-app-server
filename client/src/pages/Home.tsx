@@ -275,7 +275,7 @@ const Home = () => {
             <div className={styles.myfile__light_button}>
               <button type="submit">Encash</button>
             </div>
-            <h5>Next Encashment Cycle: Q4 2023</h5>
+            <h5>Next Encashment Cycle: Q1 2024</h5>
           </div>
         </div>
         <div className={styles.myfile__downhalf}>
