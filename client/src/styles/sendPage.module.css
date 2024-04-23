@@ -168,6 +168,8 @@
   .sendPage__content {
     width: 99%;
     margin: 3rem auto;
+    padding-bottom: 2rem;
+    
   }
   .sendPage__content-button {
     width: 100%;
