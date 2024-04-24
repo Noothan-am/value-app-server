@@ -31,6 +31,7 @@ export default function SendPage() {
   const [selectedOption, setSelectedOption] = useState<string>("Tenacious");
   const [celebrationMoment, setCelebrationMoment] = useState<string>("");
   const [seletectedValues, setSelectedValues] = useState<any>([]);
+  const [isCharecterExpired, setIsCharecterExpired] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<any>(true);
   const [user, setUser] = useState({} as any);
 
@@ -72,6 +73,10 @@ export default function SendPage() {
     if (userInput.length <= 200) {
       setCelebrationMoment(userInput);
     } else {
+      if (isCharecterExpired) {
+        return;
+      }
+      setIsCharecterExpired(true);
       toast.error("character limit exceeded", {
         position: "bottom-right",
         autoClose: 2000,
