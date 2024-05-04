@@ -2,7 +2,7 @@ const moment = require("moment");
 const { Schema, model } = require("mongoose");
 const transactionInfoSchema = new Schema({
   image: {
-    type: String,
+    type: Schema.Types.Mixed,
     required: true,
   },
   from: {

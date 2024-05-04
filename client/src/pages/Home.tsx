@@ -37,6 +37,8 @@ const Home = () => {
   const [unseenTransactions, setUnseenTransactions] = useState([]);
   const [open, setOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [img, setImg] = useState<any>();
+  const [imageAvailable, setImageAvailable] = useState(false);
 
   let { userId } = useParams();
 
@@ -114,6 +116,10 @@ const Home = () => {
       if (response) {
         const jsonData = await response.json();
         const reset_date = jsonData.reset_date;
+        if (jsonData.image.data) {
+          setImg(`data:image/jpeg;base64,${jsonData.image.data}`);
+          setImageAvailable(true);
+        }
         let b = moment(moment().format("DD-MM-YYYY"), "DD-MM-YYYY");
         let a = moment(reset_date, "DD-MM-YYYY");
         const difference = b.diff(a, "months");
@@ -231,7 +237,11 @@ const Home = () => {
                 className={styles.myfile__tophalf__nav__right_image}
               >
                 <img
-                  src={require("../assets/images/" + userDetails.image)}
+                  src={
+                    imageAvailable
+                      ? img
+                      : require("../assets/images/" + userDetails.image)
+                  }
                   alt="profile-icon"
                 />
               </div>
@@ -264,7 +274,11 @@ const Home = () => {
             <div className={styles.myfile__tophalf__main__user}>
               <div className={styles.myfile__tophalf__main__user__img}>
                 <img
-                  src={require("../assets/images/" + userDetails.image)}
+                  src={
+                    imageAvailable
+                      ? img
+                      : require("../assets/images/" + userDetails.image)
+                  }
                   alt="profile-icon"
                 />
               </div>

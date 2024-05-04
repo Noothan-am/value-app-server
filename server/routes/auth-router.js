@@ -1,7 +1,7 @@
 const router = require("../utils/router-instance");
-const { userLogin, getLogin } = require("../controllers/auth-controllers");
+const { userLogin, addNewUser } = require("../controllers/auth-controllers");
 
 router.post("/login", userLogin);
-router.get("/login", getLogin);
+router.post("/add-user", addNewUser);
 
 module.exports = router;

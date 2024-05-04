@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 const coin = require("../assets/images/coin.png");
 const styles = require("../styles/profile-coin.module.css").default;
 // const img = require("../assets/images/Indu-Kanth.png").default;
@@ -9,7 +9,14 @@ function ProfileWithCoin({ userDetails }: any) {
     <>
       <div className={styles["profile"]}>
         <div className={styles["profile__picture"]}>
-          <img src={require("../assets/images/" + image)} alt="user profile" />
+          <img
+            src={
+              userDetails.image.data
+                ? `data:image/jpeg;base64,${userDetails.image.data}`
+                : require("../assets/images/" + image)
+            }
+            alt="profile-icon"
+          />
         </div>
 
         <div className={styles["profile__content"]}>

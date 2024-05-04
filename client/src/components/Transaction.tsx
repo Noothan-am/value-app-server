@@ -7,7 +7,11 @@ function Transaction({ eachTransaction }: any) {
       <div className={style["transaction"]}>
         <div className={style["transaction__image"]}>
           <img
-            src={require("../assets/images/" + eachTransaction.image)}
+            src={
+              eachTransaction.image.data
+                ? `data:image/jpeg;base64,${eachTransaction.image.data}`
+                : require("../assets/images/" + eachTransaction.image)
+            }
             alt=""
           />
         </div>

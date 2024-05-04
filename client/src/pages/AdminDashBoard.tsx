@@ -5,9 +5,9 @@ const styles = require("../styles/admin-dashboard.module.css").default;
 function AdminDashBoard() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
-  const [week, setWeek] = useState("");
+  const [name, setName] = useState<any>("");
   const [allUserDetails, setAllUserDetails] = useState([]);
+  const [selectedFile, setSelectedFile] = useState<any>(null);
 
   const fetchusers = async () => {
     try {
@@ -45,72 +45,94 @@ function AdminDashBoard() {
       });
   }, []);
 
+  const handleFileChange = (event: any) => {
+    setSelectedFile(event.target.files[0]);
+  };
+
   const handleLogin = async () => {
-    if (!username.trim() || !password.trim() || !week) {
-      alert("Please enter all the fields");
-      return;
-    }
-    if (
-      username === process.env.REACT_APP_USER_NAME &&
-      password === process.env.REACT_APP_PASSWORD
-    ) {
-      await handleSlackMessageTrigger();
-    } else {
-      setMessage("Invalid username or password");
-    }
-  };
+    const formData = new FormData();
+    formData.append("image", selectedFile);
+    formData.append("username", username);
+    formData.append("name", name);
+    formData.append("password", password);
+    console.log("formdata", formData);
 
-  const makeSlackMessageBlock = () => {
-    const blockElements = allUserDetails.map(({ name, total_coins }) => {
-      return {
-        type: "section",
-        text: {
-          type: "mrkdwn",
-          text: `*${name} - ${total_coins} coins*`,
-        },
-      };
-    });
-
-    const slackMessageBlock = [
-      {
-        type: "section",
-        text: {
-          type: "mrkdwn",
-          text: `Week ${week} Summary 🎉`,
-        },
-      },
-    ];
-
-    slackMessageBlock.push(...blockElements);
-    return slackMessageBlock;
-  };
-
-  const handleSlackMessageTrigger = async () => {
-    const block = makeSlackMessageBlock();
     try {
-      await fetch(`${process.env.REACT_APP_API_URL}/admin-login`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/upload`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
-        body: JSON.stringify(block),
-      })
-        .then((response) => {
-          setMessage("sent Message successfully!");
-        })
-        .catch((error) => {
-          setMessage("please send again!");
-        });
-    } catch (error) {}
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit");
+      }
+
+      const responseData = await response.json();
+      console.log("done", responseData);
+    } catch (error: any) {
+      console.error("Error:", error.message);
+    }
   };
+
+  // const makeSlackMessageBlock = () => {
+  //   const blockElements = allUserDetails.map(({ name, total_coins }) => {
+  //     return {
+  //       type: "section",
+  //       text: {
+  //         type: "mrkdwn",
+  //         text: `*${name} - ${total_coins} coins*`,
+  //       },
+  //     };
+  //   });
+
+  //   const slackMessageBlock = [
+  //     {
+  //       type: "section",
+  //       text: {
+  //         type: "mrkdwn",
+  //         text: `Week ${week} Summary 🎉`,
+  //       },
+  //     },
+  //   ];
+
+  //   slackMessageBlock.push(...blockElements);
+  //   return slackMessageBlock;
+  // };
+
+  // const handleSlackMessageTrigger = async () => {
+  //   const block = makeSlackMessageBlock();
+  //   try {
+  //     await fetch(`${process.env.REACT_APP_API_URL}/admin-login`, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         "Access-Control-Allow-Origin": "*",
+  //       },
+  //       body: JSON.stringify(block),
+  //     })
+  //       .then((response) => {
+  //         setMessage("sent Message successfully!");
+  //       })
+  //       .catch((error) => {
+  //         setMessage("please send again!");
+  //       });
+  //   } catch (error) {}
+  // };
 
   return (
     <>
       <div className={styles.loginContainer}>
-        <h2>Login</h2>
+        <h2>Add New User</h2>
         <div className={styles.inputContainer}>
-          <label>Username:</label>
+          <label>name:</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <div className={styles.inputContainer}>
+          <label>Email:</label>
           <input
             type="text"
             value={username}
@@ -125,18 +147,25 @@ function AdminDashBoard() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div className={styles.inputContainer}>
+        {/* <div className={styles.inputContainer}>
           <label>Week No:</label>
           <input
             type="number"
             value={week}
             onChange={(e) => setWeek(e.target.value)}
           />
-        </div>
+        </div> */}
+        <input type="file" onChange={handleFileChange} />
+
         <button className={styles.loginButton} onClick={handleLogin}>
-          Send Summary
+          Add User
         </button>
-        {message && <div className={styles.message}>{message}</div>}
+        {/* <div>
+          {imageData && (
+            <img src={`data:image/jpeg;base64,${imageData}`} alt="User Image" />
+          )}
+        </div> */}
+        {/* {message && <div className={styles.message}>{message}</div>} */}
       </div>
     </>
   );

@@ -39,6 +39,7 @@ export default function SendPage() {
   const navigator = useNavigate();
   const userData: any = localStorage.getItem("userInfo");
   const data = JSON.parse(userData);
+
   let userId = data?.userId;
 
   const findUserValid = async () => {
@@ -129,23 +130,21 @@ export default function SendPage() {
         return;
       }
       setIsLoading(true);
+
+      const formData = new FormData();
+      formData.append("image", JSON.stringify(data.image));
+      formData.append("from", data.userName);
+      formData.append("from_user_id", data.userId);
+      formData.append("to", user.name);
+      formData.append("to_user_id", id ?? "");
+      formData.append("celebration_moment", selectedOption.toLocaleLowerCase());
+      formData.append("celebrating_value", celebrationMoment);
+
       const response = await fetch(
         `${process.env.REACT_APP_API_URL}/make-transaction`,
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-          },
-          body: JSON.stringify({
-            from: data.userName,
-            from_user_id: data.userId,
-            to: user.name,
-            to_user_id: id,
-            celebration_moment: selectedOption.toLocaleLowerCase(),
-            celebrating_value: celebrationMoment,
-            image: data.image,
-          }),
+          body: formData,
         }
       );
       if (response.ok) {
@@ -160,7 +159,6 @@ export default function SendPage() {
         });
         setIsLoading(true);
         setTimeout(() => {
-          // setIsLoading(false);
           navigator(`/my-profile/${userId}`);
         }, 500);
       } else {
