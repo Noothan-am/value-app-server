@@ -24,7 +24,7 @@ const getUserTransactions = async (req, res) => {
           date,
           has_seen,
           diff,
-          image,
+          image
         }) => ({
           from,
           to,
@@ -34,7 +34,7 @@ const getUserTransactions = async (req, res) => {
           date,
           has_seen,
           diff,
-          image,
+          image
         })
       )
       .reverse();
@@ -61,7 +61,7 @@ const getAllTransactions = async (req, res) => {
           celebrating_value,
           celebration_moment,
           date,
-          image,
+          image
         }) => ({
           from,
           to,
@@ -69,7 +69,7 @@ const getAllTransactions = async (req, res) => {
           celebrating_value,
           celebration_moment,
           date,
-          image,
+          image
         })
       )
       .reverse();
@@ -176,27 +176,27 @@ const makeTransaction = async (req, res) => {
           type: "section",
           text: {
             type: "mrkdwn",
-            text: "*Congratulations 🎉*",
+            text: "*Congratulations 🎉*"
           },
         },
         {
           type: "section",
           text: {
             type: "mrkdwn",
-            text: `*${from}* celebrated *${to}* for being *${moment}*`,
+            text: `*${from}* celebrated *${to}* for being *${moment}*`
           },
         },
         {
           type: "section",
           text: {
             type: "mrkdwn",
-            text: `\`${celebrating_value}\``,
+            text: `\`${celebrating_value}\``
           },
         },
         {
           type: "image",
           image_url: `${randomGifLinks[0]}`,
-          alt_text: "GIF Alt Text",
+          alt_text: "GIF Alt Text"
         },
       ];
 
