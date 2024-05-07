@@ -47,8 +47,9 @@ const getUserTransactions = async (req, res) => {
 
 const getAllTransactions = async (req, res) => {
   try {
+    const { company_id } = req.body;
     const allTransactionDetails = await transactionSchema.find({
-      "company.id": "62fafe5c-851b-4a06-a906-d60b1833cc9b",
+      "company.id": company_id,
     });
     if (!allTransactionDetails) {
       return res.status(400).send("No one has done any transaction yet");

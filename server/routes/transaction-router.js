@@ -20,7 +20,7 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
-router.get("/all-transactions", getAllTransactions);
+router.post("/all-transactions", getAllTransactions);
 router.post("/get-transactions", getUserTransactions);
 router.post("/get-values", getValues);
 router.post("/make-transaction", upload.single("image"), makeTransaction);

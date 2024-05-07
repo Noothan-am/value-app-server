@@ -74,17 +74,19 @@ function AllUserTransaction() {
   const userData: any = localStorage.getItem("userInfo");
   const data = JSON.parse(userData);
   let userId = data?.userId;
+  const company_id = data?.company.id;
 
   const fetchAllTransactions = useCallback(async () => {
     try {
       const response: any = await fetch(
         `${process.env.REACT_APP_API_URL}/all-transactions`,
         {
-          method: "GET",
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*",
           },
+          body: JSON.stringify({ company_id }),
         }
       );
       if (!response.ok) throw new Error("Error while fetching users");
