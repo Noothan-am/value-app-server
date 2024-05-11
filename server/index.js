@@ -10,6 +10,7 @@ const adminRouter = require("./routes/admin-router");
 const multer = require("multer");
 const fs = require("fs");
 const userInfo = require("./model/UserInfoSchema");
+const moment = require("moment");
 
 const app = express();
 const port = process.env.PORT || 8000;
@@ -42,7 +43,6 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 app.post("/upload", upload.single("image"), async (req, res) => {
-  console.log(req.body);
   if (!req.file) {
     return res.status(400).send("No files were uploaded.");
   }
@@ -65,10 +65,10 @@ app.post("/upload", upload.single("image"), async (req, res) => {
     holistic: 0,
     inquisitive: 0,
     celebrating: 0,
-    reset_date: "23-3-24",
+    reset_date: moment().format("DD-MM-YY"),
   });
 
-  await newImage.save((err, image) => {
+  newImage.save((err, image) => {
     if (err) {
       return res.status(500).send(err);
     }

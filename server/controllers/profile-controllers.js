@@ -129,9 +129,24 @@ const getValidUser = async (req, res) => {
   }
 };
 
+const deleteUser = async (req, res) => {
+  try {
+    const { selectedOption } = req.body;
+    if (!selectedOption) {
+      return res.status(400).json({ message: "User id is required" });
+    }
+    await userSchema.deleteOne({ user_id: selectedOption });
+    res.status(200).json({ message: "User deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: "Something went wrong" });
+    console.log(error);
+  }
+};
+
 module.exports = {
   getUserDetails,
   getAllUsersDetails,
   getLeaderboard,
   getValidUser,
+  deleteUser,
 };
