@@ -15,17 +15,19 @@ function Profile() {
   const userData: any = localStorage.getItem("userInfo");
   const data = JSON.parse(userData);
   let userId = data?.userId;
+  const company_id = data?.company.id;
 
   const fetchAllUsers = useCallback(async () => {
     try {
       const response = await fetch(
         `${process.env.REACT_APP_API_URL}/all-user`,
         {
-          method: "GET",
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*",
           },
+          body: JSON.stringify({ company_id }),
         }
       );
       if (!response.ok) throw new Error("Error while fetching users");

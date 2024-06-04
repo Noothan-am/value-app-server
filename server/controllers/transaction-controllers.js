@@ -24,7 +24,7 @@ const getUserTransactions = async (req, res) => {
           date,
           has_seen,
           diff,
-          image
+          image,
         }) => ({
           from,
           to,
@@ -34,7 +34,7 @@ const getUserTransactions = async (req, res) => {
           date,
           has_seen,
           diff,
-          image
+          image,
         })
       )
       .reverse();
@@ -47,7 +47,9 @@ const getUserTransactions = async (req, res) => {
 
 const getAllTransactions = async (req, res) => {
   try {
-    const allTransactionDetails = await transactionSchema.find({});
+    const allTransactionDetails = await transactionSchema.find({
+      "company.id": "62fafe5c-851b-4a06-a906-d60b1833cc9b",
+    });
     if (!allTransactionDetails) {
       return res.status(400).send("No one has done any transaction yet");
     }
@@ -61,7 +63,8 @@ const getAllTransactions = async (req, res) => {
           celebrating_value,
           celebration_moment,
           date,
-          image
+          image,
+          company,
         }) => ({
           from,
           to,
@@ -69,7 +72,8 @@ const getAllTransactions = async (req, res) => {
           celebrating_value,
           celebration_moment,
           date,
-          image
+          image,
+          company,
         })
       )
       .reverse();
@@ -119,7 +123,18 @@ const makeTransaction = async (req, res) => {
     image,
     to_user_id,
     from_user_id,
+    company,
   } = req.body;
+  console.log(
+    from,
+    to,
+    celebrating_value,
+    celebration_moment,
+    image,
+    to_user_id,
+    from_user_id,
+    company
+  );
   if (
     !from ||
     !to ||
@@ -127,8 +142,10 @@ const makeTransaction = async (req, res) => {
     !celebration_moment ||
     !image ||
     !from_user_id ||
-    !to_user_id
+    !to_user_id ||
+    !JSON.parse(company)
   ) {
+    console.log("here");
     return res.status(400).send("Please fill all the fields");
   }
   let moment =
@@ -147,6 +164,7 @@ const makeTransaction = async (req, res) => {
       to_user_id,
       celebrating_value,
       celebration_moment: moment,
+      company: JSON.parse(company),
       image: JSON.parse(image),
     });
 
@@ -176,27 +194,27 @@ const makeTransaction = async (req, res) => {
           type: "section",
           text: {
             type: "mrkdwn",
-            text: "*Congratulations 🎉*"
+            text: "*Congratulations 🎉*",
           },
         },
         {
           type: "section",
           text: {
             type: "mrkdwn",
-            text: `*${from}* celebrated *${to}* for being *${moment}*`
+            text: `*${from}* celebrated *${to}* for being *${moment}*`,
           },
         },
         {
           type: "section",
           text: {
             type: "mrkdwn",
-            text: `\`${celebrating_value}\``
+            text: `\`${celebrating_value}\``,
           },
         },
         {
           type: "image",
           image_url: `${randomGifLinks[0]}`,
-          alt_text: "GIF Alt Text"
+          alt_text: "GIF Alt Text",
         },
       ];
 

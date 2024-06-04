@@ -18,7 +18,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Loading />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/admin-login" element={<AdminDashBoard />} />
+      <Route path="/admin" element={<AdminDashBoard />} />
       <Route path="/my-profile/:userId" element={<Home />} />
       <Route path="/my-page/:userId" element={<MyProfile />} />
       <Route path="/user/:userId" element={<UserProfile />} />

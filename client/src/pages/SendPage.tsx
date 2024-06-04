@@ -41,6 +41,10 @@ export default function SendPage() {
   const data = JSON.parse(userData);
 
   let userId = data?.userId;
+  const company_id = data?.company.id;
+  var company_id_map: any = new Map();
+  company_id_map.set("62fafe5c-851b-4a06-a906-d60b1833cc9b", "Become");
+  company_id_map.set("8d1d7a91-c48f-44e9-90fd-e7512006397e", "MentorCloud");
 
   const findUserValid = async () => {
     try {
@@ -139,7 +143,13 @@ export default function SendPage() {
       formData.append("to_user_id", id ?? "");
       formData.append("celebration_moment", selectedOption.toLocaleLowerCase());
       formData.append("celebrating_value", celebrationMoment);
-
+      formData.append(
+        "company",
+        JSON.stringify({
+          id: company_id,
+          company_name: company_id_map.get(company_id),
+        })
+      );
       const response = await fetch(
         `${process.env.REACT_APP_API_URL}/make-transaction`,
         {
@@ -184,11 +194,12 @@ export default function SendPage() {
       const response = await fetch(
         `${process.env.REACT_APP_API_URL}/all-user`,
         {
-          method: "GET",
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*",
           },
+          body: JSON.stringify({ company_id }),
         }
       );
       if (response) {

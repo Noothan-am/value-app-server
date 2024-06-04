@@ -11,6 +11,7 @@ const multer = require("multer");
 const fs = require("fs");
 const userInfo = require("./model/UserInfoSchema");
 const moment = require("moment");
+const { json } = require("body-parser");
 
 const app = express();
 const port = process.env.PORT || 8000;
@@ -46,7 +47,8 @@ app.post("/upload", upload.single("image"), async (req, res) => {
   if (!req.file) {
     return res.status(400).send("No files were uploaded.");
   }
-
+  const data = req.body.company;
+  const company_data = JSON.parse(data);
   const newImage = new userInfo({
     image: {
       name: req.file.filename,
@@ -65,6 +67,7 @@ app.post("/upload", upload.single("image"), async (req, res) => {
     holistic: 0,
     inquisitive: 0,
     celebrating: 0,
+    company: { ...company_data },
     reset_date: moment().format("DD-MM-YY"),
   });
 

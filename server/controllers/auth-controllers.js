@@ -9,7 +9,6 @@ const userLogin = async (req, res) => {
     if (!user) {
       return res.status(404).json({ message: "user not found" });
     }
-    // const isValid = await bcrypt.compare(password, user.password);
     if (!(password === user.password)) {
       return res.status(401).json({ message: "invalid credentials" });
     }
@@ -18,6 +17,7 @@ const userLogin = async (req, res) => {
       userName: user.name,
       coins: user.current_coins,
       image: user.image,
+      company: user.company,
     });
   } catch (error) {
     return res.status(500).json({ message: error });

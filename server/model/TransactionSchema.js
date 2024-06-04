@@ -33,6 +33,10 @@ const transactionInfoSchema = new Schema({
     type: Boolean,
     default: false,
   },
+  company: {
+    id: { type: String },
+    company_name: { type: String },
+  },
   date: {
     type: String,
     default: moment().format("DD-MM-YYYY"),

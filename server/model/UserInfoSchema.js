@@ -58,6 +58,10 @@ const userInfoSchema = new Schema({
     type: Number,
     required: true,
   },
+  company: {
+    id: { type: String },
+    company_name: { type: String },
+  },
   reset_date: {
     type: String,
     required: true,

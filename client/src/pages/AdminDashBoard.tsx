@@ -7,21 +7,27 @@ function AdminDashBoard() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState<any>("");
+  const [companyName, setCompanyName] = useState<any>("");
   const [allUserDetails, setAllUserDetails] = useState([]);
   const [selectedFile, setSelectedFile] = useState<any>(null);
   const [addData, setAddData] = useState<any>("addUser");
   const [selectedOption, setSelectedOption] = useState<string>("");
+
+  var company_id_map = new Map();
+  company_id_map.set("Become", "62fafe5c-851b-4a06-a906-d60b1833cc9b");
+  company_id_map.set("MentorCloud", "8d1d7a91-c48f-44e9-90fd-e7512006397e");
 
   const fetchusers = async () => {
     try {
       const response: any = await fetch(
         `${process.env.REACT_APP_API_URL}/all-user`,
         {
-          method: "GET",
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*",
           },
+          body: JSON.stringify({ company_id: company_id_map.get(companyName) }),
         }
       );
       if (!response.ok) throw new Error("Error while fetching users");
@@ -57,12 +63,20 @@ function AdminDashBoard() {
     setAddData(tab);
   };
 
-  const handleLogin = async () => {
+  const addNewUser = async () => {
     const formData = new FormData();
+
     formData.append("image", selectedFile);
     formData.append("username", username);
     formData.append("name", name);
     formData.append("password", password);
+    formData.append(
+      "company",
+      JSON.stringify({
+        id: company_id_map.get(companyName),
+        company_name: companyName,
+      })
+    );
     let response: any;
     try {
       response = await fetch(`${process.env.REACT_APP_API_URL}/upload`, {
@@ -167,6 +181,8 @@ function AdminDashBoard() {
   //   } catch (error) {}
   // };
 
+  // change according to company
+
   const deleteUser = async () => {
     try {
       await fetch(`${process.env.REACT_APP_API_URL}/delete-user`, {
@@ -234,6 +250,18 @@ function AdminDashBoard() {
           {addData === "addUser" ? (
             <>
               <h2>Add New User</h2>
+              <div className={styles["select-input"]}>
+                <select
+                  name=""
+                  id=""
+                  onChange={(e) => {
+                    setCompanyName(e.target.value);
+                  }}
+                >
+                  <option value="Become">Become</option>
+                  <option value="MentorCloud">MentorCloud</option>
+                </select>
+              </div>
               <div className={styles["coolinput"]}>
                 <label className={styles["text"]}>name:</label>
                 <input
@@ -268,7 +296,7 @@ function AdminDashBoard() {
                   onChange={handleFileChange}
                 />
               </div>
-              <button className={styles.loginButton} onClick={handleLogin}>
+              <button className={styles.loginButton} onClick={addNewUser}>
                 Add User
               </button>
             </>

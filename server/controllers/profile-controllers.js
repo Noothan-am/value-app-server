@@ -52,7 +52,10 @@ const getUserDetails = async (req, res) => {
 
 const getAllUsersDetails = async (req, res) => {
   try {
-    const userData = await userSchema.find({});
+    const { company_id } = req.body;
+    const userData = await userSchema.find({
+      "company.id": company_id,
+    });
     if (!userData) {
       return res.status(400).json({ message: "no users" });
     }
@@ -63,6 +66,7 @@ const getAllUsersDetails = async (req, res) => {
         name: user.name,
         current_coins: user.current_coins,
         total_coins: user.total_coins,
+        company: user.company,
       };
     });
     res.status(200).json(users);

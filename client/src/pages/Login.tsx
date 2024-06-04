@@ -36,7 +36,6 @@ const Login = () => {
       console.log("empty fields found");
       return;
     }
-
     try {
       const result = await fetch(`${process.env.REACT_APP_API_URL}/login`, {
         method: "POST",
