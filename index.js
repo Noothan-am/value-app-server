@@ -44,6 +44,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 app.get("/", (req, res) => {
+  console.log("u ar in right place");
   res.send("Welcome to the server");
 });
 
