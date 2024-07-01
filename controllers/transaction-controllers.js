@@ -196,27 +196,27 @@ const makeTransaction = async (req, res) => {
           text: {
             type: "mrkdwn",
             text: "*Congratulations 🎉*"
-          },
+          }
         },
         {
           type: "section",
           text: {
             type: "mrkdwn",
             text: `*${from}* celebrated *${to}* for being *${moment}*`
-          },
+          }
         },
         {
           type: "section",
           text: {
             type: "mrkdwn",
             text: `\`${celebrating_value}\``
-          },
+          }
         },
         {
           type: "image",
           image_url: `${randomGifLinks[0]}`,
           alt_text: "GIF Alt Text"
-        },
+        }
       ];
 
       await axios.post(process.env.SLACK_API, {
