@@ -190,7 +190,7 @@ const makeTransaction = async (req, res) => {
         "https://media.giphy.com/media/DKnMqdm9i980E/giphy.gif",
       ];
 
-      const blocks = [
+    const blocks = [
         {
           type: "section",
           text: {
@@ -218,7 +218,7 @@ const makeTransaction = async (req, res) => {
           alt_text: "GIF Alt Text"
         },
       ];
-
+      
       await axios.post(process.env.SLACK_API, {
         blocks: blocks,
       });
