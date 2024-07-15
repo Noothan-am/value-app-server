@@ -190,35 +190,35 @@ const makeTransaction = async (req, res) => {
         "https://media.giphy.com/media/DKnMqdm9i980E/giphy.gif",
       ];
 
-      const blocks = [
+    const blocks = [
         {
           type: "section",
           text: {
             type: "mrkdwn",
-            text: "*Congratulations 🎉*",
+            text: "*Congratulations 🎉*"
           },
         },
         {
           type: "section",
           text: {
             type: "mrkdwn",
-            text: `*${from}* celebrated *${to}* for being *${moment}*`,
+            text: `*${from}* celebrated *${to}* for being *${moment}*`
           },
         },
         {
           type: "section",
           text: {
             type: "mrkdwn",
-            text: `\`${celebrating_value}\``,
+            text: `\`${celebrating_value}\``
           },
         },
         {
           type: "image",
           image_url: `${randomGifLinks[0]}`,
-          alt_text: "GIF Alt Text",
+          alt_text: "GIF Alt Text"
         },
       ];
-
+      
       await axios.post(process.env.SLACK_API, {
         blocks: blocks,
       });

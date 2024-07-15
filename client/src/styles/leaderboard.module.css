@@ -223,7 +223,7 @@
 
 @media screen and (max-width: 479px) {
   .profile__firstpart {
-    width: 82%;
+    width: 89%;
     margin: auto;
     margin-bottom: 0rem;
     margin-top: 2rem;
@@ -292,3 +292,10 @@
     margin-right: 0.5rem;
   }
 }
+
+/* @media screen and (max-width: 479px) {
+  .coins_text {
+    margin-left: 1rem;
+    font-size: 16px;
+  }
+} */

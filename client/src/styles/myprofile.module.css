@@ -108,6 +108,16 @@
   text-decoration: underline;
 }
 
+@media screen and (min-width: 950px) {
+  .profile__secondpart {
+    display: flex;
+    justify-content: none;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 5rem;
+  }
+}
+
 @media screen and (min-width: 950px) and (max-width: 1180px) {
   .profile__secondpart {
     display: flex;
