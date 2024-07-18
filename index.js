@@ -12,6 +12,8 @@ const fs = require("fs");
 const userInfo = require("./model/UserInfoSchema");
 const moment = require("moment");
 const { json } = require("body-parser");
+const cron = require("node-cron");
+const UserSchema = require("./model/UserInfoSchema");
 
 const app = express();
 const port = process.env.PORT || 8000;
@@ -43,9 +45,58 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
+const makeSlackMessageBlock = async () => {
+  const allUserDetails = await UserSchema.find({
+    "company.id": "62fafe5c-851b-4a06-a906-d60b1833cc9b",
+  });
+  if (!allUserDetails) {
+    console.log("No users found");
+    return;
+  }
+  const blockElements = allUserDetails.map(({ name, total_coins }) => {
+    return {
+      type: "section",
+      text: {
+        type: "mrkdwn",
+        text: `*${name} - ${total_coins} coins*`,
+      },
+    };
+  });
+
+  const slackMessageBlock = [
+    {
+      type: "section",
+      text: {
+        type: "mrkdwn",
+        text: `Week ${new Date()} Summary 🎉`,
+      },
+    },
+  ];
+
+  slackMessageBlock.push(...blockElements);
+  return slackMessageBlock;
+};
+
+const handleSlackMessageTrigger = async () => {
+  const block = await makeSlackMessageBlock();
+  console.log({ block });
+  // await axios.post(process.env.SLACK_API, {
+  //   blocks: block,
+  // });
+};
+
+cron.schedule("0 10 30 * *", () => {
+  handleSlackMessageTrigger()
+    .then(() => {
+      console.log("Summary Sent Successfully");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 app.get("/", (req, res) => {
-  console.log("u ar in right place");
-  res.send("Welcome to the server");
+  console.log("Hello World");
 });
 
 app.post("/upload", upload.single("image"), async (req, res) => {
