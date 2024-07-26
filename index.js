@@ -58,7 +58,7 @@ const makeSlackMessageBlock = async () => {
       type: "section",
       text: {
         type: "mrkdwn",
-        text: `*${name} - ${total_coins} coins*`,
+        text: `*${name} - ${total_coins} coins*`
       },
     };
   });
@@ -68,7 +68,7 @@ const makeSlackMessageBlock = async () => {
       type: "section",
       text: {
         type: "mrkdwn",
-        text: `Week ${new Date()} Summary 🎉`,
+        text: `Week ${new Date()} Summary 🎉`
       },
     },
   ];
