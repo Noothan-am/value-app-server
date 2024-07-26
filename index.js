@@ -79,10 +79,9 @@ const makeSlackMessageBlock = async () => {
 
 const handleSlackMessageTrigger = async () => {
   const block = await makeSlackMessageBlock();
-  console.log({ block });
-  // await axios.post(process.env.SLACK_API, {
-  //   blocks: block,
-  // });
+  await axios.post(process.env.SLACK_API, {
+    blocks: block,
+  });
 };
 
 cron.schedule("0 10 30 * *", () => {
@@ -97,6 +96,7 @@ cron.schedule("0 10 30 * *", () => {
 
 app.get("/", (req, res) => {
   console.log("Hello World");
+  return res.status(200).send("Hello World");
 });
 
 app.post("/upload", upload.single("image"), async (req, res) => {
