@@ -79,6 +79,7 @@ const makeSlackMessageBlock = async () => {
 
 const handleSlackMessageTrigger = async () => {
   const block = await makeSlackMessageBlock();
+  console.log({ block });
   await axios.post(process.env.SLACK_API, {
     blocks: block,
   });
