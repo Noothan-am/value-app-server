@@ -14,6 +14,7 @@ const moment = require("moment");
 const { json } = require("body-parser");
 const cron = require("node-cron");
 const UserSchema = require("./model/UserInfoSchema");
+const axios = require("axios");
 
 const app = express();
 const port = process.env.PORT || 8000;
@@ -53,7 +54,10 @@ const makeSlackMessageBlock = async () => {
     console.log("No users found");
     return;
   }
-  const blockElements = allUserDetails.map(({ name, total_coins }) => {
+  const sortedUserDetails = allUserDetails.sort(
+    (a, b) => b.total_coins - a.total_coins
+  );
+  const blockElements = sortedUserDetails.map(({ name, total_coins }) => {
     return {
       type: "section",
       text: {
@@ -79,7 +83,6 @@ const makeSlackMessageBlock = async () => {
 
 const handleSlackMessageTrigger = async () => {
   const block = await makeSlackMessageBlock();
-  console.log({ block });
   await axios.post(process.env.SLACK_API, {
     blocks: block,
   });
