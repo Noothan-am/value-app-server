@@ -16,7 +16,7 @@ import AdminDashBoard from "./pages/AdminDashBoard";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Loading />} />
+      <Route path="/" element={<Login />} />
       <Route path="/login" element={<Login />} />
       <Route path="/admin" element={<AdminDashBoard />} />
       <Route path="/my-profile/:userId" element={<Home />} />
