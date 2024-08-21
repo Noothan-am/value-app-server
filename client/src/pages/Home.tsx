@@ -198,6 +198,65 @@ const Home = () => {
       });
   }, [fetchUnseenTransactions, fetchUserDetails]);
 
+  const handleEncashSubmit = async () => {
+    const { email, total_coins, name } = userDetails;
+
+    try {
+      const response: any = await fetch(
+        `${process.env.REACT_APP_API_URL}/send-mail`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+          body: JSON.stringify({
+            userName: name,
+            userEmail: email,
+            userMailMessage: `Your Total Coins As of ${moment().format(
+              "DD MMM"
+            )} is ${total_coins} coins`,
+          }),
+        }
+      );
+      if (response.ok) {
+        const result = await response.json();
+        toast.success("Message Sent Successfully!", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+        console.log(result);
+      } else {
+        console.log("Error while sending mail!");
+        toast.error("Something Went Wrong!", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      }
+    } catch (err) {
+      console.log("error", err);
+      toast.error("Something Went Wrong!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
+  };
+
   if (isLoading) return <LoadingScreen />;
 
   const coinsArray = Array.from(
@@ -286,8 +345,13 @@ const Home = () => {
                 <h4>25 coins away to encash &gt;</h4>
               </button>
             </div>
-            <div className={styles.myfile__light_button}>
-              <button type="submit">Encash</button>
+            <div>
+              <button
+                className={styles.myfile__light_button}
+                onClick={handleEncashSubmit}
+              >
+                Encash
+              </button>
             </div>
             <h5>Next Encashment Cycle: Q1 15th June, 2024</h5>
           </div>
