@@ -15,6 +15,7 @@ const getUserDetails = async (req, res) => {
       name,
       user_id,
       coins,
+      email,
       image,
       tenacious,
       resourceful,
@@ -30,6 +31,7 @@ const getUserDetails = async (req, res) => {
 
     res.status(200).json({
       name,
+      email,
       coins,
       user_id,
       image,

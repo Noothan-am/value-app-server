@@ -7,6 +7,7 @@ const coinsRouter = require("./routes/coins-router");
 const profileRouter = require("./routes/profile-router");
 const transactionRouter = require("./routes/transaction-router");
 const adminRouter = require("./routes/admin-router");
+const mailRouter = require("./routes/mail-router");
 const multer = require("multer");
 const fs = require("fs");
 const userInfo = require("./model/UserInfoSchema");
@@ -33,6 +34,7 @@ app.use(coinsRouter);
 app.use(profileRouter);
 app.use(transactionRouter);
 app.use(adminRouter);
+app.use(mailRouter);
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -62,7 +64,7 @@ const makeSlackMessageBlock = async () => {
       type: "section",
       text: {
         type: "mrkdwn",
-        text: `*${name} - ${total_coins} coins*`
+        text: `*${name} - ${total_coins} coins*`,
       },
     };
   });
@@ -72,7 +74,7 @@ const makeSlackMessageBlock = async () => {
       type: "section",
       text: {
         type: "mrkdwn",
-        text: `Week ${new Date()} Summary 🎉`
+        text: `Week ${new Date()} Summary 🎉`,
       },
     },
   ];
@@ -97,6 +99,10 @@ cron.schedule("0 10 30 * *", () => {
       console.log(err);
     });
 });
+
+// cron.schedule("0 0 3,6,9,12 *", async () => {
+//   console.log("Noothan");
+// });
 
 app.get("/", (req, res) => {
   console.log("Hello World");
