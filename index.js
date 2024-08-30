@@ -90,7 +90,7 @@ const handleSlackMessageTrigger = async () => {
   });
 };
 
-cron.schedule("0 10 30 * *", () => {
+cron.schedule("0 20 30 * *", () => {
   handleSlackMessageTrigger()
     .then(() => {
       console.log("Summary Sent Successfully");
