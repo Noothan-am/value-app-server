@@ -8,6 +8,7 @@ const profileRouter = require("./routes/profile-router");
 const transactionRouter = require("./routes/transaction-router");
 const adminRouter = require("./routes/admin-router");
 const mailRouter = require("./routes/mail-router");
+const mailRouter = require("./routes/mail-router");
 const multer = require("multer");
 const fs = require("fs");
 const userInfo = require("./model/UserInfoSchema");
@@ -36,6 +37,7 @@ app.use(coinsRouter);
 app.use(profileRouter);
 app.use(transactionRouter);
 app.use(adminRouter);
+app.use(mailRouter);
 app.use(mailRouter);
 
 const storage = multer.diskStorage({
