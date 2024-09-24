@@ -8,7 +8,6 @@ const profileRouter = require("./routes/profile-router");
 const transactionRouter = require("./routes/transaction-router");
 const adminRouter = require("./routes/admin-router");
 const mailRouter = require("./routes/mail-router");
-const mailRouter = require("./routes/mail-router");
 const multer = require("multer");
 const fs = require("fs");
 const userInfo = require("./model/UserInfoSchema");
