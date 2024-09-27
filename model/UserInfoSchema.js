@@ -30,6 +30,10 @@ const userInfoSchema = new Schema({
     type: Number,
     required: true,
   },
+  refreshed_coins: {
+    type: Number,
+    required: true,
+  },
   tenacious: {
     type: Number,
     required: true,
@@ -65,6 +69,9 @@ const userInfoSchema = new Schema({
   reset_date: {
     type: String,
     required: true,
+  },
+  fcm_token: {
+    type: String,
   },
 });
 
