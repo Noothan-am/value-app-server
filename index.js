@@ -86,7 +86,7 @@ const sendNotification = async (token, title, message) => {
   }
 };
 
-cron.schedule("* * * * *", async () => {
+cron.schedule("0 0 */3 * *", async () => {
   try {
     const users = await UserSchema.find({
       fcm_token: { $exists: true },
