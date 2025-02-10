@@ -18,7 +18,7 @@ const UserSchema = require("./model/UserInfoSchema");
 const axios = require("axios");
 var admin = require("firebase-admin");
 var serviceAccount = require("./utils/serviceAccountKey.json");
-
+const kindnessNoteRouter = require("./routes/kindnessNote-router");
 const app = express();
 const port = process.env.PORT || 8000;
 
@@ -37,6 +37,7 @@ app.use(profileRouter);
 app.use(transactionRouter);
 app.use(adminRouter);
 app.use(mailRouter);
+app.use(kindnessNoteRouter);
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -86,35 +87,35 @@ const sendNotification = async (token, title, message) => {
   }
 };
 
-cron.schedule("0 0 */3 * *", async () => {
-  try {
-    const users = await UserSchema.find({
-      fcm_token: { $exists: true },
-    });
-    console.log("Users with FCM tokens:", users);
-    if (users.length > 0) {
-      for (const user of users) {
-        if (user.fcm_token != "") {
-          console.log("FCM token retrieved:", user.fcm_token);
-          const sent = await sendNotification(
-            user.fcm_token,
-            `👋 Hey ${user.name}! It looks like you haven't used Trophic in a while.Jump back in and keep the momentum going! 🚀`,
-            ""
-          );
-          if (sent) console.log(`Notifications sent to ${users.length} users`);
-          else console.log("reset token happened");
-        }
-      }
-    } else {
-      console.log("No users found with FCM tokens");
-    }
-  } catch (error) {
-    console.error(
-      "Error retrieving FCM tokens or sending notifications:",
-      error
-    );
-  }
-});
+// cron.schedule("* * * * *", async () => {
+//   try {
+//     const users = await UserSchema.find({
+//       fcm_token: { $exists: true },
+//     });
+//     console.log("Users with FCM tokens:", users);
+//     if (users.length > 0) {
+//       for (const user of users) {
+//         if (user.fcm_token != "") {
+//           console.log("FCM token retrieved:", user.fcm_token);
+//           const sent = await sendNotification(
+//             user.fcm_token,
+//             `👋 Hey ${user.name}! It looks like you haven't used Trophic in a while.Jump back in and keep the momentum going! 🚀`,
+//             ""
+//           );
+//           if (sent) console.log(`Notifications sent to ${users.length} users`);
+//           else console.log("reset token happened");
+//         }
+//       }
+//     } else {
+//       console.log("No users found with FCM tokens");
+//     }
+//   } catch (error) {
+//     console.error(
+//       "Error retrieving FCM tokens or sending notifications:",
+//       error
+//     );
+//   }
+// });
 
 const makeSlackMessageBlock = async () => {
   const allUserDetails = await UserSchema.find({
@@ -184,13 +185,13 @@ const refreshCoins = async () => {
   }
 };
 
-cron.schedule("0 0 1 3,6,9,12 *", () => {
-  refreshCoins()
-    .then(() => {
-      console.log("Coins Refreshed Successfully!");
-    })
-    .catch((err) => console.log("Could'nt Refresh Coins", err));
-});
+// cron.schedule("0 0 1 3,6,9,12 *", () => {
+//   refreshCoins()
+//     .then(() => {
+//       console.log("Coins Refreshed Successfully!");
+//     })
+//     .catch((err) => console.log("Could'nt Refresh Coins", err));
+// });
 
 app.get("/", async (req, res) => {
   console.log("Hello World");

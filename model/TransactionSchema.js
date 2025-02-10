@@ -1,5 +1,6 @@
 const moment = require("moment");
 const { Schema, model } = require("mongoose");
+
 const transactionInfoSchema = new Schema({
   image: {
     type: Schema.Types.Mixed,
@@ -39,14 +40,14 @@ const transactionInfoSchema = new Schema({
   },
   date: {
     type: String,
-    default: moment().format("DD-MM-YYYY"),
+    default: () => moment().format("DD-MM-YYYY"),
   },
   diff: {
     type: String,
-    default: moment().format("MM-YYYY"),
+    default: () => moment().format("MM-YYYY"),
   },
 });
 
-const transactionSchema = model("TransactionInfoSchema", transactionInfoSchema);
+const transactionSchema = model("Transaction", transactionInfoSchema);
 
 module.exports = transactionSchema;
